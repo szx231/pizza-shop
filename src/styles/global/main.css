@@ -1,0 +1,143 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 36px;
+  align-items: center;
+  margin-bottom: 464px;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-list__item {
+  list-style-type: none;
+  &:not(:last-child) {
+  margin-right: 96px;
+  }
+}
+
+.nav-list__link {
+  font-family: 'FuturaPT', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25.64px;
+  letter-spacing: 2px;
+}
+
+.nav__button {
+  display: flex;
+  justify-content: space-between;
+  gap: 47px;
+}
+
+.nav-button__btn {
+  font-family: 'BebasBold', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  border: 1px solid;
+  border-radius: 57px;
+  border-image-slice: 1;
+  padding: 12px 24px;
+  color: var(--color-white);
+  background: transparent;
+  text-transform: uppercase;
+  &:before {
+    content:"";
+  position:absolute;
+  top:5.1%;
+  left:77.5%;
+  right: 11.5%;
+  bottom:90%;
+  border-radius:57px; 
+  padding:1px; 
+  background:linear-gradient(hsla(209, 100%, 94%, 1),hsla(234, 100%, 84%, 1)); 
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude; 
+  }
+}
+
+.nav-button__burger {
+  align-self: center;
+  color: var(--color-white);
+  background: transparent;
+}
+
+.nav-button__navcircle {
+  display: block;
+  width: 14px;
+  position: absolute;
+  background-color: var(--color-white);
+  border-radius: 6px;
+  border: 1px solid #ff0000;
+  top: 10%;
+  left: 60.5%;
+  padding: 2px;
+}
+
+.header {
+  background-image: url(../images/header/header__bg.png);
+  height: 957px;
+  position: relative;
+}
+
+.header__logo {
+  display: grid;
+  justify-content: center;
+}
+
+.header-logo__dj {
+  position: absolute;
+  top: 26.7%;
+  left: 42.9%;
+}
+.header-logo__lubimka {
+  position: absolute;
+  top: 31%;
+  left: 20%;
+}
+
+.header__descr {
+  font-family: 'BebasBold', sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 1.2px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 45px;
+}
+
+.header__timer {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 203px;
+  position: relative;
+}
+
+.header-timer__descr {
+  font-family: 'BebasReg', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.header-timer__countdown {
+  font-family: 'BebasReg', sans-serif;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: 3.6px;
+}
+
+.header__icon_vector {
+  width: 24px;
+  height: 12px;
+  position: absolute;
+  left: 50%;
+  right: 1%;
+}
