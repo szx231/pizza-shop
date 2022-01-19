@@ -109,7 +109,7 @@ html {
 body {
   font-size: 1.8rem;
   font-style: normal;
-  color: var(--color-white);
+  color: #000000;
 }
 
 img {
@@ -123,7 +123,7 @@ img {
 }
 
 .container {
-  max-width: 1470px;
-  padding: 0 15px;
+  max-width: 1330px;
   margin: 0 auto;
 }
+

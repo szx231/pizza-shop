@@ -2,223 +2,966 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link
-      type="image/x-icon"
-      rel="shortcut icon"
-      href="./favicons/favicon.png"
-    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="robots" content="index, follow" />
-    <meta name="description" content="description" />
-    <title>DJLubimka</title>
+    <title>Document</title>
   </head>
   <body>
     <script type="module" src="./js/main.js"></script>
-  </body>
-  <div class="container">
-    <header class="header">
-      <nav class="nav">
-        <img src="images/main__logo.png" alt="logo" class="nav__logo" />
-        <div class="nav__list">
-          <li class="nav-list__item">
-            <a href="#" class="nav-list__link">Miss Lubimka</a>
-          </li>
-          <li class="nav-list__item">
-            <a href="#" class="nav-list__link">Mister Lubimka</a>
-          </li>
-          <li class="nav-list__item">
-            <a href="#" class="nav-list__link">Lubimka DJ</a>
-          </li>
-        </div>
-        <div class="nav__button">
-          <button class="nav-button__btn">участвовать</button>
-          <button class="nav-button__burger">2</button>
-        </div>
-        <div class="nav-button__navcircle"></div>
-      </nav>
-      <div class="header__logo">
-        <img
-          src="images/header/header__djimage.png"
-          alt="logoDJ"
-          class="header-logo__dj"
-        />
-        <img
-          src="images/header/header__Lubimkalogo.png"
-          alt="Lubimkalogo"
-          class="header-logo__lubimka"
-        />
-      </div>
-      <h2 class="header__descr">отдай голос за&nbsp;любимого диджея</h2>
-      <div class="header__timer">
-        <div class="header-timer__descr">голосование закончится через</div>
-        <div class="header-timer__countdown">168:05:57</div>
-      </div>
-      <img
-        src="images/header/header__icon_vector.svg"
-        alt=""
-        class="header__icon_vector"
-      />
-      <div class="header__icon_plus"></div>
-      <div class="header__bottom">
-        <div class="header-bottom__title">голосуй за&nbsp;своих!</div>
-        <div class="header-bottom__descr">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-          risus, purus sit&nbsp;in. Amet quam condimentum in&nbsp;vel aliquam
-          lectus. Pulvinar posuere est ac&nbsp;tristique.
-        </div>
-      </div>
-    </header>
-  </div>
-  <div class="container">
+    <div class="container">
+      <header class="header">
+        <nav class="nav">
+          <ul class="nav__list">
+            <div class="nav-list__icon"></div>
+            <li class="nav-list__item">
+              <select class="list-item__city" name="listcity" required>
+                <option>Москва</option>
+                <option>Санкт-Петербург</option>
+                <option>Краснодар</option>
+                <option>Казань</option>
+                <option>Новосибирск</option>
+                <option>Владивосток</option>
+                <option>Другой.....</option>
+              </select>
+            </li>
+            <li class="nav-list__item">
+              <a href="#" class="nav-list__link"> Проверить адрес </a>
+            </li>
+            <li class="nav-list__item">
+              <a href="#" class="nav-list__link">
+                <span class="link__time-delivery"
+                  >Среднее время доставки*:</span
+                >
+                <span class="link__timer-delivery">00:24:19 </span>
+              </a>
+            </li>
+            <li class="nav-list__item">
+              <a href="#" class="link__worktime">
+                Время работы: с 11:00 до 23:00
+              </a>
+            </li>
+            <li class="nav-list__item">
+              <a href="#" class="link__login"> Войти в аккаунт </a>
+            </li>
+          </ul>
+          <div class="logo">
+            <img src="" alt="" class="logo__image" />
+            <span class="logo__text">Куда пицца</span>
+          </div>
+          <div class="basket">
+            <span class="basket__sum">0 ₽</span>
+          </div>
+        </nav>
+      </header>
+    </div>
     <section class="hero">
-      <div class="hero__item hero__item01">
-        <div class="item-descr">
-          <div class="hero-item__number"></div>
-          <div class="hero-item__descr">
-            dj <span class="hero-item__name">alexas</span>
+      <div class="container">
+        <div class="assortment">
+          <div class="assortment__item">
+            <div class="assortment-item__image">
+              <span class="assorment-item__descr">Акции</span>
+            </div>
+          </div>
+          <div class="assortment__item">
+            <div class="assortment-item__image">
+              <span class="assorment-item__descr">Пицца</span>
+            </div>
+          </div>
+          <div class="assortment__item">
+            <div class="assortment-item__image">
+              <span class="assorment-item__descr">Суши</span>
+            </div>
+          </div>
+          <div class="assortment__item">
+            <div class="assortment-item__image">
+              <span class="assorment-item__descr">Напитки</span>
+            </div>
+          </div>
+          <div class="assortment__item">
+            <div class="assortment-item__image">
+              <span class="assorment-item__descr">Закуски</span>
+            </div>
+          </div>
+          <div class="assortment__item">
+            <div class="assortment-item__image">
+              <span class="assorment-item__descr">Комбо</span>
+            </div>
+          </div>
+          <div class="assortment__item">
+            <div class="assortment-item__image">
+              <span class="assorment-item__descr">Десерты</span>
+            </div>
+          </div>
+          <div class="assortment__item">
+            <div class="assortment-item__image">
+              <span class="assorment-item__descr">Соусы</span>
+            </div>
           </div>
         </div>
-        <img src="" alt="" class="item__image" />
-        <button class="hero__btn">голосовать</button>
       </div>
-      <div class="hero__item hero__item02">
-        <div class="item-descr">
-          <div class="hero-item__number"></div>
-          <div class="hero-item__descr">
-            dj <span class="hero-item__name">gospel</span>
+      <div class="container">
+        <div class="promotions">
+          <div class="promotions-item">
+            <div class="promotions-item__image"></div>
+            <div class="promotions-item__descr">
+              3 средние пиццы от 999 рублей
+            </div>
+          </div>
+          <div class="promotions-item">
+            <div class="promotions-item__image"></div>
+            <div class="promotions-item__descr">
+              Кэшбек 10% на самовывоз (доставка)
+            </div>
+          </div>
+          <div class="promotions-item">
+            <div class="promotions-item__image"></div>
+            <div class="promotions-item__descr">
+              3 средние пиццы от 999 рублей
+            </div>
+          </div>
+          <div class="promotions-item">
+            <div class="promotions-item__image"></div>
+            <div class="promotions-item__descr">
+              Кэшбек 10% на самовывоз (доставка)
+            </div>
           </div>
         </div>
-        <img src="" alt="" class="item__image" />
-        <button class="hero__btn">голосовать</button>
       </div>
-      <div class="hero__item hero__item03">
-        <div class="item-descr">
-          <div class="hero-item__number"></div>
-          <div class="hero-item__descr">
-            dj <span class="hero-item__name">tiffa-la</span>
-          </div>
+      <div class="container">
+        <div class="delevery-aria">
+          <span class="delevery__text">Проверить адрес доставки</span>
+          <input type="text" class="delevery__input" placeholder="Адрес" />
+          <button class="delevery__button">Проверить</button>
         </div>
-        <img src="" alt="" class="item__image" />
-        <button class="hero__btn">голосовать</button>
       </div>
-      <div class="hero__item hero__item04">
-        <div class="item-descr">
-          <div class="hero-item__number"></div>
-          <div class="hero-item__descr">
-            dj <span class="hero-item__name">dark-star</span>
+      <div class="container">
+        <div class="pizza">
+          <div class="pizza__header">
+            <h2 class="title pizza__title">Пицца</h2>
+            <button class="btnfilter pizaa__btnfilter">Фильтры</button>
+          </div>
+          <div class="item_wrapper pizza__item_wrapper">
+            <div class="item pizza__item">
+              <img
+                src="images/pizza/pizza01.png"
+                alt="pizza"
+                class="item__image pizza__image"
+              />
+              <a href="#" class="item__name pizza__name">Чикен Сладкий Чили</a>
+              <a href="#" class="item__descr pizza__descr"
+                >Курица, Лук, Перец Халапеньо, Сыр Моцарелла, Томатный соу...</a
+              >
+              <div class="btnchoise pizza__button">Выбрать</div>
+              <a href="#" class="item__costs pizza__costs">от 399 ₽</a>
+            </div>
+            <div class="item pizza__item">
+              <img
+                src="images/pizza/pizza02.png"
+                alt="pizza"
+                class="item__image pizza__image"
+              />
+              <a href="#" class="item__name pizza__name"
+                >EASY PEASY огуречный расколбас</a
+              >
+              <a href="#" class="item__descr pizza__descr"
+                >Курица, Лук, Перец Халапеньо...</a
+              >
+              <div class="btnchoise pizza__button">Выбрать</div>
+              <a href="#" class="item__costs pizza__costs">от 549 ₽</a>
+            </div>
+            <div class="item pizza__item">
+              <img
+                src="images/pizza/pizza03.png"
+                alt="pizza"
+                class="item__image pizza__image"
+              />
+              <a href="#" class="item__name pizza__name"
+                >EASY PEASY чикен а-ля хрен</a
+              >
+              <a href="#" class="item__descr pizza__descr"
+                >Курица, Лук, Соус Карбонара,...</a
+              >
+              <div class="btnchoise pizza__button">Выбрать</div>
+              <a href="#" class="item__costs pizza__costs">от 249 ₽</a>
+            </div>
+            <div class="item pizza__item">
+              <img
+                src="images/pizza/pizza04.png"
+                alt="pizza"
+                class="item__image pizza__image"
+              />
+              <a href="#" class="item__name pizza__name">4 сезона</a>
+              <a href="#" class="item__descr pizza__descr"
+                >Бекон, Ветчина, Грибы, Курица, Лук, Маслины, Огурцы мари...</a
+              >
+              <div class="btnchoise pizza__button">Выбрать</div>
+              <a href="#" class="item__costs pizza__costs">от 630 ₽</a>
+            </div>
+            <div class="item pizza__item">
+              <img
+                src="images/pizza/pizza05.png"
+                alt="pizza"
+                class="item__image pizza__image"
+              />
+              <a href="#" class="item__name pizza__name">4 сезона</a>
+              <a href="#" class="item__descr pizza__descr"
+                >Бекон, Ветчина, Грибы, Курица, Лук, Маслины, Огурцы мари...</a
+              >
+              <div class="btnchoise pizza__button">Выбрать</div>
+              <a href="#" class="item__costs pizza__costs">от 630 ₽</a>
+            </div>
+            <div class="item pizza__item">
+              <img
+                src="images/pizza/pizza06.png"
+                alt="pizza"
+                class="item__image pizza__image"
+              />
+              <a href="#" class="item__name pizza__name"
+                >EASY PEASY чикен а-ля хрен</a
+              >
+              <a href="#" class="item__descr pizza__descr"
+                >Курица, Лук, Соус Карбонара,
+              </a>
+              <div class="btnchoise pizza__button">Выбрать</div>
+              <a href="#" class="item__costs pizza__costs">от 249 ₽</a>
+            </div>
+            <div class="item pizza__item">
+              <img
+                src="images/pizza/pizza07.png"
+                alt="pizza"
+                class="item__image pizza__image"
+              />
+              <a href="#" class="item__name pizza__name">Чикен Сладкий Чили</a>
+              <a href="#" class="item__descr pizza__descr"
+                >Курица, Лук, Перец Халапеньо, Сыр Моцарелла, Томатный соу...</a
+              >
+              <div class="btnchoise pizza__button">Выбрать</div>
+              <a href="#" class="item__costs pizza__costs">от 399 ₽</a>
+            </div>
+            <div class="item pizza__item">
+              <img
+                src="images/pizza/pizza08.png"
+                alt="pizza"
+                class="item__image pizza__image"
+              />
+              <a href="#" class="item__name pizza__name"
+                >EASY PEASY огуречный расколбас</a
+              >
+              <a href="#" class="item__descr pizza__descr"
+                >Курица, Лук, Перец Халапеньо...</a
+              >
+              <div class="btnchoise pizza__button">Выбрать</div>
+              <a href="#" class="item__costs pizza__costs">от 549 ₽</a>
+            </div>
           </div>
         </div>
-        <img src="" alt="" class="item__image" />
-        <button class="hero__btn">голосовать</button>
       </div>
-      <div class="hero__item hero__item01">
-        <div class="item-descr">
-          <div class="hero-item__number"></div>
-          <div class="hero-item__descr">
-            dj <span class="hero-item__name">skinny</span>
+      <div class="container">
+        <div class="sushi">
+          <h2 class="title sushi__title">Суши</h2>
+          <div class="btnfilter sushi__btnfilter"></div>
+          <div class="item_wrapper sushi__item_wrapper">
+            <div href="#" class="item sushi__item">
+              <img
+                src="images/sushi/item01.png"
+                alt="sushi"
+                class="image__item sushi__image"
+              />
+              <a href="#" class="item__name sushi__name">Филадельфия кранч</a>
+              <a href="#" class="item__descr sushi__descr"
+                >Семга, рис, сыр креметто, соус унаги, креветка, авокадо,
+                чип...</a
+              >
+              <a href="#" class="btnchoise sushi__button">Выбрать</a>
+              <a href="#" class="item__costs sushi__costs">475 ₽</a>
+            </div>
+            <div href="#" class="item sushi__item">
+              <img
+                src="images/sushi/item02.png"
+                alt="sushi"
+                class="image__item sushi__image"
+              />
+              <a href="#" class="item__name sushi__name"
+                >Филадельфия крем-брюле</a
+              >
+              <a href="#" class="item__descr sushi__descr"
+                >Сливочный сыр, семга татаки с тростниковым сахаром, соус
+                у...</a
+              >
+              <a href="#" class="btnchoise sushi__button">Выбрать</a>
+              <a href="#" class="item__costs sushi__costs">395 ₽</a>
+            </div>
+            <div href="#" class="item sushi__item">
+              <img
+                src="images/sushi/item03.png"
+                alt="sushi"
+                class="image__item sushi__image"
+              />
+              <a href="#" class="item__name sushi__name">Супер Филадельфия</a>
+              <a href="#" class="item__descr sushi__descr"
+                >Действительно много семги, сливочный сыр, огурец, рис, н...</a
+              >
+              <a href="#" class="btnchoise sushi__button">Выбрать</a>
+              <a href="#" class="item__costs sushi__costs">425 ₽</a>
+            </div>
+            <div href="#" class="item sushi__item">
+              <img
+                src="images/sushi/item04.png"
+                alt="sushi"
+                class="image__item sushi__image"
+              />
+              <a href="#" class="item__name sushi__name">Тигр мама</a>
+              <a href="#" class="item__descr sushi__descr"
+                >Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...</a
+              >
+              <a href="#" class="btnchoise sushi__button">Выбрать</a>
+              <a href="#" class="item__costs sushi__costs">525 ₽</a>
+            </div>
+            <div href="#" class="item sushi__item">
+              <img
+                src="images/sushi/item05.png"
+                alt="sushi"
+                class="image__item sushi__image"
+              />
+              <a href="#" class="item__name sushi__name">Тигр мама</a>
+              <a href="#" class="item__descr sushi__descr"
+                >Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...</a
+              >
+              <a href="#" class="btnchoise sushi__button">Выбрать</a>
+              <a href="#" class="item__costs sushi__costs">525 ₽</a>
+            </div>
+            <div href="#" class="item sushi__item">
+              <img
+                src="images/sushi/item06.png"
+                alt="sushi"
+                class="image__item sushi__image"
+              />
+              <a href="#" class="item__name sushi__name">Супер Филадельфия</a>
+              <a href="#" class="item__descr sushi__descr"
+                >Действительно много семги, сливочный сыр, огурец, рис, н...</a
+              >
+              <a href="#" class="btnchoise sushi__button">Выбрать</a>
+              <a href="#" class="item__costs sushi__costs">425 ₽</a>
+            </div>
+            <div href="#" class="item sushi__item">
+              <img
+                src="images/sushi/item07.png"
+                alt="sushi"
+                class="image__item sushi__image"
+              />
+              <a href="#" class="item__name sushi__name">Филадельфия кранч</a>
+              <a href="#" class="item__descr sushi__descr"
+                >Семга, рис, сыр креметто, соус унаги, креветка, авокадо,
+                чип...</a
+              >
+              <a href="#" class="btnchoise sushi__button">Выбрать</a>
+              <a href="#" class="item__costs sushi__costs">475 ₽</a>
+            </div>
+            <div href="#" class="item sushi__item">
+              <img
+                src="images/sushi/item08.png"
+                alt="sushi"
+                class="image__item sushi__image"
+              />
+              <a href="#" class="item__name sushi__name"
+                >Филадельфия крем-брюле</a
+              >
+              <a href="#" class="item__descr sushi__descr"
+                >Сливочный сыр, семга татаки с тростниковым сахаром, соус
+                у...</a
+              >
+              <a href="#" class="btnchoise sushi__button">Выбрать</a>
+              <a href="#" class="item__costs sushi__costs">395 ₽</a>
+            </div>
           </div>
         </div>
-        <img src="" alt="" class="item__image" />
-        <button class="hero__btn">голосовать</button>
       </div>
-      <div class="hero__item hero__item01">
-        <div class="item-descr">
-          <div class="hero-item__number"></div>
-          <div class="hero-item__descr">
-            dj <span class="hero-item__name">katexx</span>
+      <div class="container">
+        <div class="snacks">
+          <h2 class="snacks__title">Закуски</h2>
+          <div class="item_wrapper pizza__item_wrapper">
+            <div class="item snacks__item">
+              <img
+                src="images/snacks/item01.png"
+                alt="snacks"
+                class="item__image snacks__image"
+              />
+              <a href="#" class="item__name snacks__name">Филадельфия кранч</a>
+              <a href="#" class="item__descr snacks__descr"
+                >Семга, рис, сыр креметто, соус унаги, креветка, авокадо,
+                чип...</a
+              >
+              <button class="btnchoise snacks__button">Выбрать</button>
+              <a href="#" class="item__costs snacks__costs">475 ₽</a>
+            </div>
+            <div class="item snacks__item">
+              <img
+                src="images/snacks/item02.png"
+                alt="snacks"
+                class="item__image snacks__image"
+              />
+              <a href="#" class="item__name snacks__name"
+                >Филадельфия крем-брюле</a
+              >
+              <a href="#" class="item__descr snacks__descr"
+                >Сливочный сыр, семга татаки с тростниковым сахаром, соус
+                у...</a
+              >
+              <button class="btnchoise snacks__button">Выбрать</button>
+              <a href="#" class="item__costs snacks__costs">395 ₽</a>
+            </div>
+            <div class="item snacks__item">
+              <img
+                src="images/snacks/item03.png"
+                alt="snacks"
+                class="item__image snacks__image"
+              />
+              <a href="#" class="item__name snacks__name">Супер Филадельфия</a>
+              <a href="#" class="item__descr snacks__descr"
+                >Действительно много семги, сливочный сыр, огурец, рис, н...</a
+              >
+              <button class="btnchoise snacks__button">Выбрать</button>
+              <a href="#" class="item__costs snacks__costs">425 ₽</a>
+            </div>
+            <div class="item snacks__item">
+              <img
+                src="images/snacks/item04.png"
+                alt="snacks"
+                class="item__image snacks__image"
+              />
+              <a href="#" class="item__name snacks__name">Тигр мама</a>
+              <a href="#" class="item__descr snacks__descr"
+                >Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...</a
+              >
+              <button class="btnchoise snacks__button">Выбрать</button>
+              <a href="#" class="item__costs snacks__costs">525 ₽</a>
+            </div>
+            <div class="item snacks__item">
+              <img
+                src="images/snacks/item05.png"
+                alt="snacks"
+                class="item__image snacks__image"
+              />
+              <a href="#" class="item__name snacks__name">Тигр мама</a>
+              <a href="#" class="item__descr snacks__descr"
+                >Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...</a
+              >
+              <button class="btnchoise snacks__button">Выбрать</button>
+              <a href="#" class="item__costs snacks__costs">525 ₽</a>
+            </div>
+            <div class="item snacks__item">
+              <img
+                src="images/snacks/item06.png"
+                alt="snacks"
+                class="item__image snacks__image"
+              />
+              <a href="#" class="item__name snacks__name">Супер Филадельфия</a>
+              <a href="#" class="item__descr snacks__descr"
+                >Действительно много семги, сливочный сыр, огурец, рис, н...</a
+              >
+              <button class="btnchoise snacks__button">Выбрать</button>
+              <a href="#" class="item__costs snacks__costs">425 ₽</a>
+            </div>
+            <div class="item snacks__item">
+              <img
+                src="images/snacks/item07.png"
+                alt="snacks"
+                class="item__image snacks__image"
+              />
+              <a href="#" class="item__name snacks__name"
+                >Филадельфия крем-брюле</a
+              >
+              <a href="#" class="item__descr snacks__descr"
+                >Сливочный сыр, семга татаки с тростниковым сахаром, соус
+                у...</a
+              >
+              <button class="btnchoise snacks__button">Выбрать</button>
+              <a href="#" class="item__costs snacks__costs">395 ₽</a>
+            </div>
+            <div class="item snacks__item">
+              <img
+                src="images/snacks/item08.png"
+                alt="snacks"
+                class="item__image snacks__image"
+              />
+              <a href="#" class="item__name snacks__name">Филадельфия кранч</a>
+              <a href="#" class="item__descr snacks__descr"
+                >Семга, рис, сыр креметто, соус унаги, креветка, авокадо,
+                чип...</a
+              >
+              <button class="btnchoise snacks__button">Выбрать</button>
+              <a href="#" class="item__costs snacks__costs">475 ₽</a>
+            </div>
           </div>
         </div>
-        <img src="" alt="" class="item__image" />
-        <button class="hero__btn">голосовать</button>
+      </div>
+      <div class="container">
+        <div class="desserts">
+          <h2 class="title desserts__title">Десерты</h2>
+          <div class="item_wrapper desserts__item_wrapper">
+            <div class="item desserts__item">
+              <img
+                src="images/desserts/item01.png"
+                alt="desserts"
+                class="item__image desserts__image"
+              />
+              <a href="#" class="item__name desserts__name"
+                >Филадельфия кранч</a
+              >
+              <a href="#" class="item__descr desserts__descr"
+                >Семга, рис, сыр креметто, соус унаги, креветка, авокадо,
+                чип...</a
+              >
+              <a href="#" class="btnchoise desserts__button">Выбрать</a>
+              <a href="" class="item__costs desserts__costst">475 ₽</a>
+            </div>
+            <div class="item desserts__item">
+              <img
+                src="images/desserts/item02.png"
+                alt="desserts"
+                class="item__image desserts__image"
+              />
+              <a href="#" class="item__name desserts__name"
+                >Филадельфия крем-брюле</a
+              >
+              <a href="#" class="item__descr desserts__descr"
+                >Сливочный сыр, семга татаки с тростниковым сахаром, соус
+                у...</a
+              >
+              <a href="#" class="btnchoise desserts__button">Выбрать</a>
+              <a href="" class="item__costs desserts__costst">395 ₽</a>
+            </div>
+            <div class="item desserts__item">
+              <img
+                src="images/desserts/item03.png"
+                alt="desserts"
+                class="item__image desserts__image"
+              />
+              <a href="#" class="item__name desserts__name"
+                >Супер Филадельфия</a
+              >
+              <a href="#" class="item__descr desserts__descr"
+                >Действительно много семги, сливочный сыр, огурец, рис, н...</a
+              >
+              <a href="#" class="btnchoise desserts__button">Выбрать</a>
+              <a href="" class="item__costs desserts__costst">425 ₽</a>
+            </div>
+            <div class="item desserts__item">
+              <img
+                src="images/desserts/item04.png"
+                alt="desserts"
+                class="item__image desserts__image"
+              />
+              <a href="#" class="item__name desserts__name">Тигр мама</a>
+              <a href="#" class="item__descr desserts__descr"
+                >Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...</a
+              >
+              <a href="#" class="btnchoise desserts__button">Выбрать</a>
+              <a href="" class="item__costs desserts__costst">525 ₽</a>
+            </div>
+            <div class="item desserts__item">
+              <img
+                src="images/desserts/item05.png"
+                alt="desserts"
+                class="item__image desserts__image"
+              />
+              <a href="#" class="item__name desserts__name">Тигр мама</a>
+              <a href="#" class="item__descr desserts__descr"
+                >Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...</a
+              >
+              <a href="#" class="btnchoise desserts__button">Выбрать</a>
+              <a href="" class="item__costs desserts__costst">525 ₽</a>
+            </div>
+            <div class="item desserts__item">
+              <img
+                src="images/desserts/item06.png"
+                alt="desserts"
+                class="item__image desserts__image"
+              />
+              <a href="#" class="item__name desserts__name"
+                >Филадельфия крем-брюле</a
+              >
+              <a href="#" class="item__descr desserts__descr"
+                >Сливочный сыр, семга татаки с тростниковым сахаром, соус
+                у...</a
+              >
+              <a href="#" class="btnchoise desserts__button">Выбрать</a>
+              <a href="" class="item__costs desserts__costst">395 ₽</a>
+            </div>
+            <div class="item desserts__item">
+              <img
+                src="images/desserts/item07.png"
+                alt="desserts"
+                class="item__image desserts__image"
+              />
+              <a href="#" class="item__name desserts__name"
+                >Филадельфия кранч</a
+              >
+              <a href="#" class="item__descr desserts__descr"
+                >Семга, рис, сыр креметто, соус унаги, креветка, авокадо,
+                чип...</a
+              >
+              <a href="#" class="btnchoise desserts__button">Выбрать</a>
+              <a href="" class="item__costs desserts__costst">475 ₽</a>
+            </div>
+            <div class="item desserts__item">
+              <img
+                src="images/desserts/item08.png"
+                alt="desserts"
+                class="item__image desserts__image"
+              />
+              <a href="#" class="item__name desserts__name"
+                >Супер Филадельфия</a
+              >
+              <a href="#" class="item__descr desserts__descr"
+                >Действительно много семги, сливочный сыр, огурец, рис, н...</a
+              >
+              <a href="#" class="btnchoise desserts__button">Выбрать</a>
+              <a href="" class="item__costs desserts__costst">425 ₽</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="drinks">
+          <h2 class="title drinks__title">Напитки</h2>
+          <div class="item_wrapper drinks__item_wrapper">
+            <div class="item drinks__item">
+              <img
+                src="images/drinks/item01.png"
+                alt="drink"
+                class="item__image drinks__image"
+              />
+              <a href="#" class="item__name drinks__name">Филадельфия кранч</a>
+              <a href="#" class="item__descr drinks__descr"
+                >Семга, рис, сыр креметто, соус унаги, креветка, авокадо,
+                чип...</a
+              >
+              <button class="btnchoise drinks__button">Выбрать</button>
+              <a href="#" class="item__costs drinks__costst">475 ₽</a>
+            </div>
+            <div class="item drinks__item">
+              <img
+                src="images/drinks/item02.png"
+                alt="drink"
+                class="item__image drinks__image"
+              />
+              <a href="#" class="item__name drinks__name"
+                >Филадельфия крем-брюле</a
+              >
+              <a href="#" class="item__descr drinks__descr"
+                >Сливочный сыр, семга татаки с тростниковым сахаром, соус
+                у...</a
+              >
+              <button class="btnchoise drinks__button">Выбрать</button>
+              <a href="#" class="item__costs drinks__costst">395 ₽</a>
+            </div>
+            <div class="item drinks__item">
+              <img
+                src="images/drinks/item03.png"
+                alt="drink"
+                class="item__image drinks__image"
+              />
+              <a href="#" class="item__name drinks__name">Супер Филадельфия</a>
+              <a href="#" class="item__descr drinks__descr"
+                >Действительно много семги, сливочный сыр, огурец, рис, н...</a
+              >
+              <button class="btnchoise drinks__button">Выбрать</button>
+              <a href="#" class="item__costs drinks__costst">425 ₽</a>
+            </div>
+            <div class="item drinks__item">
+              <img
+                src="images/drinks/item04.png"
+                alt="drink"
+                class="item__image drinks__image"
+              />
+              <a href="#" class="item__name drinks__name">Тигр мама</a>
+              <a href="#" class="item__descr drinks__descr"
+                >Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...</a
+              >
+              <button class="btnchoise drinks__button">Выбрать</button>
+              <a href="#" class="item__costs drinks__costst">525 ₽</a>
+            </div>
+            <div class="item drinks__item">
+              <img
+                src="images/drinks/item05.png"
+                alt="drink"
+                class="item__image drinks__image"
+              />
+              <a href="#" class="item__name drinks__name">Супер Филадельфия</a>
+              <button class="btnchoise drinks__button">Выбрать</button>
+              <a href="#" class="item__costs drinks__costst">425 ₽</a>
+            </div>
+            <div class="item drinks__item">
+              <img
+                src="images/drinks/item06.png"
+                alt="drink"
+                class="item__image drinks__image"
+              />
+              <a href="#" class="item__name drinks__name">Тигр мама</a>
+              <button class="btnchoise drinks__button">Выбрать</button>
+              <a href="#" class="item__costs drinks__costst">525 ₽</a>
+            </div>
+            <div class="item drinks__item">
+              <img
+                src="images/drinks/item07.png"
+                alt="drink"
+                class="item__image drinks__image"
+              />
+              <a href="#" class="item__name drinks__name">Супер Филадельфия</a>
+              <button class="btnchoise drinks__button">Выбрать</button>
+              <a href="#" class="item__costs drinks__costst">425 ₽</a>
+            </div>
+            <div class="item drinks__item">
+              <img
+                src="images/drinks/item08.png"
+                alt="drink"
+                class="item__image drinks__image"
+              />
+              <a href="#" class="item__name drinks__name">Тигр мама</a>
+              <button class="btnchoise drinks__button">Выбрать</button>
+              <a href="#" class="item__costs drinks__costst">525 ₽</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="sauce">
+          <h2 class="sauce__title">Соусы</h2>
+          <div class="item_wrapper sause__item_wraper">
+            <div class="item sauce__item">
+              <img src="" alt="" class="item__image sauce__image" />
+              <a href="" class="item__name sauce__name">Филадельфия кранч</a>
+              <button class="btnchoise sause__button">Выбрать</button>
+              <a href="" class="item__costs sauce__costst">475 ₽</a>
+            </div>
+            <div class="item sauce__item">
+              <img src="" alt="" class="item__image sauce__image" />
+              <a href="" class="item__name sauce__name"
+                >Филадельфия крем-брюле</a
+              >
+              <button class="btnchoise sause__button">Выбрать</button>
+              <a href="" class="item__costs sauce__costst">395 ₽</a>
+            </div>
+            <div class="item sauce__item">
+              <img src="" alt="" class="item__image sauce__image" />
+              <a href="" class="item__name sauce__name">Супер Филадельфия</a>
+              <button class="btnchoise sause__button">Выбрать</button>
+              <a href="" class="item__costs sauce__costst">425 ₽</a>
+            </div>
+            <div class="item sauce__item">
+              <img src="" alt="" class="item__image sauce__image" />
+              <a href="" class="item__name sauce__name">Тигр мама</a>
+              <button class="btnchoise sause__button">Выбрать</button>
+              <a href="" class="item__costs sauce__costst">525 ₽</a>
+            </div>
+            <div class="item sauce__item">
+              <img src="" alt="" class="item__image sauce__image" />
+              <a href="" class="item__name sauce__name"
+                >Филадельфия крем-брюле</a
+              >
+              <button class="btnchoise sause__button">Выбрать</button>
+              <a href="" class="item__costs sauce__costst">395 ₽</a>
+            </div>
+            <div class="item sauce__item">
+              <img src="" alt="" class="item__image sauce__image" />
+              <a href="" class="item__name sauce__name">Тигр мама</a>
+              <button class="btnchoise sause__button">Выбрать</button>
+              <a href="" class="item__costs sauce__costst"></a>
+            </div>
+            <div class="item sauce__item">
+              <img src="" alt="" class="item__image sauce__image" />
+              <a href="" class="item__name sauce__name"></a>
+              <button class="btnchoise sause__button">Выбрать</button>
+              <a href="" class="item__costs sauce__costst">525 ₽</a>
+            </div>
+            <div class="item sauce__item">
+              <img src="" alt="" class="item__image sauce__image" />
+              <a href="" class="item__name sauce__name">Супер Филадельфия</a>
+              <button class="btnchoise sause__button">Выбрать</button>
+              <a href="" class="item__costs sauce__costst">425 ₽</a>
+            </div>
+            <div class="item sauce__item">
+              <img src="" alt="" class="item__image sauce__image" />
+              <a href="" class="item__name sauce__name">Филадельфия кранч</a>
+              <button class="btnchoise sause__button">Выбрать</button>
+              <a href="" class="item__costs sauce__costst">475 ₽</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="combo">
+          <h2 class="title combo__title">Комбо</h2>
+          <div class="item_wrapper combo__item_wrapper">
+            <div class="item combo__item">
+              <img src="" alt="" class="item__image combo__image" />
+              <a href="" class="item__name combo__name">Филадельфия кранч</a>
+              <a href="" class="item__descr combo__descr"
+                >Семга, рис, сыр креметто, соус унаги, креветка, авокадо,
+                чип...</a
+              >
+              <button class="btnchoise combo__button">Выбрать</button>
+              <a href="" class="item__costs combo__costs">475 ₽</a>
+            </div>
+            <div class="item combo__item">
+              <img src="" alt="" class="item__image combo__image" />
+              <a href="" class="item__name combo__name"
+                >Филадельфия крем-брюле</a
+              >
+              <a href="" class="item__descr combo__descr"
+                >Сливочный сыр, семга татаки с тростниковым сахаром, соус
+                у...</a
+              >
+              <button class="btnchoise combo__button">Выбрать</button>
+              <a href="" class="item__costs combo__costs">395 ₽</a>
+            </div>
+            <div class="item combo__item">
+              <img src="" alt="" class="item__image combo__image" />
+              <a href="" class="item__name combo__name">Супер Филадельфия</a>
+              <a href="" class="item__descr combo__descr"
+                >Действительно много семги, сливочный сыр, огурец, рис, н...</a
+              >
+              <button class="btnchoise combo__button">Выбрать</button>
+              <a href="" class="item__costs combo__costs">425 ₽</a>
+            </div>
+            <div class="item combo__item">
+              <img src="" alt="" class="item__image combo__image" />
+              <a href="" class="item__name combo__name">Тигр мама</a>
+              <a href="" class="item__descr combo__descr"
+                >Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...</a
+              >
+              <button class="btnchoise combo__button">Выбрать</button>
+              <a href="" class="item__costs combo__costs">525 ₽</a>
+            </div>
+            <div class="item combo__item">
+              <img src="" alt="" class="item__image combo__image" />
+              <a href="" class="item__name combo__name"
+                >Филадельфия крем-брюле</a
+              >
+              <a href="" class="item__descr combo__descr"
+                >Сливочный сыр, семга татаки с тростниковым сахаром, соус
+                у...</a
+              >
+              <button class="btnchoise combo__button">Выбрать</button>
+              <a href="" class="item__costs combo__costs">395 ₽</a>
+            </div>
+            <div class="item combo__item">
+              <img src="" alt="" class="item__image combo__image" />
+              <a href="" class="item__name combo__name"></a>
+              <a href="" class="item__descr combo__descr"></a>
+              <button class="btnchoise combo__button">Выбрать</button>
+              <a href="" class="item__costs combo__costs"></a>
+            </div>
+            <div class="item combo__item">
+              <img src="" alt="" class="item__image combo__image" />
+              <a href="" class="item__name combo__name">Филадельфия кранч</a>
+              <a href="" class="item__descr combo__descr"
+                >Семга, рис, сыр креметто, соус унаги, креветка, авокадо,
+                чип...</a
+              >
+              <button class="btnchoise combo__button">Выбрать</button>
+              <a href="" class="item__costs combo__costs">475 ₽</a>
+            </div>
+            <div class="item combo__item">
+              <img src="" alt="" class="item__image combo__image" />
+              <a href="" class="item__name combo__name">Тигр мама</a>
+              <a href="" class="item__descr combo__descr"
+                >Тигровая креветка, огурец, авокадо, соус Айоли, рис, ик...</a
+              >
+              <button class="btnchoise combo__button">Выбрать</button>
+              <a href="" class="item__costs combo__costs">525 ₽</a>
+            </div>
+            <div class="item combo__item">
+              <img src="" alt="" class="item__image combo__image" />
+              <a href="" class="item__name combo__name">Супер Филадельфия</a>
+              <a href="" class="item__descr combo__descr"
+                >Действительно много семги, сливочный сыр, огурец, рис, н...</a
+              >
+              <button class="btnchoise combo__button">Выбрать</button>
+              <a href="" class="item__costs combo__costs">425 ₽</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-  </div>
-  <div class="container">
-    <section class="jurors">
-      <h2 class="jurors__title">ЖЮРИ</h2>
-      <h3 class="jurors__subtitle">конкурса</h3>
-      <div class="jurors__icon_line"></div>
-      <div class="jurors__icon_plus"></div>
-      <div class="jurors__item">
-        <img src="" alt="" class="jurors-item__image" />
-        <h3 class="jurors-item__name">fлександр тихомиров</h3>
-        <h4 class="juror-item__employment">DJ sanders</h4>
+    <section class="delivery__conditions">
+      <div class="delivery-conditions__text">
+        Захотелось чего-то вкусного и сытного? Желание простое и понятное,
+        только в холодильнике все не то, и до магазина идти лень. Все пропало?
+        Нет. Недорого заказать пиццу в Москве очень просто! Вам на помощь спешит
+        супергерой – Domino’s Pizza! Как у всякого супергероя, у Domino’s Pizza
+        есть свои суперсилы: восхитительный вкус продукции из отборных
+        ингредиентов; широкий ассортимент, включающий легендарные, фирменные и
+        классические виды, для вегетарианцев и любителей экспериментировать;
+        быстрая и бесплатная доставка пиццы в течение 30 минут, чтобы вкусное и
+        ароматное блюдо не успевало остыть. Как сделать заказ Доставка пиццы от
+        Domino’s – это когда Вам не нужно никуда ехать или звонить, ведь есть
+        Интернет. Никогда еще заказ пиццы на дом в Москве не был таким простым!
+        Чтобы заказать пиццу онлайн, Вам необходимо: выбрать понравившийся
+        вариант и количество порций; положить желаемое в «Корзину»; не уходить
+        далеко, так как вкусная пицца на заказ с доставкой уже мчится к Вам из
+        ближайшей пиццерии Domino’s. И не забудьте оплатить заказ курьеру!
       </div>
-      <div class="jurors__item">
-        <img src="" alt="" class="jurors-item__image" />
-        <h3 class="jurors-item__name">сергей миланов</h3>
-        <h4 class="juror-item__employment">основатель lubimka</h4>
-      </div>
-      <div class="jurors__item">
-        <img src="" alt="" class="jurors-item__image" />
-        <h3 class="jurors-item__name">анна сухорукова</h3>
-        <h4 class="jurors-item__employment">@ann.klubnika</h4>
-      </div>
-      <div class="jurors__descr_bottom">
-        <h4 class="descr__text_bottom">они решают судьбу финалистов</h4>
-        <div class="jurors-bottom__icon_blue"></div>
-      </div>
+      <a href="" class="delivery-conditions__link">Показать полностью</a>
     </section>
-  </div>
-  <div class="banner">
-    <img src="" alt="" class="banner__image" />
-    <h2 class="banner-title">ad banner</h2>
-  </div>
-  <div class="container">
-    <section class="application">
-      <h2 class="application__title">принимай участие</h2>
-      <h3 class="application__descr">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam risus,
-        purus sit&nbsp;in. Amet quam condimentum in&nbsp;vel aliquam lectus.
-        Pulvinar posuere est ac&nbsp;tristique.
-      </h3>
-      <button class="application__button">подать заявку</button>
-    </section>
-  </div>
-  <div class="container">
-    <section class="faq">
-      <div class="faq__logo">
-        <h2 class="faq-logo__title">faq</h2>
-        <h3 class="faq-logo__descr">есть вопросы?</h3>
+    <footer class="footer">
+      <div class="footer__column">
+        <div class="logo">
+          <img src="" alt="" class="logo__image" />
+          <span class="logo__text">Куда пицца</span>
+        </div>
       </div>
-      <div class="faq__item">
-        <span class="faq-item__text">Кто может принимать участие?</span>
+      <div class="footer__column">
+        <h2 class="footer-column__title">Куда пицца</h2>
+        <div class="footer-column__link">О компании</div>
+        <div class="footer-column__link">Пользовательское соглашение</div>
+        <div class="footer-column__link">Условия гарантии</div>
       </div>
-      <div class="faq__item">
-        <span class="faq-item__text"
-          >Что будет если количество голосов будет одинаковое?</span
-        >
-        <h3 class="faq-item__descr">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-          risus, purus sit&nbsp;in. Amet quam condimentum in&nbsp;vel aliquam
-          lectus. Pulvinar posuere est ac&nbsp;tristique.Lorem ipsum dolor sit
-          amet, consectetur adiLorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Aliquam risus, purus sit&nbsp;in. Amet quam
-          condimentum in&nbsp;vel aliquam lectus. Pulvinar posuere est
-          ac&nbsp;tristique.
-        </h3>
+      <div class="footer__column">
+        <h2 class="footer-column__title">Помощь</h2>
+        <div class="footer-column__link">Ресторан</div>
+        <div class="footer-column__link">Поддержка</div>
+        <div class="footer-column__link">Отследить заказ</div>
       </div>
-      <div class="faq__item">
-        <span class="faq-item__text">Какие призы получит победитель?</span>
+      <div class="footer__column">
+        <div class="footer-column__title">Контакты</div>
+        <div class="phone">
+          <a href="tel:++7 (926) 223-10-11">+7 (926) 223-10-11</a>
+        </div>
+        <address class="footer-column__adress">
+          <a class="footer-adress__link" href="">
+            Москва, ул. Юных Ленинцев, д.99</a
+          >
+        </address>
+        <ul class="footer-column__social">
+          <li class="footer-social__item">
+            <a
+              href="#"
+              class="social-item__link social-item__linkfb"
+              target="_blank"
+              aria-label="Link to Facebook"
+            >
+            </a>
+            <a href="#" class="social__link social-linkfb">Facebok</a>
+          </li>
+          <li class="footer-social__item">
+            <a
+              href="#"
+              class="social-item__link social-item__linkInst"
+              target="_blank"
+              aria-label="Link to Instagram"
+            >
+            </a>
+            <a href="#" class="social__link social-linkInst">Instagram</a>
+          </li>
+        </ul>
       </div>
-      <div class="faq__item">
-        <span class="faq-item__text"
-          >мне нет 18&nbsp;лет, могу&nbsp;ли я&nbsp;учавствовать?</span
-        >
+      <div class="footer__bottom">
+        <div class="footer-bottom__copyright">
+          © Copyright 2021 — Куда Пицца
+        </div>
       </div>
-      <div class="faq__item">
-        <span class="faq-item__text">Когда закончится конкурс?</span>
-      </div>
-      <div class="faq__item">
-        <span class="faq-item__text"
-          >Какие требования к&nbsp;участнику конкурса?</span
-        >
-      </div>
-      <div class="banner">
-        <img src="" alt="" class="banner__image" />
-        <h2 class="banner-title">ad banner</h2>
-      </div>
-    </section>
-  </div>
+    </footer>
+  </body>
 </html>
