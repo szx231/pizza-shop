@@ -110,6 +110,7 @@ body {
   font-size: 1.8rem;
   font-style: normal;
   color: #000000;
+  background: #E5E5E5;
 }
 
 img {
@@ -124,6 +125,11 @@ img {
 
 .container {
   max-width: 1330px;
+  margin: 0 auto;
+}
+
+.wrap__header {
+  background-color: var(--color-white);
   margin: 0 auto;
 }
 
