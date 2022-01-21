@@ -107,10 +107,12 @@ html {
 }
 
 body {
+  font-family: 'SF-Pro-Text-Regular';
   font-size: 1.8rem;
   font-style: normal;
-  color: #000000;
+  color: var(--color-black);
   background: #E5E5E5;
+  line-height: 22px;
 }
 
 img {
@@ -129,6 +131,11 @@ img {
 }
 
 .wrap__header {
+  background-color: var(--color-white);
+  margin: 0 auto;
+}
+
+.wrap__footer {
   background-color: var(--color-white);
   margin: 0 auto;
 }
