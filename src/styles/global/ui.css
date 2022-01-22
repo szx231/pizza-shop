@@ -1,4 +1,5 @@
 /* стили кнопок, полей форм и прочих мелких общих элементов */
+
 .item_wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -126,3 +127,84 @@
   border-radius: 0px 5px 5px 0px;
 }
 
+
+.menu__dropdown {
+  position: relative;
+}
+
+.menu__dropdown:hover .menu-dropdown__list {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.4s ease-in-out;
+}
+
+
+.menu-dropdown__list {
+  transition: 0.4s ease-in-out;
+  opacity:0;
+  visibility:hidden;
+  padding: 20px 15px 20px 20px;
+  min-width: 285px;
+  height: 328px;
+  background-color: var(--color-white);
+  border: 1px solid rgba(240, 240, 240, 1);
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(25, 25, 25, 0.1);
+  position: absolute;
+  top: 320%;
+  left: -150%;
+  z-index: 1;
+}
+
+.menu-dropdown__list:before {
+  content: ""; 
+  border: solid transparent;
+  position: absolute;   
+  bottom: 100%;
+  left: 50%;
+  border-bottom-color: #eee;
+  border-width: 9px;
+  margin-left: -9px;
+}
+
+.menu-link__dropdown {
+  background-image: url(../images/MENU/Menu__icon_arow.svg);
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 5%;
+  padding-bottom: 55px;
+  padding-right: 21px;
+}
+
+.menu-dropdown__item {
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+.menu-dropdown__link {
+  font-family: 'SF-Pro-Text-Regular';
+  font-weight: 400;
+  @extend %fontSmall;
+}
+
+.filter {
+  min-width: 520px;
+  background-color: var(--color-white);
+  padding: 0 0 12px 20px;
+}
+
+.filter__title {
+  font-family: 'Inter-Regular';
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  padding: 32px 0 16px 0;
+}
+
+.filter__subtitle {
+  font-family: 'SF-Pro-Text-Regular';
+  color:rgba(165, 165, 165, 1);
+  font-weight: 400;
+  @extend %fontSmall;
+  margin-bottom: 12px;
+}

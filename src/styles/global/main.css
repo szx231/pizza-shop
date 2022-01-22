@@ -1,3 +1,5 @@
+
+
 .header {
   background-color: var(--color-white);
 }
@@ -108,6 +110,7 @@
   justify-items: center;
   align-items: center;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .logo {
@@ -443,6 +446,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 32px;
+  border-bottom: 1px solid rgba(240, 240, 240, 1);
 }
 
 .menu-nav__list {
