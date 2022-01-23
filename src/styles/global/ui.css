@@ -1,5 +1,9 @@
 /* стили кнопок, полей форм и прочих мелких общих элементов */
 
+
+/* GENERAL STYLE ITEM */
+
+
 .item_wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -80,7 +84,7 @@
 }
 
 
-/* СТИЛИ ОБЩИХ КНОПОК */
+/* GENERAL BUTTON STYLE */
 
 
 .btnchoise {
@@ -187,10 +191,19 @@
   @extend %fontSmall;
 }
 
+
 .filter {
-  min-width: 520px;
-  background-color: var(--color-white);
-  padding: 0 0 12px 20px;
+  padding: 32px 20px 12px 20px;
+}
+
+.filter__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-header__button {
+  background-color: transparent;
+  border: none;
 }
 
 .filter__title {
@@ -198,7 +211,7 @@
   font-weight: 600;
   font-size: 32px;
   line-height: 40px;
-  padding: 32px 0 16px 0;
+  margin-bottom: 20px;
 }
 
 .filter__subtitle {
@@ -207,4 +220,184 @@
   font-weight: 400;
   @extend %fontSmall;
   margin-bottom: 12px;
+  &:not(:first-child) {
+    margin-top: 16px;
+  }
+}
+
+
+.filter__rowbutton {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.filter-rowbutton__btn {
+  font-family: 'Inter-Regular';
+  font-size: 14px;
+  line-height: 18px;
+  border-radius: 6px;
+  padding: 11px 16px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  transition: color .2s ease-in-out, background-color .2s ease-in-out;
+  &:hover {
+    color: var(--color-white);
+    background-color: var(--color-orange);
+  }
+}
+
+.filter__deliverybtn  {
+  min-width: 230px;
+  padding: 13px 71px;
+  color: var(--color-orange);
+  border: 1px solid var(--color-orange);
+  background-color: var(--color-white);
+  border-radius: 6px;
+  font-weight: 400;
+  @extend %fontSmall;
+  transition: color .2s ease-in-out, background-color .2s ease-in-out;
+  margin-top: 40px;
+  &:hover {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+  }
+}
+
+/* PIZZA LINK STYLE SECTION */
+
+.pizzaLInk {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  padding: 30px 20px 30px 0;
+}
+
+.pizzaLInk__image {
+  display: grid;
+  align-self: center;
+  justify-self: center;
+}
+
+.pizzaLInk-text__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.pizzaLInk-text__button {
+  border: none;
+  background-color: transparent;
+}
+
+.pizzaLInk-text__icon {
+  float: left;
+  margin-right: 11px;
+}
+
+.pizzaLInk__item_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.pizzaLInk-image_wrap {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 105px;
+  height: 105px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  transition: border .2s ease-in-out;
+  &:hover {
+    border: 1px solid var(--color-orange);
+  }
+}
+
+.pizzaLink-item__descr {
+  font-family: 'Inter-Regular';
+  max-width: 105px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: var(--color-black);
+  word-wrap: break-word;
+} 
+.pizzaLink-item__costs {
+  display: grid;
+  justify-content: center;
+}
+
+
+.pizzaLInk__button {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  margin: 16px 0 16px 0;
+  
+}
+
+.pizzaLInk__btnsize {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  margin-bottom: 24px;
+}
+
+.btntraditional {
+  border: none;
+  padding: 11px 56px;
+  border-radius: 6px;
+  font-weight: 400;
+  @extend %fontSmall;
+  color: var(--color-white);
+  background-color: var(--color-orange);
+}
+
+
+
+.pizzaLInk-btnsize_small {
+  border: none;
+  padding: 11px 56px;
+  border-radius: 6px;
+  font-weight: 400;
+  @extend %fontSmall;
+  color: var(--color-white);
+  background-color: var(--color-orange);
+  &:hover {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+  }
+}
+
+
+.pizzaLink__button_generalstyle {
+  border: none;
+  padding: 11px 56px;
+  border-radius: 6px;
+  font-weight: 400;
+  @extend %fontSmall;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  transition: color .2s ease-in-out, background-color .2s ease-in-out;
+    &:hover {
+      background-color: var(--color-orange);
+      color: var(--color-white);
+    }
+}
+.pizzaLInk__subtitle {
+  margin-bottom: 16px;
+}
+
+
+.pizzaLink__footer {
+  margin-top: 40px;
 }

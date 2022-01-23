@@ -126,7 +126,8 @@ img {
 }
 
 .container {
-  max-width: 1330px;
+  max-width: 1360px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 
@@ -140,3 +141,13 @@ img {
   margin: 0 auto;
 }
 
+.wrap__filter {
+  width: 520px;
+  background-color: var(--color-white);
+}
+
+.wrap__pizzaLInk {
+  width: 1070px;
+  background-color: var(--color-white);
+  border-radius: 24px;
+}
