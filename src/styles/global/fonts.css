@@ -1,50 +1,42 @@
 /* @font-face шрифтов */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 @font-face {
-  font-family: 'DMSans';
-  src: url(../fonts/DM_Sans/DMSans-Bold.woff),
-  url(../fonts/DM_Sans/DMSans-Bold.woff2);
+  font-family: 'Inter-Bold';
+  src: url(../fonts/Inter-Bold.woff),
+  url(../fonts/Inter-Bold.woff2);
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'DMSans';
-  src: url(../fonts/DM_Sans/DMSans-Medium.woff),
-  url(../fonts/DM_Sans/DMSans-Medium.woff2);
+  font-family: 'Inter-Regular';
+  src: url(/fonts/Inter-Regular.woff),
+  url(/fonts/Inter-Regular.woff2);
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'DMSans';
-  src: url(../fonts/DM_Sans/DMSans-Regular.woff),
-  url(../fonts/DM_Sans/DMSans-Regular.woff2);
+  font-family: 'SF-Pro-Text-Bold';
+  src: url(/fonts/SF-Pro-Text-Bold.woff),
+  url(/fonts/SF-Pro-Text-Bold.woff2);
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Poppins';
-  src: url(../fonts/Poppins/Poppins-Medium.woff),
-  url(../fonts/Poppins/Poppins-Medium.woff2);
+  font-family: 'SF-Pro-Text-Regular';
+  src: url(/fonts/SF-Pro-Text-Regular.woff),
+  url(/fonts/SF-Pro-Text-Regular.woff2);
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Poppinss';
-  src: url(../fonts/Poppins/Poppins-SemiBold.woff),
-  url(../fonts/Poppins/Poppins-SemiBold.woff2);
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppinss';
-  src: url(../fonts/Poppins/Poppins-Regular.woff),
-  url(../fonts/Poppins/Poppins-Regular.woff2);
+  font-family: 'SF-Pro-Text-Semibold';
+  src: url(/fonts/SF-Pro-Text-Semibold.woff),
+  url(/fonts/SF-Pro-Text-Semibold.woff2);
   font-style: normal;
   font-display: swap;
 }

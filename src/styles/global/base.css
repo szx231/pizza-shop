@@ -107,9 +107,12 @@ html {
 }
 
 body {
+  font-family: 'SF-Pro-Text-Regular';
   font-size: 1.8rem;
   font-style: normal;
-  color: #000000;
+  color: var(--color-black);
+  background: #E5E5E5;
+  line-height: 22px;
 }
 
 img {
@@ -122,25 +125,33 @@ img {
   padding: 0;
 }
 
-.wrapper {
-  max-width: 1940px;
+.container {
+  max-width: 1360px;
+  padding: 0 20px;
   margin: 0 auto;
-  padding: 0 10px;
+}
+
+.wrap__header {
+  background-color: var(--color-white);
+  margin: 0 auto;
+}
+
+.wrap__footer {
+  background-color: var(--color-white);
+  margin: 0 auto;
+}
+
+.wrap__filter {
+  width: 520px;
   background-color: var(--color-white);
 }
 
-.container {
-  max-width: 1330px;
+.wrap__pizzaLInk {
+  width: 1070px;
+  background-color: var(--color-white);
+  border-radius: 24px;
+  height: 680px;
   margin: 0 auto;
-}
-
-
-
-.wrapper-marketplace {
-  background-color: rgba(246, 247, 248, 1);
-}
-
-
-.wrapper-start {
-  background-color: rgba(246, 247, 248, 1);
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
