@@ -1,11 +1,38 @@
-%fontSmall {
-  font-size: 16px;
+%fDMSANS700 {
+  font-family: 'DMSans',sans-serif;
+  font-style: normal;
+  font-weight: 700;
 }
 
-%fontLarge {
-  font-size: 18px;
+
+%fDMSANS500 {
+  font-family: 'DMSans',sans-serif;
+  font-style: normal;
+  font-weight: 500;
 }
 
-%fontMedium {
-  font-size: 20px;
+%fDMSANS400 {
+  font-family: 'DMSans',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+%fPoppins600 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+%fPoppins500 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+
+%fPoppins400 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
