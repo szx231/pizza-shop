@@ -111,7 +111,7 @@ body {
   font-size: 1.8rem;
   font-style: normal;
   color: var(--color-black);
-  background: #E5E5E5;
+  background: #F9F9F9;
   line-height: 22px;
 }
 
@@ -154,4 +154,25 @@ img {
   margin: 0 auto;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.wrap__order {
+  filter: blur(10px);
+  mask-image: linear-gradient(to right top, rgba(25 ,25 ,25,0.4) 0%,rgba(255,255,255,1) 80%);
+  position: relative;
+}
+
+.wrap__addItemCard2 {
+  width: 990px;
+  margin: 0 auto;
+} 
+
+.wrap__trackYourOrder {
+  width: 990px;
+  margin: 0 auto;
+} 
+
+.accLoginfilter__wrap {
+   width: 990px;
+  margin: 0 auto;
 }

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>addItemCard3</title>
+  </head>
+  <body>
+    <script type="module" src="./js/main.js"></script>
+    <div class="wrap__header">
+      <div class="container">
+        <header class="header">
+          <div class="header-top">
+            <nav class="nav">
+              <ul class="nav-list__item">
+                <div class="list-item_delevery">
+                  <li class="nav-list__item list-item__location">
+                    <img
+                      src="images/location.png"
+                      alt="pizza"
+                      class="nav-list__icon"
+                    />
+                    <select class="list-item__city" name="listcity" required>
+                      <option>Москва</option>
+                      <option>Санкт-Петербург</option>
+                      <option>Краснодар</option>
+                      <option>Казань</option>
+                      <option>Новосибирск</option>
+                      <option>Владивосток</option>
+                      <option>Другой.....</option>
+                    </select>
+                  </li>
+                  <li class="nav-list__item">
+                    <a href="#" class="nav-list__link"> Проверить адрес </a>
+                  </li>
+                  <li class="nav-list__item">
+                    <a href="#" class="nav-list__link">
+                      <span class="link__time-delivery"
+                        >Среднее время доставки*:</span
+                      >
+                      <span class="link__timer-delivery">00:24:19 </span>
+                    </a>
+                  </li>
+                </div>
+              </ul>
+              <div class="nav__login">
+                <li class="nav-list__item">
+                  <a href="#" class="nav-list__link">
+                    Время работы: с 11:00 до 23:00
+                  </a>
+                </li>
+                <li class="nav-list__item list-item_login">
+                  <img
+                    src="images/header/login__nav.svg"
+                    alt="login"
+                    class="login__icon"
+                  />
+                  <a href="#" class="nav-list__link"> Войти в аккаунт </a>
+                </li>
+              </div>
+            </nav>
+          </div>
+          <div class="header-bottom">
+            <div class="delevery">
+              <div class="delevery__logo">
+                <img
+                  src="images/pizzalogo.png
+              "
+                  alt=""
+                  class="delevery-logo__image"
+                />
+                <span class="delevery-logo__text">Куда пицца</span>
+              </div>
+              <div class="basket">
+                <div class="basket__item">
+                  <img
+                    src="images/basket.png"
+                    alt="basket"
+                    class="basket__logo"
+                  />
+                  <span class="basket__sum">0 ₽</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
+    <div class="wrap__addItemCard2">
+      <h2 class="addItemCard2__title">Ваш заказ</h2>
+      <div class="addItemCard2__item">
+        <div class="addItemCard2__item_wrap">
+          <div class="addItemCard2-item__image">
+            <img src="images/additemCard2/item01.jpg" alt="pizza" />
+          </div>
+          <div class="addItemCard2__text">
+            <div class="addItemCard2-text__title">Пепперони по-деревенски</div>
+            <div class="addItemCard2-text__descr">
+              Традиционное тесто, 23 см
+            </div>
+          </div>
+        </div>
+        <div class="addItemCard2__item_wrap">
+          <div class="order-item__sum">
+            <button class="order-counter__btn order-counter__plus">
+              <img
+                src="images/order/Plus__icon.svg"
+                alt="icon"
+                class="order-counter-plus__image"
+              />
+            </button>
+            <div class="order-counter__number">1</div>
+            <button class="order-counter__btn order-counter__minus">
+              <img
+                src="images/order/Minus__icon.svg"
+                alt="icon"
+                class="order-counter-minus__image"
+              />
+            </button>
+          </div>
+          <div class="order-footer__costs addItemCard2-item__costs">399 ₽</div>
+        </div>
+      </div>
+      <div class="addItemCard2__item">
+        <div class="addItemCard2__item_wrap">
+          <div class="addItemCard2-item__image">
+            <img src="images/additemCard2/item01.jpg" alt="pizza" />
+          </div>
+          <div class="addItemCard2__text">
+            <div class="addItemCard2-text__title">Пепперони по-деревенски</div>
+            <div class="addItemCard2-text__descr">
+              Традиционное тесто, 23 см
+            </div>
+          </div>
+        </div>
+        <div class="addItemCard2__item_wrap">
+          <div class="order-item__sum">
+            <button class="order-counter__btn order-counter__plus">
+              <img
+                src="images/order/Plus__icon.svg"
+                alt="icon"
+                class="order-counter-plus__image"
+              />
+            </button>
+            <div class="order-counter__number">1</div>
+            <button class="order-counter__btn order-counter__minus">
+              <img
+                src="images/order/Minus__icon.svg"
+                alt="icon"
+                class="order-counter-minus__image"
+              />
+            </button>
+          </div>
+          <div class="order-footer__costs addItemCard2-item__costs">399 ₽</div>
+        </div>
+      </div>
+      <div class="addItemCard2__item">
+        <div class="addItemCard2__item_wrap">
+          <div class="addItemCard2-item__image">
+            <img src="images/additemCard3/item03.jpg" alt="food" />
+          </div>
+          <div class="addItemCard2__text">
+            <div class="addItemCard2-text__title">Чеддер палочки с беконом</div>
+          </div>
+        </div>
+        <div class="addItemCard2__item_wrap">
+          <div class="order-item__sum">
+            <button class="order-counter__btn order-counter__plus">
+              <img
+                src="images/order/Plus__icon.svg"
+                alt="icon"
+                class="order-counter-plus__image"
+              />
+            </button>
+            <div class="order-counter__number">1</div>
+            <button class="order-counter__btn order-counter__minus">
+              <img
+                src="images/order/Minus__icon.svg"
+                alt="icon"
+                class="order-counter-minus__image"
+              />
+            </button>
+          </div>
+          <div class="order-footer__costs addItemCard2-item__costs">369 ₽</div>
+        </div>
+      </div>
+      <div class="addItemCard2__item">
+        <div class="addItemCard2__item_wrap">
+          <div class="addItemCard2-item__image">
+            <img src="images/additemCard3/item04.jpg" alt="food" />
+          </div>
+          <div class="addItemCard2__text">
+            <div class="addItemCard2-text__title">Чесночный соус</div>
+          </div>
+        </div>
+        <div class="addItemCard2__item_wrap">
+          <div class="order-item__sum">
+            <button class="order-counter__btn order-counter__plus">
+              <img
+                src="images/order/Plus__icon.svg"
+                alt="icon"
+                class="order-counter-plus__image"
+              />
+            </button>
+            <div class="order-counter__number">1</div>
+            <button class="order-counter__btn order-counter__minus">
+              <img
+                src="images/order/Minus__icon.svg"
+                alt="icon"
+                class="order-counter-minus__image"
+              />
+            </button>
+          </div>
+          <div class="order-footer__costs addItemCard2-item__costs">49 ₽</div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap__addItemCard2">
+      <div class="promocode">
+        <div class="promocode__input_wrap">
+          <input
+            type="text"
+            placeholder="Промокод"
+            maxlength="10"
+            class="promocode__input"
+          />
+          <button class="promocode__btn">
+            <img
+              src="images/additemCard2/btn__icon_vector.svg"
+              alt="arrowicon"
+              class="promocode-btn__image"
+            />
+          </button>
+          <div class="promocode__costs">Итого: 1216 ₽</div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap__addItemCard2">
+      <div class="addTOorder">
+        <button class="addTOorder__arrow addTOorder__arrow_right"></button>
+        <button class="addTOorder__arrow addTOorder__arrow_left"></button>
+        <h3 class="addTOorder__title">Добавить к заказу?</h3>
+        <div class="addTOorder__row">
+          <div class="addTOorder__item">
+            <img
+              src="images/additemCard2/item01__row.jpg"
+              alt="frenchfries"
+              class="addTOorder__image"
+            />
+            <h4 class="addTOorder-item__title">Картофель из печи</h4>
+            <h5 class="addTOorder-item__descr">Порция 95 г</h5>
+            <button class="addTOorder-item__button">179 ₽</button>
+          </div>
+          <div class="addTOorder__item">
+            <img
+              src="images/additemCard2/item02__row.jpg"
+              alt="frenchfries"
+              class="addTOorder__image"
+            />
+            <h4 class="addTOorder-item__title">Филадельфия крем-брюле</h4>
+            <h5 class="addTOorder-item__descr">Порция 95 г</h5>
+            <button class="addTOorder-item__button">179 ₽</button>
+          </div>
+          <div class="addTOorder__item">
+            <img
+              src="images/additemCard2/item03__row.jpg"
+              alt="frenchfries"
+              class="addTOorder__image"
+            />
+            <h4 class="addTOorder-item__title">Супер Филадельфия</h4>
+            <h5 class="addTOorder-item__descr">Порция 95 г</h5>
+            <button class="addTOorder-item__button">179 ₽</button>
+          </div>
+          <div class="addTOorder__item">
+            <img
+              src="images/additemCard2/item04__row.jpg"
+              alt="frenchfries"
+              class="addTOorder__image"
+            />
+            <h4 class="addTOorder-item__title">Тигр мама</h4>
+            <h5 class="addTOorder-item__descr">Порция 95 г</h5>
+            <button class="addTOorder-item__button">179 ₽</button>
+          </div>
+        </div>
+        <h3 class="addTOorder__title">Cоусы</h3>
+        <div class="addTOorder__row">
+          <button
+            class="addTOorder__arrow addTOorder__arrowsause_right"
+          ></button>
+          <button
+            class="addTOorder__arrow addTOorder__arrowsause_left"
+          ></button>
+          <div class="addTOorder__item">
+            <img
+              src="images/additemCard2/sause01__row.jpg"
+              alt="sause"
+              class="addTOorder__image"
+            />
+            <h4 class="addTOorder-item__title">Сырный соус</h4>
+            <button class="addTOorder-item__button">39 ₽</button>
+          </div>
+          <div class="addTOorder__item">
+            <img
+              src="images/additemCard2/sause02__row.jpg"
+              alt="sause"
+              class="addTOorder__image"
+            />
+            <h4 class="addTOorder-item__title">Барбфекю</h4>
+            <button class="addTOorder-item__button">39 ₽</button>
+          </div>
+          <div class="addTOorder__item">
+            <img
+              src="images/additemCard2/sause03__row.jpg"
+              alt="sause"
+              class="addTOorder__image"
+            />
+            <h4 class="addTOorder-item__title">Ранч</h4>
+            <button class="addTOorder-item__button">39 ₽</button>
+          </div>
+          <div class="addTOorder__item">
+            <img
+              src="images/additemCard2/sause04__row.jpg"
+              alt="sause"
+              class="addTOorder__image"
+            />
+            <h4 class="addTOorder-item__title">Сгущёнка</h4>
+            <button class="addTOorder-item__button">39 ₽</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap__addItemCard2">
+      <div class="addItemCard2__about">
+        <div class="addItemCard2-about__title">О вас</div>
+        <div class="addItemCard2-about__item_wrap">
+          <div class="addItemCard2-about__item">
+            <div class="addItemCard2-about-item__name">Имя*</div>
+            <input
+              placeholder="Алексей"
+              maxlength="20"
+              type="text"
+              class="addItemCard2-about__input"
+            />
+          </div>
+          <div class="addItemCard2-about__item">
+            <div class="addItemCard2-about-item__name">Номер телефона*</div>
+            <input
+              placeholder="+7"
+              maxlength="20"
+              type="text"
+              class="addItemCard2-about__input"
+            />
+          </div>
+          <div class="addItemCard2-about__item">
+            <div class="addItemCard2-about-item__name">Почта</div>
+            <input
+              placeholder="mail@gmail.com"
+              maxlength="20"
+              type="text"
+              class="addItemCard2-about__input"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap__addItemCard2">
+      <form action="/*" method="post" class="addItemCard2delivery__form">
+        <div class="addItemCard2__delivery">
+          <div class="addItemCard2-delivery__header">
+            <div class="addItemCard2-delivery__title">Доставка</div>
+            <div class="addItemCard2-delivery__btn">
+              <label class="addItemCard2-delivery-btndelivery__label">
+                <input
+                  name="addItemCard2-delivery__btn"
+                  type="radio"
+                  class="addItemCard2-delivery-btndelivery__input"
+                  checked
+                />
+                <span>Доставка</span>
+              </label>
+              <label class="addItemCard2-delivery-btnpickup__label">
+                <input
+                  name="addItemCard2-delivery__btn"
+                  type="radio"
+                  class="addItemCard2-delivery-btnpickup__input"
+                />
+                <span>Самовывоз</span>
+              </label>
+            </div>
+          </div>
+          <div class="addItemCard2-delivery-item_wrap">
+            <div
+              class="addItemCard2-delivery__item addItemCard2-delivery-item__name01"
+            >
+              <div class="addItemCard2-delivery-item__name">Ресторан*</div>
+              <select class="restaurant__select" name="listcity" required>
+                <option>Выберите ресторан</option>
+                <option>Москва, ул.Лобанка 13</option>
+                <option>Москва, ул.Орловская 4</option>
+                <option>Москва, ул.Кольцова 69</option>
+                <option>Москва, пр-т Газеты Правда 14</option>
+                <option>Москва, ул.Революционная 77</option>
+                <option>Москва, ул.Городецкая 8/4a</option>
+                <option>Москва, пр-т.Рокоссовского 7</option>
+              </select>
+            </div>
+          </div>
+          <div class="addItemCard2-delivery__time">
+            <h4 class="addItemCard2-delivery-time__title">
+              Когда выполнить заказ?
+            </h4>
+            <label class="addItemCard3-delivery__check">
+              <input
+                type="radio"
+                class="addItemCard3-delivery__input"
+                name="delivery-time__check"
+                checked
+                value="Как можно скорее"
+              />
+              <span class="addItemCard3-delivery__checkbox"></span>
+              Как можно скорее
+            </label>
+            <label class="addItemCard3-delivery__check">
+              <input
+                type="radio"
+                class="addItemCard3-delivery__input"
+                name="delivery-time__check"
+                value="По времени"
+                checked
+              />
+              <span class="addItemCard3-delivery__checkbox"></span>
+              По времени
+            </label>
+            <label class="addItemCard3-delivery-date__label">
+              <input type="date" class="addItemCard3-delivery-date__input" />
+            </label>
+            <label class="addItemCard3-delivery-date__label">
+              <input
+                type="datetime-local"
+                class="addItemCard3-delivery-date__input"
+              />
+            </label>
+          </div>
+          <div class="addItemCard2-delivery__pay">
+            <h3 class="addItemCard2-delivery-pay__title">Оплата</h3>
+            <label class="addItemCard2-delivery__check">
+              <input
+                type="radio"
+                class="addItemCard2-delivery__input"
+                name="delivery-pay"
+                value="Наличными"
+                checked
+              />
+              <span class="addItemCard2-delivery__checkbox"></span>
+              Наличными
+            </label>
+            <label class="addItemCard2-delivery__check">
+              <input
+                type="radio"
+                class="addItemCard2-delivery__input"
+                name="delivery-pay"
+                value="Картой"
+              />
+              <span class="addItemCard2-delivery__checkbox"></span>
+              Картой
+            </label>
+            <label class="addItemCard2-delivery__check">
+              <input
+                type="radio"
+                class="addItemCard2-delivery__input"
+                name="delivery-pay"
+                value="Apple Pay"
+              />
+              <span class="addItemCard2-delivery__checkbox"></span>
+              Apple Pay
+            </label>
+          </div>
+          <div class="addItemCard2-delivery__change">
+            <h3 class="addItemCard2-delivery-change__title">Сдача</h3>
+            <label class="addItemCard2-delivery__check">
+              <input
+                type="radio"
+                class="addItemCard2-delivery__input"
+                name="delivery-change"
+                value="Без сдачи"
+              />
+              <span class="addItemCard2-delivery__checkbox"></span>
+              Без сдачи
+            </label>
+            <label class="addItemCard2-delivery__check">
+              <input
+                type="radio"
+                class="addItemCard2-delivery__input"
+                name="delivery-change"
+                checked
+                value="Сдача с"
+              />
+              <span class="addItemCard2-delivery__checkbox"></span>
+              Сдача с
+              <input
+                type="text"
+                placeholder="0 ₽"
+                class="addItemCard2-delivery-change__input"
+              />
+            </label>
+          </div>
+          <div class="addItemCard2-delivery__comment">
+            <h3 class="addItemCard2-delivery-comment__title">Комментарий</h3>
+            <textarea
+              class="addItemCard2-delivery-comment__textarea"
+              placeholder="Есть уточнения?"
+            ></textarea>
+            <div class="addItemCard2-delivery-comment__delivery">
+              <div class="addItemCard2-delivery-comment-delivery__costs">
+                Итого: 2 379 ₽
+              </div>
+              <button class="addItemCard2-delivery-comment-delivery__btn">
+                Оформить заказ
+                <a href="trackYourOrder.html"></a>
+                <a href="accLoginfilter.html"></a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="wrap__footer">
+      <div class="container">
+        <footer class="footer">
+          <div class="footer-column_wrap">
+            <div class="footer__column">
+              <div class="logo">
+                <img
+                  src="images/pizzalogo.png
+              "
+                  alt="logo"
+                  class="logo__image"
+                />
+                <a href="#" class="logo__text">Куда пицца</a>
+              </div>
+            </div>
+            <div class="footer__column">
+              <a href="#" class="footer-column__title">Куда пицца</a>
+              <a href="#" class="footer-column__link">О компании</a>
+              <a href="#" class="footer-column__link"
+                >Пользовательское соглашение</a
+              >
+              <a href="#" class="footer-column__link">Условия гарантии</a>
+            </div>
+            <div class="footer__column">
+              <a href="#" class="footer-column__title">Помощь</a>
+              <a href="#" class="footer-column__link">Ресторан</a>
+              <a href="#" class="footer-column__link">Контакты</a>
+              <a href="#" class="footer-column__link">Поддержка</a>
+              <a href="#" class="footer-column__link">Отследить заказ</a>
+            </div>
+            <div class="footer__column">
+              <a href="#" class="footer-column__title">Контакты</a>
+              <div class="footer-column__item footer-column__phone">
+                <a
+                  href="#"
+                  class="column__phone__link phone-item__icon"
+                  target="_blank"
+                  aria-label="Link to phone"
+                >
+                </a>
+                <a href="tel:++7 (926) 223-10-11">+7 (926) 223-10-11</a>
+              </div>
+              <address class="footer-column__item footer-column__adress">
+                <a
+                  href="#"
+                  class="column__adress__link adress-item__location"
+                  target="_blank"
+                  aria-label="Link to location"
+                >
+                </a>
+                <a class="footer-adress__link" href="#">
+                  Москва, ул. Юных Ленинцев, д.99</a
+                >
+              </address>
+              <ul class="footer-column__social">
+                <li class="footer-social__item">
+                  <a
+                    href="#"
+                    class="social-item__link social-item__linkfb"
+                    target="_blank"
+                    aria-label="Link to Facebook"
+                  >
+                  </a>
+                  <a href="#" class="social__link social-linkfb">Facebok</a>
+                </li>
+                <li class="footer-social__item">
+                  <a
+                    href="#"
+                    class="social-item__link social-item__linkInst"
+                    target="_blank"
+                    aria-label="Link to Instagram"
+                  >
+                  </a>
+                  <a href="#" class="social__link social-linkInst">Instagram</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <div class="footer-bottom__copyright">
+              &copy;&nbsp;Copyright 2021&nbsp;&mdash; Куда Пицца
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
