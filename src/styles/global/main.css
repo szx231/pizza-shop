@@ -1290,7 +1290,7 @@
   padding: 13px 16px;
 }
 
-.addItemCard3-delivery__datetime {
+.smsCodefilter-delivery__datetime {
   font-weight: 400;
   @extend %fontSmall;
   color: rgba(165, 165, 165, 1);
@@ -1299,6 +1299,74 @@
   padding: 13px 16px;
 }
 
-.addItemCard3-delivery-date__input {
+.smsCodefilter {
+  min-width: 850px;
+  background-color: rgba(249, 249, 249, 1);
+  border-radius: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 50%;
+  padding: 60px 265px;
+}
 
+.smsCodefilter__container {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  max-width: 380px;
+}
+
+.smsCodefilter__title {
+  font-family: 'Inter-Regular';
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  margin-bottom: 16px;
+}
+
+.smsCodefilter__descr {
+  font-weight: 400;
+  @extend %fontSmall;
+  margin-bottom: 20px;
+}
+
+
+
+.smsCodefilter__button {
+  @extend %fontSmall;
+  padding: 13px 96px;
+  max-width: 240px;
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  font-weight: 400;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.smsCodefilter__agreement {
+  @extend %fontSmall;
+  font-weight: 400;
+}
+
+.smsCodefilter-repeat__timer {
+  @extend %fontSmall;
+  font-weight: 400;
+  color: rgba(165, 165, 165, 1);
+}
+
+.smsCodefilter-item_wrap {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.smsCodefilter-item {
+  @extend %fontSmall;
+  max-width: 48px;
+  border-radius: 6px;
+  padding: 13px 18px;
+  font-weight: 400;
+  color: rgba(165, 165, 165, 1);
+  border: 1px solid var(--color-border);
 }
