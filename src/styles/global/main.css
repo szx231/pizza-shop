@@ -1816,11 +1816,30 @@
   margin-bottom: 19px;
 }
 
+.myAcc-subscription__check {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 21px;
+}
+
 .myAcc-subscription__checkinput {
   font-weight: 400;
   @extend %fontSmall;
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.myAcc-subscription__checkbox {
   width: 16px;
   height: 16px;
-  background-color: transparent;
-  border: 1px solid var(--color-orange);
+  background-color:rgb(244 231 231);
+  position: absolute;
+  margin-left: -1.2em;
+}
+
+.myAcc-subscription__checkinput:checked + 
+.myAcc-subscription__checkbox {
+  background-image: url(/images/myAcc/checkbox__image.svg);
 }
