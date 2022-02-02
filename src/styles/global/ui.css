@@ -52,6 +52,13 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
   display: grid;
   cursor: pointer;
   position: relative;
+  transition: all .2s ease-in-out;
+  &:hover {
+    margin-top: -8px;
+    margin-bottom: 8px;
+    box-shadow: 0px 1px 5px #FF7010;
+    
+  }
 }
 
 .item__name {

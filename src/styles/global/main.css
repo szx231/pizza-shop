@@ -54,7 +54,14 @@
   background: url(../images/header/city__icon__arow.svg) no-repeat;
   background-position-x: 55%;
   background-position-y: 50%;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none; 
+  background-color: transparent;
+  outline: none;
+  padding: 0 5px;
 }
+
 
 .nav__login {
   display: flex;
@@ -84,6 +91,7 @@
   gap: 12px;
   margin-bottom: 12px;
   cursor: pointer;
+  
 }
 
 .delevery-logo__text {
@@ -133,6 +141,13 @@
   border-radius: 12px;
   border:1px solid #F0F0F0;
   cursor: pointer;
+  transition: all .2s ease-in-out;
+    &:hover {
+    margin-top: -4px;
+    margin-bottom: 4px;
+    box-shadow: 0px 1px 5px #FF7010;
+    
+  }
 }
 
 .assortment-item__image {
@@ -283,7 +298,6 @@
   left: 33%;
 }
 
-
 .delivery-conditions__text {
   margin: 0 auto;
   justify-items: center;
@@ -376,6 +390,12 @@
   font-weight: 400;
   @extend %fontSmall;
 }
+
+.footer-bottom__copyright {
+  font-weight: 400;
+  @extend fontSmall;
+}
+
 .phone-item__icon {
   background: url(../images/footer/footer__icon_phone.svg);
   width: 20px;
@@ -1736,7 +1756,7 @@
   background-repeat: no-repeat;
   background-image: url(/images/myAcc/myAcc__change__image.svg);
   position: absolute;
-  left: 88%;
+  left: 87%;
   cursor: pointer;
 }
 
@@ -1789,7 +1809,7 @@
   background-repeat: no-repeat;
   background-image: url(/images/myAcc/myAcc__change__image.svg);
   position: absolute;
-  left: 85%;
+  left: 84%;
   cursor: pointer;
 }
 
@@ -1842,4 +1862,100 @@
 .myAcc-subscription__checkinput:checked + 
 .myAcc-subscription__checkbox {
   background-image: url(/images/myAcc/checkbox__image.svg);
+}
+
+.myAcc2 {
+  padding: 24px 32px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: var(--color-white);
+  margin-bottom: 20px;
+}
+
+.myAcc2-input_wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 24px;
+}
+
+.myAcc2__block {
+  margin-bottom: 16px;
+}
+
+
+.myAcc2__title {
+  font-family: 'Inter-Bold';
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--color-black);
+  margin-bottom: 16px;
+}
+
+.myAcc2-block__name {
+  font-family: 'Inter-Regular';
+  font-weight: 400;
+  @extend %fontSmall;
+  line-height: 18px;
+  color: rgba(165, 165, 165, 1);
+  margin-bottom: 8px;
+}
+
+.myAcc2-block__input {
+  background-color: var(--color-white);
+  padding: 13px 16px;
+  font-weight: 400;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  @extend %fontSmall;
+  max-width: 246px;
+}
+
+.myAcc2__btn {
+  @extend %fontSmall;
+  color: var(--color-white);
+  font-weight: 400;
+  padding: 13px 36px;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--color-orange);
+}
+
+
+.myAcc__passwordChanged {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  padding: 24px 32px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.myAcc-passwordChanged__title {
+  font-family: 'Inter-Bold';
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 16px;
+}
+
+.myAcc-passwordChanged__input_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.myAcc-passwordChanged-block__name {
+  font-family: 'Inter-Regular';
+  font-weight: 400;
+  @extend %fontSmall;
+  line-height: 18px;
+  color: rgba(165, 165, 165, 1);
+}
+
+.myAcc-passwordChanged-block__input {
+  @extend %fontSmall;
+  color: rgba(165, 165, 165, 1);
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  padding: 13px 16px;
 }

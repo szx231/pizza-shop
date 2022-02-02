@@ -163,26 +163,37 @@ img {
 }
 
 .wrap__addItemCard2 {
-  width: 990px;
+  width: 870px;
+  padding: 10px 10px;
   margin: 0 auto;
 } 
 
 .wrap__trackYourOrder {
-  width: 990px;
+  width: 870px;
+  padding: 10px 10px;
   margin: 0 auto;
 } 
 
 .accLoginfilter__wrap {
-  width: 990px;
+  width: 870px;
+  padding: 10px 10px;
   margin: 0 auto;
 }
 
 .smsCodefilter__wrap {
-  width: 990px;
+  width: 870px;
+  padding: 10px 10px;
   margin: 0 auto;
 }
 
 .wrap {
-  width: 990px;
+  width: 870px;
+  padding: 10px 10px;
+  margin: 0 auto;
+}
+
+.myAcc2__wrap {
+  width: 870px;
+  padding: 10px 10px;
   margin: 0 auto;
 }

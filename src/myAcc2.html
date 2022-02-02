@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myAcc2</title>
+  </head>
+  <body>
+    <script type="module" src="./js/main.js"></script>
+    <div class="wrap__header">
+      <div class="container">
+        <header class="header">
+          <div class="header-top">
+            <nav class="nav">
+              <ul class="nav-list__item">
+                <div class="list-item_delevery">
+                  <li class="nav-list__item list-item__location">
+                    <img
+                      src="images/location.png"
+                      alt="pizza"
+                      class="nav-list__icon"
+                    />
+                    <select class="list-item__city" name="listcity" required>
+                      <option>Москва</option>
+                      <option>Санкт-Петербург</option>
+                      <option>Краснодар</option>
+                      <option>Казань</option>
+                      <option>Новосибирск</option>
+                      <option>Владивосток</option>
+                      <option>Другой.....</option>
+                    </select>
+                  </li>
+                  <li class="nav-list__item">
+                    <a href="#" class="nav-list__link"> Проверить адрес </a>
+                  </li>
+                  <li class="nav-list__item">
+                    <a href="#" class="nav-list__link">
+                      <span class="link__time-delivery"
+                        >Среднее время доставки*:</span
+                      >
+                      <span class="link__timer-delivery">00:24:19 </span>
+                    </a>
+                  </li>
+                </div>
+              </ul>
+              <div class="nav__login">
+                <li class="nav-list__item">
+                  <a href="#" class="nav-list__link">
+                    Время работы: с 11:00 до 23:00
+                  </a>
+                </li>
+                <li class="nav-list__item list-item_login">
+                  <img
+                    src="images/header/login__nav.svg"
+                    alt="login"
+                    class="login__icon"
+                  />
+                  <a href="#" class="nav-list__link"> Войти в аккаунт </a>
+                </li>
+              </div>
+            </nav>
+          </div>
+          <div class="header-bottom">
+            <div class="delevery">
+              <div class="delevery__logo">
+                <img
+                  src="images/pizzalogo.png
+              "
+                  alt=""
+                  class="delevery-logo__image"
+                />
+                <span class="delevery-logo__text">Куда пицца</span>
+              </div>
+              <div class="basket">
+                <div class="basket__item">
+                  <img
+                    src="images/basket.png"
+                    alt="basket"
+                    class="basket__logo"
+                  />
+                  <span class="basket__sum">0 ₽</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
+    <div class="wrap">
+      <section class="accountProfile">
+        <div class="accountProfile__header">
+          <h2 class="accountProfile-header__title">Мой аккаунт</h2>
+          <div class="accountProfile-header__buttons">
+            <label class="accountProfile-header_btnhistory">
+              <input
+                type="radio"
+                name="accountProfile-header__buttons"
+                class="accountProfile-header-check__input"
+                value="История заказов"
+              />
+              <span class="accountProfile-header__btn">История заказов</span>
+            </label>
+            <label class="accountProfile-header__btnsettings">
+              <input
+                type="radio"
+                name="accountProfile-header__buttons"
+                class="accountProfile-header-check__input"
+                value="Настройки"
+                checked
+              />
+              <span class="accountProfile-header__btn"> Настройки </span>
+            </label>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="myAcc2__wrap">
+      <div class="myAcc2">
+        <h1 class="myAcc2__title">Изменение личных данных</h1>
+        <div class="myAcc2-input_wrap">
+          <div class="myAcc2__block">
+            <div class="myAcc2-block__name">Имя*</div>
+            <input
+              placeholder="Вадим"
+              type="text"
+              class="myAcc2-block__input"
+            />
+          </div>
+          <div class="myAcc2__block">
+            <div class="myAcc2-block__name">Номер телефона*</div>
+            <input
+              placeholder="+7 (926) 223-10-11"
+              type="text"
+              class="myAcc2-block__input"
+            />
+          </div>
+          <div class="myAcc2__block">
+            <div class="myAcc2-block__name">Почта</div>
+            <input
+              placeholder="mail@gmail.com"
+              type="text"
+              class="myAcc2-block__input"
+            />
+          </div>
+          <div class="myAcc2__block">
+            <div class="myAcc2-block__name">Дата рождения</div>
+            <input
+              placeholder="13.02.1996"
+              type="text"
+              class="myAcc2-block__input"
+            />
+          </div>
+        </div>
+        <button class="myAcc2__btn">Сохранить изменения</button>
+      </div>
+      <div class="myAcc__password">
+        <h2 class="myAcc-password__title">Пароль</h2>
+        <div class="myAcc-password__change">Изменить</div>
+        <div class="myAcc-password__icon"></div>
+      </div>
+      <div class="myAcc__subscription">
+        <h3 class="myAcc-subscription__title">Подписки</h3>
+        <label class="myAcc-subscription__check">
+          <input type="checkbox" class="myAcc-subscription__checkinput" />
+          Получать предложения и акции
+          <span class="myAcc-subscription__checkbox"></span>
+        </label>
+      </div>
+    </div>
+    <div class="wrap__footer">
+      <div class="container">
+        <footer class="footer">
+          <div class="footer-column_wrap">
+            <div class="footer__column">
+              <div class="logo">
+                <img
+                  src="images/pizzalogo.png
+              "
+                  alt="logo"
+                  class="logo__image"
+                />
+                <a href="#" class="logo__text">Куда пицца</a>
+              </div>
+            </div>
+            <div class="footer__column">
+              <a href="#" class="footer-column__title">Куда пицца</a>
+              <a href="#" class="footer-column__link">О компании</a>
+              <a href="#" class="footer-column__link"
+                >Пользовательское соглашение</a
+              >
+              <a href="#" class="footer-column__link">Условия гарантии</a>
+            </div>
+            <div class="footer__column">
+              <a href="#" class="footer-column__title">Помощь</a>
+              <a href="#" class="footer-column__link">Ресторан</a>
+              <a href="#" class="footer-column__link">Контакты</a>
+              <a href="#" class="footer-column__link">Поддержка</a>
+              <a href="#" class="footer-column__link">Отследить заказ</a>
+            </div>
+            <div class="footer__column">
+              <a href="#" class="footer-column__title">Контакты</a>
+              <div class="footer-column__item footer-column__phone">
+                <a
+                  href="#"
+                  class="column__phone__link phone-item__icon"
+                  target="_blank"
+                  aria-label="Link to phone"
+                >
+                </a>
+                <a href="tel:++7 (926) 223-10-11">+7 (926) 223-10-11</a>
+              </div>
+              <address class="footer-column__item footer-column__adress">
+                <a
+                  href="#"
+                  class="column__adress__link adress-item__location"
+                  target="_blank"
+                  aria-label="Link to location"
+                >
+                </a>
+                <a class="footer-adress__link" href="#">
+                  Москва, ул. Юных Ленинцев, д.99</a
+                >
+              </address>
+              <ul class="footer-column__social">
+                <li class="footer-social__item">
+                  <a
+                    href="#"
+                    class="social-item__link social-item__linkfb"
+                    target="_blank"
+                    aria-label="Link to Facebook"
+                  >
+                  </a>
+                  <a href="#" class="social__link social-linkfb">Facebok</a>
+                </li>
+                <li class="footer-social__item">
+                  <a
+                    href="#"
+                    class="social-item__link social-item__linkInst"
+                    target="_blank"
+                    aria-label="Link to Instagram"
+                  >
+                  </a>
+                  <a href="#" class="social__link social-linkInst">Instagram</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <div class="footer-bottom__copyright">
+              &copy;&nbsp;Copyright 2021&nbsp;&mdash; Куда Пицца
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
