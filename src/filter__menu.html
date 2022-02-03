@@ -4,139 +4,211 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Filter</title>
+    <link rel="icon" href="images/filter__btn_icon.svg" type="image/x-icon" />
   </head>
   <body>
     <script type="module" src="./js/main.js"></script>
-    <div class="container">
-      <div class="wrap__filter">
-        <div class="filter">
-          <div class="filter__header">
-            <h2 class="filter-header__title">Фильтры</h2>
-            <button type="submit" class="filter-header__button">
-              <img
-                src="images/filterPAGE/filter__icon_btn.svg"
-                alt=""
-                class="header-button__image"
-              />
-            </button>
-          </div>
+    <div class="wrap__filter">
+      <div class="filter">
+        <div class="filter__header">
+          <h2 class="filter-header__title">Фильтры</h2>
+          <button type="submit" class="filter-header__button">
+            <img
+              src="images/filterPAGE/filter__icon_btn.svg"
+              alt=""
+              class="header-button__image"
+            />
+          </button>
+        </div>
+        <form action="" class="popup__form">
           <h3 class="filter__subtitle">Общее</h3>
           <div class="filter__rowbutton">
-            <button type="submit" class="filter-rowbutton__btn">Хит</button>
-            <button type="submit" class="filter-rowbutton__btn">Новинка</button>
-            <button type="submit" class="filter-rowbutton__btn">С мясом</button>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Хит </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Новинка </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">С мясом </span>
+            </label>
           </div>
           <div class="filter__rowbutton">
-            <button type="submit" class="filter-rowbutton__btn">
-              Вегетарианская
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">
-              С курицей
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">
-              Без лука
-            </button>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Вегетарианская </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">С курицей </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Без лука </span>
+            </label>
           </div>
           <div class="filter__rowbutton">
-            <button type="submit" class="filter-rowbutton__btn">
-              С грибами
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">
-              С морепродуктами
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">
-              Барбекью
-            </button>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">С грибами </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">С морепродуктами </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Барбекью </span>
+            </label>
           </div>
           <h3 class="filter__subtitle">Сыр</h3>
           <div class="filter__rowbutton">
-            <button type="submit" class="filter-rowbutton__btn">
-              Реджанито
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">
-              Моцарелла
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">Чеддер</button>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Реджанито </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Моцарелла </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Чеддер </span>
+            </label>
           </div>
           <div class="filter__rowbutton">
-            <button type="submit" class="filter-rowbutton__btn">
-              С голубой плесенью
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">
-              Смесь итальянских сыров
-            </button>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">С голубой плесенью </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span"
+                >Смесь итальянских сыров
+              </span>
+            </label>
           </div>
           <div class="filter__rowbutton">
-            <button type="submit" class="filter-rowbutton__btn">
-              Мягкий молодой сыр
-            </button>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Мягкий молодой сыр </span>
+            </label>
           </div>
           <h3 class="filter__subtitle">Мясо</h3>
           <div class="filter__rowbutton">
-            <button type="submit" class="filter-rowbutton__btn">
-              Пепперони
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">Свинина</button>
-            <button type="submit" class="filter-rowbutton__btn">Ветчина</button>
-            <button type="submit" class="filter-rowbutton__btn">Бекон</button>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Пепперони </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Свинина </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Ветчина </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Бекон </span>
+            </label>
           </div>
           <div class="filter__rowbutton">
-            <button type="submit" class="filter-rowbutton__btn">
-              Говядина
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">Чоризо</button>
-            <button type="submit" class="filter-rowbutton__btn">
-              Колбаски
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">
-              Куриная грудка
-            </button>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Говядина </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Чоризо </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Колбаски </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Куриная грудка </span>
+            </label>
           </div>
           <h3 class="filter__subtitle">Компонент</h3>
           <div class="filter__rowbutton">
-            <button type="submit" class="filter-rowbutton__btn">
-              Креветка
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">Ананасы</button>
-            <button type="submit" class="filter-rowbutton__btn">
-              Шампиньоны
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">Лук</button>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Креветка </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Ананасы </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Шампиньоны </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Лук </span>
+            </label>
           </div>
           <div class="filter__rowbutton">
-            <button type="submit" class="filter-rowbutton__btn">
-              Перец халапеньо
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">Орегано</button>
-            <button type="submit" class="filter-rowbutton__btn">
-              Зеленый перец
-            </button>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Перец халапеньо </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Орегано </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Зеленый перец </span>
+            </label>
           </div>
           <div class="filter__rowbutton">
-            <button type="submit" class="filter-rowbutton__btn">Томаты</button>
-            <button type="submit" class="filter-rowbutton__btn">Чеснок</button>
-            <button type="submit" class="filter-rowbutton__btn">
-              Красный перец
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">Оливки</button>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Томаты </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Чеснок </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Красный перец </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Оливки </span>
+            </label>
           </div>
           <div class="filter__rowbutton">
-            <button type="submit" class="filter-rowbutton__btn">Маслины</button>
-            <button type="submit" class="filter-rowbutton__btn">
-              Клубника
-            </button>
-            <button type="submit" class="filter-rowbutton__btn">
-              Смесь итальянских трав
-            </button>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Маслины </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Клубника </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span"
+                >Смесь итальянских трав
+              </span>
+            </label>
           </div>
-          <button type="submit" class="filter__deliverybtn filter__btnreset">
+          <button type="reset" class="filter__deliverybtn filter__btnreset">
             Сбросить
           </button>
           <button type="submit" class="filter__deliverybtn filter__btnapply">
             Применить
           </button>
-        </div>
+        </form>
       </div>
     </div>
   </body>

@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pizza</title>
+    <title>Pizza | Куда-Пицца</title>
+    <link rel='icon' href='images/pizzalogo32х32.png' type='image/x-icon'>
   </head>
   <body>
     <script type="module" src="./js/main.js"></script>
+    <div class="root">
     <div class="wrap__header">
       <div class="container">
         <header class="header">
@@ -87,9 +89,8 @@
         </header>
       </div>
     </div>
-    <section class="hero">
-      <div class="container">
-        <div class="assortment">
+    <section class="main">
+        <article class="article assortment">
           <a href='' class="assortment__item">
             <img
               src="images/assortment/fire.svg"
@@ -154,10 +155,8 @@
             />
             <span class="assorment-item__descr">Соусы</span>
           </a>
-        </div>
-      </div>
-      <div class="container">
-        <div class="promotions">
+        </article>
+        <article class="article promotions">
           <div class="promotions__item promotions__item_orange">
             <img
               src="images/promotion/pizza__imagelft.png"
@@ -218,9 +217,9 @@
               >Кэшбек&nbsp;10% на&nbsp;самовывоз (доставка)</a
             >
           </div>
-        </div>
-      </div>
-      <div class="container">
+        </article>
+    </section>
+    <section class="section section__deleveryAria">
         <div class="delevery-aria">
           <form action="" class="delevery__form">
             <span class="delevery__text">Проверить адрес доставки</span>
@@ -228,12 +227,12 @@
             <button class="btnchoise delevery__button">Проверить</button>
           </form>
         </div>
-      </div>
-      <div class="container">
+      </section>
+      <section class="section section__pizza">
         <div class="pizza general__foodsec">
           <div class="pizza__header">
             <h2 class="title pizza__title">Пицца</h2>
-            <a href="filter.html" class="btnfilter pizaa__btnfilter">Фильтры</a>
+            <a class="btnfilter pizaa__btnfilter">Фильтры</a>
           </div>
           <div class="item_wrapper pizza__item_wrapper">
             <div class="item pizza__item">
@@ -369,12 +368,13 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="container">
+      </section>
+      <section class="section section__sushi">
         <div class="sushi general__foodsec">
           <div class="sushi__header">
             <h2 class="title sushi__title">Суши</h2>
-            <a href="filter.html" class="btnfilter sushi__btnfilter">Фильтры</a>
+            <a  class="btnfilter   sushi__btnfilter"
+            >Фильтры</a>
           </div>
           <div class="item_wrapper sushi__item_wrapper">
             <div href="#" class="item sushi__item">
@@ -509,8 +509,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="container">
+      </section>
+      <section class="section section__snacks">
         <div class="snacks general__foodsec">
           <h2 class="title snacks__title">Закуски</h2>
           <div class="item_wrapper snacks__item_wrapper">
@@ -646,8 +646,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="container">
+    </section>
+    <section class="section section__desserts">
         <div class="desserts general__foodsec">
           <h2 class="title desserts__title">Десерты</h2>
           <div class="item_wrapper desserts__item_wrapper">
@@ -791,8 +791,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="container">
+      </section>  
+      <section class="section section__drinks">
         <div class="drinks general__foodsec">
           <h2 class="title drinks__title">Напитки</h2>
           <div class="item_wrapper drinks__item_wrapper">
@@ -912,8 +912,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="container">
+      </section>
+      <section class="section section__sause">
         <div class="sauce general__foodsec">
           <h2 class="title sauce__title">Соусы</h2>
           <div class="item_wrapper sause__item_wraper">
@@ -1021,8 +1021,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="container">
+      </section>
+      <section class="section section__combo">
         <div class="combo">
           <h2 class="title combo__title">Комбо</h2>
           <div class="item_wrapper combo__item_wrapper">
@@ -1182,9 +1182,9 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="delivery__conditions">
+      </section>
+    <section class="section deliveryConditions">
+      <div class="delivery__conditions">
       <div class="delivery-conditions__text">
         <h1 class="delivery-conditions__title">Доставка пиццы в Москве</h1>
         <p class="delivery-conditions__descr">
@@ -1216,6 +1216,7 @@
       <div class="delivery-conditions__item">
         <a href="" class="delivery-conditions__link">Показать полностью</a>
       </div>
+    </div>
     </section>
       <div class="wrap__footer">
         <div class="container">
@@ -1295,6 +1296,211 @@
         </div>
       </div>
     </footer>
+    </div>
+  </div>
+  <div class="popup">
+   <div class="wrap__filter">
+      <div class="filter">
+        <div class="filter__header">
+          <h2 class="filter-header__title">Фильтры</h2>
+          <button type="submit" class="filter-header__button">
+            <img
+              src="images/filterPAGE/filter__icon_btn.svg"
+              alt=""
+              class="header-button__image"
+            />
+          </button>
+        </div>
+        <form action="" class="popup-filter__form">
+          <h3 class="filter__subtitle">Общее</h3>
+          <div class="filter__rowbutton">
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Хит </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Новинка </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">С мясом </span>
+            </label>
+          </div>
+          <div class="filter__rowbutton">
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Вегетарианская </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">С курицей </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Без лука </span>
+            </label>
+          </div>
+          <div class="filter__rowbutton">
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">С грибами </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">С морепродуктами </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Барбекью </span>
+            </label>
+          </div>
+          <h3 class="filter__subtitle">Сыр</h3>
+          <div class="filter__rowbutton">
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Реджанито </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Моцарелла </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Чеддер </span>
+            </label>
+          </div>
+          <div class="filter__rowbutton">
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">С голубой плесенью </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span"
+                >Смесь итальянских сыров
+              </span>
+            </label>
+          </div>
+          <div class="filter__rowbutton">
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Мягкий молодой сыр </span>
+            </label>
+          </div>
+          <h3 class="filter__subtitle">Мясо</h3>
+          <div class="filter__rowbutton">
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Пепперони </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Свинина </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Ветчина </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Бекон </span>
+            </label>
+          </div>
+          <div class="filter__rowbutton">
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Говядина </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Чоризо </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Колбаски </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Куриная грудка </span>
+            </label>
+          </div>
+          <h3 class="filter__subtitle">Компонент</h3>
+          <div class="filter__rowbutton">
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Креветка </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Ананасы </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Шампиньоны </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Лук </span>
+            </label>
+          </div>
+          <div class="filter__rowbutton">
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Перец халапеньо </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Орегано </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Зеленый перец </span>
+            </label>
+          </div>
+          <div class="filter__rowbutton">
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Томаты </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Чеснок </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Красный перец </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Оливки </span>
+            </label>
+          </div>
+          <div class="filter__rowbutton">
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Маслины </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span">Клубника </span>
+            </label>
+            <label class="filter-rowbutton__label">
+              <input class="filter-rowbutton__input" type="checkbox" />
+              <span class="filter-rowbutton__span"
+                >Смесь итальянских трав
+              </span>
+            </label>
+          </div>
+          <button type="reset" class="filter__deliverybtn filter__btnreset">
+            Сбросить
+          </button>
+          <button type="submit" class="filter__deliverybtn filter__btnapply">
+            Применить
+          </button>
+        </form>
+      </div>
+    </div>
     </div>
   </div>
   </body>

@@ -131,6 +131,19 @@ img {
   margin: 0 auto;
 }
 
+.section {
+  max-width: 1360px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.article {
+  max-width: 1360px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+
 .wrap__header {
   background-color: var(--color-white);
   margin: 0 auto;
@@ -142,8 +155,7 @@ img {
 }
 
 .wrap__filter {
-  width: 520px;
-  background-color: var(--color-white);
+  max-width: 520px;
 }
 
 .wrap__pizzaLInk {

@@ -259,6 +259,7 @@
 .pizza__header {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .pizza__image {
