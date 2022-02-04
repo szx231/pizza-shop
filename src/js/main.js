@@ -1,6 +1,7 @@
 import '../styles/style.css'
-
+import anime from 'animejs/lib/anime.es.js';
 import './includes/test'
+
 
 const bodyfilter = document.querySelectorAll('body');
 const rootfilter = document.querySelector('.root');
@@ -13,3 +14,22 @@ bodyfilter.forEach(item => {
     modalfilter.style.display = 'block';
   })
 })
+
+const logo = document.querySelectorAll('.delevery__logo');
+
+logo.forEach(item => {
+  item.addEventListener('click', event => {
+    rootfilter.style.filter = 'blur(10px)';
+    modalfilter.style.display = 'block';
+  })
+})
+
+
+let a = function () {
+  anime({
+  targets: '.dir-alternate',
+  translateX: 250,
+  direction: 'alternate',
+  easing: 'easeInOutSine'
+});
+}
