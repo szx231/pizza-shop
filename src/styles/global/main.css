@@ -529,7 +529,7 @@
 
 .order {
   width: 420px;
-  height: 945px;
+  height: 100vh;
   top: 0;
   right: 0;
   position: absolute;
@@ -540,17 +540,6 @@
 
 .order__list {
   height: 100%;
-}
-
-
-.order {
-  min-height: 100vh;
-  top: 0%;
-  left: 85%;
-  position: absolute;
-  padding: 20px;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border)
 }
 
 .order__header {
@@ -758,12 +747,15 @@
 }
 
 .promocode__btn {
+  display: grid;
+  justify-content: center;
+  align-content: center;
   border-radius: 6px;
   border:none;
   min-width: 48px;
   height: 48px;
   background-color: var(--color-orange);
-  left: 29%;
+  left: 34%;
   position: absolute;
 }
 
@@ -831,6 +823,7 @@
 }
 
 .addTOorder__item {
+  max-width: 190px;
   background-color: var(--color-white);
   border-radius: 12px;
   padding: 0 16px 16px 16px;
@@ -863,6 +856,11 @@
   color: var(--color-white);
   background-color: var(--color-orange);
   padding: 10px 58px; 
+  white-space: nowrap;
+}
+
+.addTOorder-item__empty {
+  opacity: 0;
 }
 
 .addItemCard2__about {
@@ -1006,11 +1004,11 @@
 
 .addItemCard2-delivery__time {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   margin-top: 16px;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgba(165, 165, 165, 1);
+  border-bottom: 1px solid rgba(240, 240, 240, 1);
   align-items: center
 }
 
@@ -1057,13 +1055,41 @@
   padding: 13px 16px;
 }
 
+.addItemCard3-delivery-time {
+  max-width: 160px;
+  padding: 13px 0px 13px 16px;
+  color: rgba(165, 165, 165, 1);
+  @extend %fontSmall;
+  font-weight: 400;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: url(/images/additemCard3/Calendar.svg);
+  background-repeat: no-repeat;
+  background-position-x: 85%;
+  background-position-y: 50%;
+}
+
+.addItemCard3-delivery-date {
+  max-width: 160px;
+  padding: 13px 0px 13px 16px;
+  color: rgba(165, 165, 165, 1);
+  @extend %fontSmall;
+  font-weight: 400;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: url(/images/additemCard3/Arrow_input.svg);
+  background-repeat: no-repeat;
+  background-position-x: 85%;
+  background-position-y: 50%;
+}
+
 .addItemCard2-delivery__pay {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   margin-top: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgba(165, 165, 165, 1);
+  border-bottom: 1px solid rgba(240, 240, 240, 1);
   align-items: center
 }
 
@@ -1081,7 +1107,7 @@
   grid-template-rows: repeat(2, 1fr);
   margin-top: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgba(165, 165, 165, 1);
+  border-bottom: 1px solid rgba(240, 240, 240, 1);
   align-items: center;
   white-space: nowrap;
 }
@@ -1124,7 +1150,7 @@
   display: flex;
   justify-content: space-between;
   padding-top: 30px;
-  border-top: 1px  solid rgba(165, 165, 165, 1);
+  border-top: 1px  solid rgba(240, 240, 240, 1);
   align-items: center;
   margin-bottom: 60px;
 }
@@ -1191,12 +1217,16 @@
 
 .accLoginfilter {
   min-width: 850px;
-  background-color: rgba(249, 249, 249, 1);
+  background-color: rgba(265, 265, 265, 1);
   border-radius: 24px;
-  margin-left: auto;
-  margin-right: auto;
   position: absolute;
+  left: 50%;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   padding: 60px 265px;
 }
 
@@ -1249,6 +1279,7 @@
   font-weight: 400;
   border-radius: 6px;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 
 .accLoginfilter__agreement {
@@ -1330,7 +1361,7 @@
 
 .smsCodefilter {
   min-width: 850px;
-  background-color: rgba(249, 249, 249, 1);
+  background-color: rgba(265, 265, 265, 1);
   border-radius: 24px;
   position: absolute;
   left: 50%;
@@ -1486,16 +1517,24 @@
   position: relative;
 }
 
+.accountProfile__orderCansel {
+  color: rgba(165, 165, 165, 1);
+}
+
 .accountProfile-order-top__line {
   position: absolute;
   width: 4px;
   height: 44px;
   border-radius: 24px;
-  top: 10%;
+  top: 12%;
   left: 2%;
 }
 
 .accountProfile-order-top__line_red {
+  background-color: rgba(226, 53, 53, 1);
+}
+.accountProfile-order-top__line_red2 {
+  top: 5%;
   background-color: rgba(226, 53, 53, 1);
 }
 
@@ -1545,6 +1584,7 @@
 }
 
 .accountProfile-block__descr {
+  white-space: nowrap;
   font-weight: 400;
   @extend %fontSmall;
   margin-right: 8px;
@@ -1657,6 +1697,10 @@
   margin-bottom: 16px;
 }
 
+.accProfile2-historyOrder__column {
+  white-space: nowrap;
+}
+
 .accProfile2-historyOrder__column01 {
   display: flex;
   align-items: center;
@@ -1678,6 +1722,7 @@
   font-weight: 600;
   @extend %fontSmall;
   line-height: 20px;
+      white-space: nowrap;
   &:not(:last-child) {
     margin-bottom: 32px;
   }

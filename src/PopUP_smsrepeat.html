@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>smsCodefiltre</title>
+    <title>popup__smsrepeat</title>
   </head>
   <body>
     <div class="smsCodefilter__wrap">
@@ -20,10 +20,13 @@
               <input placeholder="X" type="text" class="smsCodefilter-item" />
             </div>
           </form>
-          <div class="smsCodefilter__button">Войти</div>
+          <button type="submit" class="smsCodefilter__button">Войти</button>
           <div class="smsCodefilter__repeat">
             Отправить код ещё раз через:
-            <span class="smsCodefilter-repeat__timer">59 секунд</span>
+
+            <button type="submit" class="smsCodefilter-repeat__send">
+              Отправить
+            </button>
           </div>
         </div>
       </div>

@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>addItemCard3</title>
   </head>
   <body>
-    <script type="module" src="./js/main.js"></script>
     <div class="wrap__header">
       <div class="container">
         <header class="header">
@@ -279,6 +279,7 @@
               class="addTOorder__image"
             />
             <h4 class="addTOorder-item__title">Тигр мама</h4>
+            <div class="addTOorder-item__empty">1</div>
             <h5 class="addTOorder-item__descr">Порция 95 г</h5>
             <button class="addTOorder-item__button">179 ₽</button>
           </div>
@@ -432,15 +433,16 @@
               <span class="addItemCard3-delivery__checkbox"></span>
               По времени
             </label>
-            <label class="addItemCard3-delivery-date__label">
-              <input type="date" class="addItemCard3-delivery-date__input" />
-            </label>
-            <label class="addItemCard3-delivery-date__label">
-              <input
-                type="datetime-local"
-                class="addItemCard3-delivery-date__input"
-              />
-            </label>
+            <input
+              type="text"
+              placeholder="Дата"
+              class="addItemCard3-delivery-time"
+            />
+            <input
+              type="text"
+              placeholder="Время"
+              class="addItemCard3-delivery-date"
+            />
           </div>
           <div class="addItemCard2-delivery__pay">
             <h3 class="addItemCard2-delivery-pay__title">Оплата</h3>
@@ -611,5 +613,6 @@
         </footer>
       </div>
     </div>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
