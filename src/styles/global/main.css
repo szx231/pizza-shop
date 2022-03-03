@@ -172,13 +172,13 @@
   height: 343px;
   border-radius: 12px;
   position: relative;
+   cursor: pointer;
 }
 
 .promotions-item__image {
   display: grid;
   align-self: flex-end;
   justify-self: center;
-  cursor: pointer;
 }
 .item_orange {
   position: absolute;
@@ -219,6 +219,7 @@
 .promotions__item_red {
   background-color: rgba(226, 53, 53, 1);
 }
+
 
 
 .delevery__form {
@@ -634,6 +635,8 @@
   border: none;
   background: transparent;
 }
+
+
 
 .order-footer__costs {
   font-family: 'Inter-Regular';
