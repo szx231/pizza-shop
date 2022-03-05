@@ -1232,6 +1232,8 @@
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   padding: 60px 265px;
+  opacity: 1;
+  transition: all 1s ease-in-out;
 }
 
 .accLoginfilter__container {
@@ -1247,6 +1249,17 @@
   font-size: 32px;
   line-height: 40px;
   margin-bottom: 16px;
+}
+
+.accLoginfilter__buttonClose {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 5%;
+  left: 93%;
+  border: none;
+  background-image: url(/images/btnclosePopUP.png);
+  background-color: transparent;
 }
 
 .accLoginfilter__descr {
