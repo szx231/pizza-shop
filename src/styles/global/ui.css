@@ -206,8 +206,13 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
 }
 
 .menu-dropdown__item {
+  transition: all .2s ease-in-out;
   &:not(:last-child) {
     margin-bottom: 16px;
+  }
+  &:hover {
+    background-color: var(--color-orange);
+    border-radius: 5px;
   }
 }
 .menu-dropdown__link {

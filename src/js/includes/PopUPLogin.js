@@ -1,4 +1,3 @@
-import { openPopup } from './popups';
 
 const listItemLogin = document.querySelector('.list-item_login');
 const HTML = document.querySelector('html');

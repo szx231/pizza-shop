@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pizza | Куда-Пицца</title>
     <link rel='icon' href='images/pizzalogo32х32.png' type='image/x-icon'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
   <body>
     <div class="root">
@@ -15,7 +16,7 @@
           <div class="header-top">
             <nav class="nav">
               <ul class="nav-list__item">
-                <div class="list-item_delevery">
+                <div class="list-item_delivery">
                   <li class="nav-list__item list-item__location">
                     <img draggable="false"
                       src="images/location.png"
@@ -63,18 +64,17 @@
             </nav>
           </div>
           <div class="header-bottom">
-            <div class="delevery">
-              <a href ='index.html' class="delevery__logo">
+            <div class="delivery">
+              <a href ='index.html' class="delivery__logo">
                 <img draggable="false"
                   src="images/pizzalogo.png
               "
                   alt=""
-                  class="delevery-logo__image"
+                  class="delivery-logo__image"
                 />
-                <span class="delevery-logo__text">Куда пицца</span>
+                <span class="delivery-logo__text">Куда пицца</span>
               </a>
-              <div class="basket">
-                <a href="popup__nav.html" class="about"></a>
+              <a href="addItemCard2.html" class="basket">
                 <div class="basket__item">
                   <img draggable="false"
                     src="images/basket.png"
@@ -83,7 +83,7 @@
                   />
                   <span class="basket__sum">0 ₽</span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </header>
@@ -219,12 +219,12 @@
           </div>
         </article>
     </section>
-    <section class="section section__deleveryAria">
-        <div class="delevery-aria">
-          <form action="" class="delevery__form">
-            <span class="delevery__text">Проверить адрес доставки</span>
-            <input type="text" class="delevery__input" placeholder="Адрес" />
-            <button class="btnchoise delevery__button">Проверить</button>
+    <section class="section section__deliveryAria">
+        <div class="delivery-aria">
+          <form action="" class="delivery__form">
+            <span class="delivery__text">Проверить адрес доставки</span>
+            <input type="text" class="delivery__input" placeholder="Адрес" />
+            <button class="btnchoise delivery__button">Проверить</button>
           </form>
         </div>
       </section>
@@ -370,7 +370,7 @@
           </div>
         </div>
       </section>
-      <section class="section section__sushi">
+      <section class="section section__sushi" data-aos="fade-up">
         <div class="sushi general__foodsec">
           <div class="sushi__header">
             <h2 class="title sushi__title">Суши</h2>
@@ -511,7 +511,7 @@
           </div>
         </div>
       </section>
-      <section class="section section__snacks">
+      <section class="section section__snacks" data-aos="fade-up">
         <div class="snacks general__foodsec">
           <h2 class="title snacks__title">Закуски</h2>
           <div class="item_wrapper snacks__item_wrapper">
@@ -648,11 +648,11 @@
           </div>
         </div>
     </section>
-    <section class="section section__desserts">
+    <section class="section section__desserts" data-aos="fade-up">
         <div class="desserts general__foodsec">
           <h2 class="title desserts__title">Десерты</h2>
           <div class="item_wrapper desserts__item_wrapper">
-            <div class="item desserts__item">
+            <div class="item desserts__item" >
               <div class="item__promo desserts-item__promo">NEW</div>
               <img draggable="false"
                 src="images/desserts/item01.png"
@@ -793,7 +793,7 @@
           </div>
         </div>
       </section>  
-      <section class="section section__drinks">
+      <section class="section section__drinks" data-aos="fade-up">
         <div class="drinks general__foodsec">
           <h2 class="title drinks__title">Напитки</h2>
           <div class="item_wrapper drinks__item_wrapper">
@@ -914,7 +914,7 @@
           </div>
         </div>
       </section>
-      <section class="section section__sause">
+      <section class="section section__sause" data-aos="fade-up">
         <div class="sauce general__foodsec">
           <h2 class="title sauce__title">Соусы</h2>
           <div class="item_wrapper sause__item_wraper">
@@ -1023,7 +1023,7 @@
           </div>
         </div>
       </section>
-      <section class="section section__combo">
+      <section class="section section__combo" data-aos="fade-up">
         <div class="combo">
           <h2 class="title combo__title">Комбо</h2>
           <div class="item_wrapper combo__item_wrapper">
@@ -1184,7 +1184,7 @@
           </div>
         </div>
       </section>
-    <section class="section deliveryConditions">
+    <section class="section deliveryConditions" data-aos="fade-up">
       <div class="delivery__conditions">
       <div class="delivery-conditions__text">
         <h1 class="delivery-conditions__title">Доставка пиццы в Москве</h1>
@@ -1225,12 +1225,12 @@
           <div class="footer-column_wrap">
             <div class="footer__column">
         <div class="logo">
-        <a href ='index.html' class="delevery__logo">
+        <a href ='index.html' class="delivery__logo">
           <img draggable="false"
             src="images/pizzalogo.png"
             alt=""
-            class="delevery-logo__image"/>
-          <span class="delevery-logo__text">Куда пицца</span>
+            class="delivery-logo__image"/>
+          <span class="delivery-logo__text">Куда пицца</span>
         </a>
         </div>
       </div>
@@ -1532,7 +1532,7 @@
       </form>
     </div>
     </div>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="module" src="./js/main.js"></script>
-  <script type="module" src="./js/PopUPLogin.js"></script>
   </body>
 </html>

@@ -147,6 +147,10 @@ img {
 .wrap__header {
   background-color: var(--color-white);
   margin: 0 auto;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 0%;
 }
 
 .wrap__footer {

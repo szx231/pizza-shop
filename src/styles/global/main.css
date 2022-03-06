@@ -1,7 +1,10 @@
 
-
 .header {
   background-color: var(--color-white);
+}
+
+.m80 {
+  margin-top: 80px; 
 }
 
 .nav {
@@ -22,7 +25,7 @@
   line-height: 18px;
 }
 
-.list-item_delevery {
+.list-item_delivery {
   display: flex;
   margin-right: 243px;
   gap: 40px;
@@ -79,14 +82,14 @@
   cursor: pointer;
 }
 
-.delevery {
+.delivery {
   display: flex;
   margin-top: 11px;
   justify-content: space-between;
   border-bottom: 1px solid var(--color-border);
 }
 
-.delevery__logo {
+.delivery__logo {
   display: flex;
   gap: 12px;
   margin-bottom: 12px;
@@ -94,7 +97,7 @@
   
 }
 
-.delevery-logo__text {
+.delivery-logo__text {
   font-weight: 400;
   @extend %fontLarge;
   line-height: 24px;
@@ -107,8 +110,8 @@
 
 .basket__item {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  width: 89px;
+  grid-template-columns: repeat(2, 40% 60%);
+  width: 100px;
   height: 40px;
   background-color: var(--color-orange);
   font-weight: 400;
@@ -119,11 +122,21 @@
   align-items: center;
   cursor: pointer;
   border-radius: 4px;
+  padding: 0 5px 0 0;
+}
+
+.basket__sum {
+  font-size: 14px;
 }
 
 .logo {
   display: flex;
 }
+
+.main {
+  margin-top: 120px;
+}
+
 .assortment {
   display: flex;
   margin-top: 30px;
@@ -141,6 +154,7 @@
   border-radius: 12px;
   border:1px solid #F0F0F0;
   cursor: pointer;
+  opacity: 0;
   transition: all .2s ease-in-out;
     &:hover {
     margin-top: -4px;
@@ -172,7 +186,8 @@
   height: 343px;
   border-radius: 12px;
   position: relative;
-   cursor: pointer;
+  cursor: pointer;
+  opacity: 0;
 }
 
 .promotions-item__image {
@@ -222,7 +237,7 @@
 
 
 
-.delevery__form {
+.delivery__form {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -232,13 +247,13 @@
   margin-bottom: 30px;
 }
 
-.delevery__text {
+.delivery__text {
   font-weight: 400;
   @extend %fontLarge;
   line-height: 24px;
 }
 
-.delevery__input {
+.delivery__input {
   min-width: 797px;
   padding: 10px 150px 10px 33px;
   background-color: var(--color-white);
@@ -247,13 +262,13 @@
   font-weight: 400;
   @extend %fontSmall;
   color: rgba(165, 165, 165, 1);
-  background-image: url(../images/delevery__aria/input__icon.svg);
+  background-image: url(../images/delivery__aria/input__icon.svg);
   background-repeat: no-repeat;
   background-position-y: 40%;
   background-position-x: 1%;
 }
 
-.delevery__button {
+.delivery__button {
   min-width: 150px;
   width: 150px; 
 }
@@ -674,7 +689,7 @@
   margin-bottom: 15px;
 }
 
-.order-footer__delevery {
+.order-footer__delivery {
   display: flex;
   justify-content: space-between;
   align-items: center;
