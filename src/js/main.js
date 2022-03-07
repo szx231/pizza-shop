@@ -1,12 +1,13 @@
 
-import '../styles/style.css'
-import './includes/test'
+import '../styles/style.css';
+import './includes/test';
 import renderPopup from './includes/PopUPLogin';
 
 //lib 
 import datepicker from 'js-datepicker';
 import 'animate.css';
 import { gsap } from "gsap";
+
 
 AOS.init();
 const body = document.querySelector('body');
@@ -22,6 +23,8 @@ const filterContainer = document.querySelector('.filter-container');
 const filter = document.querySelector('.filter');
 const filterHeaderButton = document.querySelector('.filter-header__button');
 
+const orderitemsum = document.querySelector('.order-item__sum');
+console.log(orderitemsum);
 
 //count 
 const orderCounterPlus = document.querySelectorAll('.order-counter__plus');
@@ -31,29 +34,15 @@ const orderCounterNumber = document.querySelector('.order-counter__number');
 
 window.onload = function() {
   gsap.to('.assortment__item', {delay: 0.2, duration: .4, opacity: 1, stagger: 0.2}); 
-  gsap.to('.promotions__item', {opacity: 1, delay: 0.8, duration: 3, stagger: 0.2 });
+  gsap.to('.promotions__item', {opacity: 1, delay: 0.8, duration: 2.2, stagger: 0.2 });
   gsap.from(".wrap__header", {duration: .8, y: -500, opacity: 0});
   gsap.from(".section__deliveryAria", {duration: .8, y: 500, opacity: 0});
   gsap.from(".section__pizza", {delay: 1, duration: 3, opacity: 0});
 };
 
-
-orderCounterPlus.forEach(orderCounterPlus => {
-  orderCounterPlus.addEventListener('click', (event) => {
-    console.log('1');
-  })
-})
-
-function additemCard3Count () {
-  number = 1;
-  if(number > 1) {
-    number++;
-  }
-}
-
 loginProfile.addEventListener('click', () => {
   rootfilter.style.filter = 'blur(10px)';
-})
+});
 
 document.addEventListener('click', function(event) {
   if(event.target == filterContainer) {
@@ -62,7 +51,7 @@ document.addEventListener('click', function(event) {
     rootfilter.style.filter = 'blur(0px)';
     HTML.style.overflow = 'auto';
   }
-})
+});
 
 
 document.addEventListener('keydown', function(event) {
@@ -81,8 +70,8 @@ btnfilter.forEach(btnfilter => {
     rootfilter.style.filter = 'blur(10px)';
     HTML.style.overflow = 'hidden';
     body.style.paddingRight = lockPaddingValue;
-  })
-})
+  });
+});
 
 filterHeaderButton.addEventListener('click', (event) => {
   filter.classList.toggle("filter__open");
@@ -90,7 +79,7 @@ filterHeaderButton.addEventListener('click', (event) => {
   rootfilter.style.filter = 'blur(0px)';
   HTML.style.overflow = 'auto';
   event.stopPropagation();
-})
+});
 
 
 //add sum on basket
@@ -107,5 +96,7 @@ btnchoise.forEach(btnchoise => {
     basketSumValue += costsNumber;
     basketSum.innerText = `${basketSumValue} ₽`;
     console.log(basketSumValue);
-  })
-})
+    console.log('1');
+  });
+});
+

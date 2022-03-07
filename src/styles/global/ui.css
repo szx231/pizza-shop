@@ -56,7 +56,7 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
   &:hover {
     margin-top: -8px;
     margin-bottom: 8px;
-    box-shadow: 0px 1px 5px #FF7010;
+    box-shadow: 0px 0px 5px 2px #FF7010;
     
   }
 }
@@ -92,6 +92,7 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
   border-radius: 12px;
   justify-self: center;
   height: 100%;
+  user-select: none;
 }
 
 .sushi__image {
@@ -121,6 +122,7 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
   padding: 13px 23px 13px 32px;
   border: none;
   border-radius: 6px;
+  user-select: none;
 }
 
 .btnfilter {
@@ -197,12 +199,14 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
 }
 
 .menu-link__dropdown {
+  display: inline;
   background-image: url(../images/MENU/Menu__icon_arow.svg);
   background-repeat: no-repeat;
   background-position-x: 100%;
   background-position-y: 5%;
   padding-bottom: 55px;
   padding-right: 21px;
+  cursor: pointer;
 }
 
 .menu-dropdown__item {
@@ -438,6 +442,7 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
 .pizzaLink-item__costs {
   display: grid;
   justify-content: center;
+  
 }
 .pizzaLInk__buttons {
   display: grid;

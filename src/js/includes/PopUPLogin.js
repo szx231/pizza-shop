@@ -1,7 +1,6 @@
 
 const listItemLogin = document.querySelector('.list-item_login');
 const HTML = document.querySelector('html');
-console.log(listItemLogin);
 function renderPopup() {
   const popup = `
     <div class="accLoginfilter__wrap">
