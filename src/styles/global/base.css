@@ -191,9 +191,12 @@ img {
 } 
 
 .accLoginfilter__wrap {
-  width: 870px;
-  padding: 10px 10px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  top: 0%;
+  opacity: 1;
 }
 
 .smsCodefilter__wrap {

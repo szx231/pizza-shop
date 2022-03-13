@@ -1,6 +1,5 @@
-
-const listItemLogin = document.querySelector('.list-item_login');
 const HTML = document.querySelector('html');
+const rootfilter = document.querySelector('.root');
 function renderPopup() {
   const popup = `
     <div class="accLoginfilter__wrap">
@@ -17,7 +16,7 @@ function renderPopup() {
             type="text"
             class="accLoginfilter-number__input"
           />
-          <div class="accLoginfilter__button">Войти</div>
+          <a href="addItemCard2.html" class="accLoginfilter__button">Войти</a>
           <div class="accLoginfilter__agreement">
             Продолжая, вы соглашаетесь со сбором и обработкой персональных
             данных и пользовательским соглашением
@@ -25,8 +24,18 @@ function renderPopup() {
         </div>
       </div>
     </div>`
-  document.body.insertAdjacentHTML('beforeend', popup);
-  HTML.style.overflow = 'hidden';
+document.body.insertAdjacentHTML('beforeend', popup);
+HTML.style.overflow = 'hidden';
+const accLoginfilterwrap = document.querySelector('.accLoginfilter__wrap');
+
+document.addEventListener('click', function(event) {
+  if(event.target == accLoginfilterwrap) {
+    console.log('1');
+    accLoginfilterwrap.remove();
+    rootfilter.style.filter = 'blur(0px)';
+    HTML.style.overflow = 'auto';
+  }
+});
 }
 
 
@@ -38,8 +47,5 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-listItemLogin.addEventListener('click', renderPopup);
-
-// renderPopup();
 
 export default renderPopup;

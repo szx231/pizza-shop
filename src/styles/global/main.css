@@ -723,6 +723,8 @@
 
 .addItemCard2-item__image {
   margin-right: 16px;
+  width: 120px;
+  height: 120px;
 }
 .addItemCard2-text__title {
   font-family: 'Inter-Regular';
@@ -851,6 +853,7 @@
   padding: 0 16px 16px 16px;
   margin-bottom: 30px;
   transition: all .2s ease-in-out;
+  cursor: pointer;
   &:hover {
     box-shadow: 0px 0px 5px 2px #FF7010;
   }
@@ -1319,6 +1322,7 @@
   border-radius: 6px;
   margin-bottom: 12px;
   cursor: pointer;
+  user-select: none;
 }
 
 .accLoginfilter__agreement {
