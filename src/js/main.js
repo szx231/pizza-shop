@@ -13,13 +13,56 @@ const b = document.querySelector('.promocode__btn');
 const btnchoise = document.querySelectorAll('.btnchoise');
 const basketSum = document.querySelector('.basket__sum');
 
+
+let data = [];
 let basketSumValue = 0;
 let imgSrc;
+let title;
+let descr;
+let price;
+
+const addItemText = `<div class="addItemCard2__item">
+        <div class="addItemCard2__item_wrap">
+          <img
+            class="addItemCard2-item__image"
+            src=${data[0]}
+            alt="pizza"
+          />
+          <div class="addItemCard2__text">
+            <div class="addItemCard2-text__title">
+              ${data[2]}
+            </div>
+            <div class="addItemCard2-text__descr">${data[3]}</div>
+          </div>
+        </div>
+        <div class="addItemCard2__item_wrap">
+          <div class="order-item__sum">
+            <button class="order-counter__btn order-counter__plus">
+              <img
+                src="images/order/Plus__icon.svg"
+                alt="icon"
+                class="order-counter-plus__image"
+              />
+            </button>
+            <div class="order-counter__number">1</div>
+            <button class="order-counter__btn order-counter__minus">
+              <img
+                src="images/order/Minus__icon.svg"
+                alt="icon"
+                class="order-counter-minus__image"
+              />
+            </button>
+          </div>
+          <div class="order-footer__costs addItemCard2-item__costs">${data[4]}</div>
+        </div>
+</div>`;
+
 
 document.addEventListener("DOMContentLoaded", ready);
 
 function ready() {
 const addItemCard2itemimage = document.querySelector('.addItemCard2-item__image');
+const additem = document.querySelector('.additem');
 if (localStorage.getItem("basket")) {
   const basket = JSON.parse(localStorage.getItem("basket"));
   basketSumValue = basket;
@@ -27,21 +70,38 @@ if (localStorage.getItem("basket")) {
   const src = JSON.parse(localStorage.getItem("src"));
   imgSrc = src;
   addItemCard2itemimage.setAttribute('src', imgSrc);
+  const data = JSON.parse(localStorage.getItem("array"));
+  for (let i = 0; i < data.length; i += 5) {
+    console.log(data[i]);
+}
 }
 }
 
-//changed basked value(money)
+
+
+//changed basket value(money)
 btnchoise.forEach(btnchoise => {
   btnchoise.addEventListener('click', () => {
+    if(data.length < 50) {
     let costs = btnchoise.nextSibling.nextSibling;
-    imgSrc = btnchoise.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.getAttribute('src');
+    imgSrc = btnchoise.parentNode.parentNode.childNodes[3].getAttribute('src');
+    title = btnchoise.parentElement.parentElement.childNodes[5].innerText;
+    descr = btnchoise.parentElement.parentElement.childNodes[7].innerText;
+    price = btnchoise.nextSibling.nextSibling.innerText;
     let costsText = costs.innerText.replace(/[^+\d]/g, '');
     let costsNumber = Number(costsText);
     basketSumValue += costsNumber;
     basketSum.innerText = `${basketSumValue} ₽`;
+    localStorage.setItem("title", JSON.stringify(title));
+    localStorage.setItem("desc", JSON.stringify(descr));
     localStorage.setItem("src", JSON.stringify(imgSrc));
+    localStorage.setItem("price", JSON.stringify(price));
     localStorage.setItem("basket", JSON.stringify(basketSumValue));
-  });
+    data.push(imgSrc, basketSumValue, title, descr, price);
+    localStorage.setItem("array", JSON.stringify(data));
+    console.log(data);
+    console.log(data.length);
+  }});
 });
 
 
