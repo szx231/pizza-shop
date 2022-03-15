@@ -21,18 +21,42 @@ let title;
 let descr;
 let price;
 
-const addItemText = `<div class="addItemCard2__item">
+
+let resultName = [];
+let resultDescr = [];
+let resultImg = [];
+let resultPrice = [];
+document.addEventListener("DOMContentLoaded", ready);
+
+function ready() {
+const additem = document.querySelector('.additem');
+const startitem = document.querySelector('#startitem');
+if (localStorage.getItem("basket")) {
+  startitem.style.display = 'none';
+  const basket = JSON.parse(localStorage.getItem("basket"));
+  basketSumValue = basket;
+  basketSum.innerText = `${basket} ₽`;
+  const data = JSON.parse(localStorage.getItem("array"));
+  for (let i = 0; i < data.length; i += 4) {
+    resultName.push((data[i + 1]));
+    resultDescr.push((data[i + 2]));
+    resultImg.push((data[i + 0]));
+    resultPrice.push((data[i + 3]));
+    console.log((data[i + 3]));
+}
+    for (let i = 0; i < data.length/4; i++) {
+    const addItemText = `<div class="addItemCard2__item">
         <div class="addItemCard2__item_wrap">
           <img
             class="addItemCard2-item__image"
-            src=${data[0]}
+            src=${(resultImg[i])}
             alt="pizza"
           />
           <div class="addItemCard2__text">
             <div class="addItemCard2-text__title">
-              ${data[2]}
+              ${(resultName[i])}
             </div>
-            <div class="addItemCard2-text__descr">${data[3]}</div>
+            <div class="addItemCard2-text__descr">${(resultDescr[i])}</div>
           </div>
         </div>
         <div class="addItemCard2__item_wrap">
@@ -53,28 +77,31 @@ const addItemText = `<div class="addItemCard2__item">
               />
             </button>
           </div>
-          <div class="order-footer__costs addItemCard2-item__costs">${data[4]}</div>
+          <div class="order-footer__costs addItemCard2-item__costs">${(resultPrice[i])}</div>
         </div>
-</div>`;
-
-
-document.addEventListener("DOMContentLoaded", ready);
-
-function ready() {
-const addItemCard2itemimage = document.querySelector('.addItemCard2-item__image');
-const additem = document.querySelector('.additem');
-if (localStorage.getItem("basket")) {
-  const basket = JSON.parse(localStorage.getItem("basket"));
-  basketSumValue = basket;
-  basketSum.innerText = `${basket} ₽`;
-  const src = JSON.parse(localStorage.getItem("src"));
-  imgSrc = src;
-  addItemCard2itemimage.setAttribute('src', imgSrc);
-  const data = JSON.parse(localStorage.getItem("array"));
-  for (let i = 0; i < data.length; i += 5) {
-    console.log(data[i]);
+    </div>`;
+    additem.insertAdjacentHTML('beforeend', addItemText)
 }
 }
+const orderitemsum = document.querySelector('.order-item__sum');
+
+//count 
+const orderCounterPlus = document.querySelectorAll('.order-counter__plus');
+const orderCounterMinus = document.querySelectorAll('.order-counter__minus');
+const orderCounterNumber = document.querySelector('.order-counter__number');
+
+
+orderCounterPlus.forEach(orderCounterPlus => {
+  let amountItem = 1;
+  orderCounterPlus.addEventListener('click', () => {
+    amountItem += 1;
+    orderCounterPlus.parentNode.childNodes[3].innerText = String(amountItem);
+    
+    let priceSumm = orderCounterPlus.parentNode.parentNode.childNodes[3].innerText.replace(/[^+\d]/g, '');
+    let priceNumber = Number(priceSumm);
+    // orderCounterPlus.parentNode.parentNode.childNodes[3].innerText = String(priceNumber*amountItem + '₽');
+  })
+})
 }
 
 
@@ -82,13 +109,13 @@ if (localStorage.getItem("basket")) {
 //changed basket value(money)
 btnchoise.forEach(btnchoise => {
   btnchoise.addEventListener('click', () => {
-    if(data.length < 50) {
+    if(data.length < 40) {
     let costs = btnchoise.nextSibling.nextSibling;
     imgSrc = btnchoise.parentNode.parentNode.childNodes[3].getAttribute('src');
     title = btnchoise.parentElement.parentElement.childNodes[5].innerText;
     descr = btnchoise.parentElement.parentElement.childNodes[7].innerText;
-    price = btnchoise.nextSibling.nextSibling.innerText;
-    let costsText = costs.innerText.replace(/[^+\d]/g, '');
+    price = btnchoise.nextSibling.nextSibling.innerText.replace(/[a-zа-яё]/gi, '').trim();
+    let costsText = costs.innerText.replace(/[^+\d]/g, '').trim();
     let costsNumber = Number(costsText);
     basketSumValue += costsNumber;
     basketSum.innerText = `${basketSumValue} ₽`;
@@ -97,7 +124,7 @@ btnchoise.forEach(btnchoise => {
     localStorage.setItem("src", JSON.stringify(imgSrc));
     localStorage.setItem("price", JSON.stringify(price));
     localStorage.setItem("basket", JSON.stringify(basketSumValue));
-    data.push(imgSrc, basketSumValue, title, descr, price);
+    data.push(imgSrc, title, descr, price);
     localStorage.setItem("array", JSON.stringify(data));
     console.log(data);
     console.log(data.length);
@@ -120,15 +147,9 @@ const filterContainer = document.querySelector('.filter-container');
 const filter = document.querySelector('.filter');
 const filterHeaderButton = document.querySelector('.filter-header__button');
 
-const orderitemsum = document.querySelector('.order-item__sum');
-
-//count 
-const orderCounterPlus = document.querySelectorAll('.order-counter__plus');
-const orderCounterMinus = document.querySelectorAll('.order-counter__minus');
-const orderCounterNumber = document.querySelector('.order-counter__number');
 
 //oload page style
-window.onload = function() {
+window.onload = () => {
   gsap.to('.assortment__item', {delay: 0.2, duration: .4, opacity: 1, stagger: 0.2}); 
   gsap.to('.promotions__item', {opacity: 1, delay: 0.8, duration: 1.5});
   gsap.from(".wrap__header", {duration: .8, y: -500, opacity: 0});
@@ -142,7 +163,7 @@ loginProfile.addEventListener('click', () => {
   console.log('1');
 });
 
-document.addEventListener('click', function(event) {
+document.addEventListener('click', (event) => {
   if(event.target == filterContainer) {
     filter.classList.remove("filter__open");
     filterContainer.classList.remove('filter-container__open');
@@ -151,7 +172,7 @@ document.addEventListener('click', function(event) {
   }
 });
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', (event) => {
   if(event.keyCode === 27){
     filter.classList.remove("filter__open");
     filterContainer.classList.remove('filter-container__open');
