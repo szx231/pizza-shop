@@ -12,7 +12,7 @@ const b = document.querySelector('.promocode__btn');
 //add sum on basket
 const btnchoise = document.querySelectorAll('.btnchoise');
 const basketSum = document.querySelector('.basket__sum');
-
+const promocodeCosts = document.querySelector('.promocode__costs');
 
 let data = [];
 let basketSumValue = 0;
@@ -20,31 +20,43 @@ let imgSrc;
 let title;
 let descr;
 let price;
+let costs;
 
 
 let resultName = [];
 let resultDescr = [];
 let resultImg = [];
 let resultPrice = [];
+let datasetPrice = [];
+
+let totalAmountBasket = [];
+
 document.addEventListener("DOMContentLoaded", ready);
 
 function ready() {
 const additem = document.querySelector('.additem');
 const startitem = document.querySelector('#startitem');
 if (localStorage.getItem("basket")) {
-  startitem.style.display = 'none';
   const basket = JSON.parse(localStorage.getItem("basket"));
   basketSumValue = basket;
   basketSum.innerText = `${basket} ₽`;
   const data = JSON.parse(localStorage.getItem("array"));
-  for (let i = 0; i < data.length; i += 4) {
+  startitem.style.display = 'none';
+  for (let i = 0; i < data.length; i += 5) {
     resultName.push((data[i + 1]));
     resultDescr.push((data[i + 2]));
     resultImg.push((data[i + 0]));
     resultPrice.push((data[i + 3]));
-    console.log((data[i + 3]));
+    datasetPrice.push((data[i + 3]));
+    console.log(resultPrice, datasetPrice);
 }
-    for (let i = 0; i < data.length/4; i++) {
+  const basketSumStart = resultPrice.map((num) => Number(num.replace(/[^+\d]/g, '')));
+  const basketSumStartFixed = basketSumStart.reduce(function(sum, elem) {
+	return sum + elem;
+  }, 0);
+  promocodeCosts.innerText = 'Итого:'+' '+`${basketSumStartFixed}`+' ' +'₽';
+
+    for (let i = 0; i < data.length/5; i++) {
     const addItemText = `<div class="addItemCard2__item">
         <div class="addItemCard2__item_wrap">
           <img
@@ -61,70 +73,86 @@ if (localStorage.getItem("basket")) {
         </div>
         <div class="addItemCard2__item_wrap">
           <div class="order-item__sum">
-            <button class="order-counter__btn order-counter__plus">
+            <button class="order-counter__btn order-counter__increment">
               <img
                 src="images/order/Plus__icon.svg"
                 alt="icon"
-                class="order-counter-plus__image"
+                class="order-counter-increment__image"
               />
             </button>
             <div class="order-counter__number">1</div>
-            <button class="order-counter__btn order-counter__minus">
+            <button class="order-counter__btn order-counter__decrement">
               <img
                 src="images/order/Minus__icon.svg"
                 alt="icon"
-                class="order-counter-minus__image"
+                class="order-counter-decrement__image"
               />
             </button>
           </div>
-          <div class="order-footer__costs addItemCard2-item__costs">${(resultPrice[i])}</div>
+          <div class="order-footer__costs addItemCard2-item__costs" ${('data-price='+datasetPrice[i])}>${(resultPrice[i])}</div>
         </div>
     </div>`;
-    additem.insertAdjacentHTML('beforeend', addItemText)
+    additem.insertAdjacentHTML('afterend', addItemText)
 }
 }
 const orderitemsum = document.querySelector('.order-item__sum');
 
 //count 
-const orderCounterPlus = document.querySelectorAll('.order-counter__plus');
-const orderCounterMinus = document.querySelectorAll('.order-counter__minus');
+const orderCounterincrement = document.querySelectorAll('.order-counter__increment');
+const orderCounterdecrement = document.querySelectorAll('.order-counter__decrement');
 const orderCounterNumber = document.querySelector('.order-counter__number');
 
-
-orderCounterPlus.forEach(orderCounterPlus => {
-  let amountItem = 1;
-  orderCounterPlus.addEventListener('click', () => {
-    amountItem += 1;
-    orderCounterPlus.parentNode.childNodes[3].innerText = String(amountItem);
-    
-    let priceSumm = orderCounterPlus.parentNode.parentNode.childNodes[3].innerText.replace(/[^+\d]/g, '');
+orderCounterincrement.forEach(orderCounterincrement => {
+  const costsEl = orderCounterincrement.closest('.addItemCard2__item').querySelector('.addItemCard2-item__costs');
+  const numberEl = orderCounterincrement.closest('.addItemCard2__item').querySelector('.order-counter__number');
+  orderCounterincrement.addEventListener('click', () => {
+    let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
     let priceNumber = Number(priceSumm);
-    // orderCounterPlus.parentNode.parentNode.childNodes[3].innerText = String(priceNumber*amountItem + '₽');
+    let priceSingle = Number(costsEl.dataset['price']);
+    numberEl.innerText = Number(numberEl.innerText) + 1;
+    costsEl.innerText = String(priceNumber+priceSingle + '₽');
+   
+    totalAmountBasket.push(priceSingle);
+    console.log(totalAmountBasket);
+  })
+})
+
+orderCounterdecrement.forEach(orderCounterdecrement => {
+  const costsEl = orderCounterdecrement.closest('.addItemCard2__item').querySelector('.addItemCard2-item__costs');
+  const numberEl = orderCounterdecrement.closest('.addItemCard2__item').querySelector('.order-counter__number');
+  orderCounterdecrement.addEventListener('click', () => {
+    let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
+    let priceNumber = Number(priceSumm);
+    let priceSingle = Number(costsEl.dataset['price']);
+    if((Number(numberEl.innerText>=1))){
+    numberEl.innerText = Number(numberEl.innerText) - 1;
+    costsEl.innerText = String(priceNumber-priceSingle + '₽');
+    if(totalAmountBasket >= 0) {
+    // let b =  Number(costsEl.innerText.replace(/[^+\d]/g, ''));
+    // console.log(totalAmountBasket - b);
+    }
+    }
   })
 })
 }
-
 
 
 //changed basket value(money)
 btnchoise.forEach(btnchoise => {
   btnchoise.addEventListener('click', () => {
     if(data.length < 40) {
-    let costs = btnchoise.nextSibling.nextSibling;
+    costs = btnchoise.nextSibling.nextSibling;
     imgSrc = btnchoise.parentNode.parentNode.childNodes[3].getAttribute('src');
     title = btnchoise.parentElement.parentElement.childNodes[5].innerText;
     descr = btnchoise.parentElement.parentElement.childNodes[7].innerText;
     price = btnchoise.nextSibling.nextSibling.innerText.replace(/[a-zа-яё]/gi, '').trim();
+    datasetPrice = costs.dataset['price'];
     let costsText = costs.innerText.replace(/[^+\d]/g, '').trim();
     let costsNumber = Number(costsText);
     basketSumValue += costsNumber;
     basketSum.innerText = `${basketSumValue} ₽`;
-    localStorage.setItem("title", JSON.stringify(title));
-    localStorage.setItem("desc", JSON.stringify(descr));
-    localStorage.setItem("src", JSON.stringify(imgSrc));
-    localStorage.setItem("price", JSON.stringify(price));
     localStorage.setItem("basket", JSON.stringify(basketSumValue));
-    data.push(imgSrc, title, descr, price);
+    data.push(imgSrc, title, descr, price, datasetPrice);
     localStorage.setItem("array", JSON.stringify(data));
     console.log(data);
     console.log(data.length);
