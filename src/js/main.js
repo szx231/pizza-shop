@@ -29,7 +29,6 @@ let resultImg = [];
 let resultPrice = [];
 let datasetPrice = [];
 
-let totalAmountBasket = [];
 
 document.addEventListener("DOMContentLoaded", ready);
 
@@ -55,6 +54,7 @@ if (localStorage.getItem("basket")) {
 	return sum + elem;
   }, 0);
   promocodeCosts.innerText = 'Итого:'+' '+`${basketSumStartFixed}`+' ' +'₽';
+  let totalAmountBasket = basketSumStartFixed;
 
     for (let i = 0; i < data.length/5; i++) {
     const addItemText = `<div class="addItemCard2__item">
@@ -91,16 +91,15 @@ if (localStorage.getItem("basket")) {
           </div>
           <div class="order-footer__costs addItemCard2-item__costs" ${('data-price='+datasetPrice[i])}>${(resultPrice[i])}</div>
         </div>
+        <button class="addItemCard2-item__remove">
+          <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
+        </button>
     </div>`;
     additem.insertAdjacentHTML('afterend', addItemText)
 }
-}
-const orderitemsum = document.querySelector('.order-item__sum');
-
 //count 
 const orderCounterincrement = document.querySelectorAll('.order-counter__increment');
 const orderCounterdecrement = document.querySelectorAll('.order-counter__decrement');
-const orderCounterNumber = document.querySelector('.order-counter__number');
 
 orderCounterincrement.forEach(orderCounterincrement => {
   const costsEl = orderCounterincrement.closest('.addItemCard2__item').querySelector('.addItemCard2-item__costs');
@@ -112,10 +111,12 @@ orderCounterincrement.forEach(orderCounterincrement => {
     numberEl.innerText = Number(numberEl.innerText) + 1;
     costsEl.innerText = String(priceNumber+priceSingle + '₽');
    
-    totalAmountBasket.push(priceSingle);
-    console.log(totalAmountBasket);
+    totalAmountBasket += priceSingle;
+    promocodeCosts.innerText = 'Итого:'+' '+`${totalAmountBasket}`+' ' +'₽';
   })
 })
+removeItem();
+
 
 orderCounterdecrement.forEach(orderCounterdecrement => {
   const costsEl = orderCounterdecrement.closest('.addItemCard2__item').querySelector('.addItemCard2-item__costs');
@@ -128,14 +129,27 @@ orderCounterdecrement.forEach(orderCounterdecrement => {
     numberEl.innerText = Number(numberEl.innerText) - 1;
     costsEl.innerText = String(priceNumber-priceSingle + '₽');
     if(totalAmountBasket >= 0) {
-    // let b =  Number(costsEl.innerText.replace(/[^+\d]/g, ''));
-    // console.log(totalAmountBasket - b);
+    totalAmountBasket -= priceSingle;
+    promocodeCosts.innerText = 'Итого:'+' '+`${totalAmountBasket}`+' ' +'₽';
     }
     }
   })
 })
 }
+}
 
+function removeItem() { 
+const itemRemove = document.querySelectorAll('.addItemCard2-item__remove');
+itemRemove.forEach(itemRemove => {
+  itemRemove.addEventListener('click', () => {
+    const item = itemRemove.closest('.addItemCard2__item');
+    const itemCosts = item.querySelector('.order-item__sum').nextElementSibling.innerText.replace(/[^+\d]/g, '');
+    let itemNumber = Number(itemCosts);
+    totalAmountBasket -= itemNumber;
+    // item.remove();
+  })
+})
+} 
 
 //changed basket value(money)
 btnchoise.forEach(btnchoise => {

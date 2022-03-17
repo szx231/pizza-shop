@@ -725,6 +725,7 @@
   border-radius: 12px;
   margin-bottom: 16px;
   transition: all .2s ease-in-out;
+  position: relative;
   &:hover {
     box-shadow: 0px 0px 5px 2px #FF7010;
   }
@@ -771,6 +772,18 @@
   white-space: nowrap;
 }
 
+.addItemCard2-item__remove {
+  position: absolute;
+  top: 3%;
+  left: 97%;
+  background-color: transparent;
+  border: none;
+  transition: all .1s;
+  &:hover {
+    margin: -0.5px;
+  }
+}
+
 .promocode {
   background-color: var(--color-white);
   border: 1px solid var(--color-border);
@@ -808,6 +821,7 @@
 }
 
 .promocode__costs {
+  max-width: 135px;
   font-family: 'Inter-Regular';
   color: var(--color-orange);
   font-weight: 600;
