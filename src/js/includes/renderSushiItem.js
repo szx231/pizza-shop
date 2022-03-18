@@ -1,4 +1,6 @@
-sushiName = [
+const sushi = document.querySelector('.sushi__item_wrapper');
+
+let  sushiName = [
   "Филадельфия кранч",
   "Филадельфия крем-брюле",
   "Супер Филадельфия",
@@ -8,7 +10,8 @@ sushiName = [
   "Филадельфия кранч",
   "Филадельфия крем-брюле",
 ] ;
-sushiDescr = [
+
+let sushiDescr = [
   "Семга, рис, сыр креметто, соус унаги, креветка, авокадо,чип...",
   "Сливочный сыр, семга татаки с&nbsp;тростниковым сахаром,соус&nbsp;у...",
   "Действительно много семги, сливочный сыр, огурец, рис, н...",
@@ -20,7 +23,7 @@ sushiDescr = [
 ];
 
 
-SushiCosts = [
+let sushiCosts = [
   "475 ₽",
   "395 ₽",
   "425 ₽",
@@ -32,7 +35,7 @@ SushiCosts = [
 ];
 
 
-SushiImg = [
+let sushiImg = [
   "images/sushi/item01.png",
   "images/sushi/item02.png",
   "images/sushi/item03.png",
@@ -43,21 +46,43 @@ SushiImg = [
   "images/sushi/item08.png",
 ];
 
+let dataPrice = [
+  "475",
+  "395",
+  "425",
+  "525",
+  "525",
+  "425",
+  "475",
+  "395",
+]
 
 
-<div class="item pizza__item">
-  <div class="empty"></div>
-  <img draggable="false"
-  src="images/pizza/pizza08.png"
-  alt="pizza"
-  class="item__image pizza__image"
-/>
-  <div  class="item__name pizza__name"
-  >EASY PEASY огуречный расколбас</div>
-  <div class="item__descr pizza__descr"
-  >Курица, Лук, Перец Халапеньо...</div>
-  <div class="item__bottom_choise">
-  <div class="btnchoise pizza__button">Выбрать</div>
-  <div class="item__costs pizza__costs">от 549 ₽</div>
-  </div>
-</div>
+function createSushiItem () {
+  for(let i=0; i <sushiName.length; i++) {
+    let newItem = document.createElement('div');
+    newItem.className = ('item sushi__item');
+    const itemText = `
+    <div  class="item sushi__item">
+    <img draggable="false"
+      src="${(sushiImg[i])}"
+      alt="sushi"
+      class="item__image sushi__image"
+    />
+    <div  class="item__name sushi__name">${(sushiName[i])}</div>
+    <div class="item__descr sushi__descr"
+    >${(sushiDescr[i])}</div
+    >
+    <div class="item__bottom_choise">
+    <button class="btnchoise sushi__button">Выбрать</button>
+    <div class="item__costs sushi__costs" data-price="${(dataPrice[i])}">${sushiCosts[i]}</div>
+    </div>
+    </div>`;
+    newItem.innerText = itemText;
+    sushi.insertAdjacentHTML('beforeend', itemText)
+  }
+}
+
+
+
+export default createSushiItem;

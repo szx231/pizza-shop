@@ -1,6 +1,12 @@
 import '../styles/style.css';
 import './includes/test';
+import createComboItem  from './includes/renderComboItem';
+import createSauseItem  from './includes/renderSauseItem';
+import createsnackItem  from './includes/renderSnacksItem';
+import createSushiItem from './includes/renderSushiItem';
+
 import renderPopup from './includes/PopUPLogin';
+
 
 //lib 
 import datepicker from 'js-datepicker';
@@ -14,14 +20,27 @@ const btnchoise = document.querySelectorAll('.btnchoise');
 const basketSum = document.querySelector('.basket__sum');
 const promocodeCosts = document.querySelector('.promocode__costs');
 
+function createItemOnPage () {
+  createComboItem();
+  createSauseItem();
+  createsnackItem();
+  createSushiItem();
+}
+createItemOnPage ()
+
 let data = [];
+
+if(localStorage.getItem("array")) {
+  let dataload = JSON.parse(localStorage.getItem("array"));
+  data = dataload;
+}
+
 let basketSumValue = 0;
 let imgSrc;
 let title;
 let descr;
 let price;
 let costs;
-
 
 let resultName = [];
 let resultDescr = [];
@@ -97,6 +116,55 @@ if (localStorage.getItem("basket")) {
     </div>`;
     additem.insertAdjacentHTML('afterend', addItemText)
 }
+
+  const addTOorderBtn = document.querySelectorAll('.addTOorder-item__button');
+  addTOorderBtn.forEach(addTOorderBtn => {
+    addTOorderBtn.addEventListener('click', () => {
+      let elTitle = addTOorderBtn.closest('.addTOorder__item').querySelector('.addTOorder-item__title').innerText;
+      let elDescr =  addTOorderBtn.closest('.addTOorder__item').querySelector('.addTOorder-item__descr').innerText;
+      let elimg =  addTOorderBtn.closest('.addTOorder__item').querySelector('.addTOorder__image').getAttribute('src');
+      let elCost = Number(addTOorderBtn.innerText.replace(/[^+\d]/g, ''));
+      const addItemText = `<div class="addItemCard2__item">
+        <div class="addItemCard2__item_wrap">
+          <img
+            class="addItemCard2-item__image"
+            src=${elimg}
+            alt="pizza"
+          />
+          <div class="addItemCard2__text">
+            <div class="addItemCard2-text__title">
+              ${elTitle}
+            </div>
+            <div class="addItemCard2-text__descr">${elDescr}</div>
+          </div>
+        </div>
+        <div class="addItemCard2__item_wrap">
+          <div class="order-item__sum">
+            <button class="order-counter__btn order-counter__increment">
+              <img
+                src="images/order/Plus__icon.svg"
+                alt="icon"
+                class="order-counter-increment__image"
+              />
+            </button>
+            <div class="order-counter__number">1</div>
+            <button class="order-counter__btn order-counter__decrement">
+              <img
+                src="images/order/Minus__icon.svg"
+                alt="icon"
+                class="order-counter-decrement__image"
+              />
+            </button>
+          </div>
+          <div class="order-footer__costs addItemCard2-item__costs" ${('data-price='+elCost)}>${elCost} ₽ </div>
+        </div>
+        <button class="addItemCard2-item__remove">
+          <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
+        </button>
+    </div>`;
+    additem.insertAdjacentHTML('afterend', addItemText)
+    })
+  })
 //count 
 const orderCounterincrement = document.querySelectorAll('.order-counter__increment');
 const orderCounterdecrement = document.querySelectorAll('.order-counter__decrement');
@@ -109,13 +177,25 @@ orderCounterincrement.forEach(orderCounterincrement => {
     let priceNumber = Number(priceSumm);
     let priceSingle = Number(costsEl.dataset['price']);
     numberEl.innerText = Number(numberEl.innerText) + 1;
-    costsEl.innerText = String(priceNumber+priceSingle + '₽');
+    costsEl.innerText = String(priceNumber+priceSingle + ' '+'₽');
    
     totalAmountBasket += priceSingle;
     promocodeCosts.innerText = 'Итого:'+' '+`${totalAmountBasket}`+' ' +'₽';
+    basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
   })
 })
-removeItem();
+const itemRemove = document.querySelectorAll('.addItemCard2-item__remove');
+itemRemove.forEach(itemRemove => {
+  itemRemove.addEventListener('click', () => {
+    const item = itemRemove.closest('.addItemCard2__item');
+    const itemCosts = item.querySelector('.order-item__sum').nextElementSibling.innerText;
+    let itemNumber = Number(itemCosts.replace(/[^+\d]/g, ''));
+    totalAmountBasket -= itemNumber;
+    promocodeCosts.innerText = 'Итого:'+' '+`${totalAmountBasket}`+' ' +'₽';
+    item.remove();
+    basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
+  })
+})
 
 
 orderCounterdecrement.forEach(orderCounterdecrement => {
@@ -131,6 +211,7 @@ orderCounterdecrement.forEach(orderCounterdecrement => {
     if(totalAmountBasket >= 0) {
     totalAmountBasket -= priceSingle;
     promocodeCosts.innerText = 'Итого:'+' '+`${totalAmountBasket}`+' ' +'₽';
+    basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
     }
     }
   })
@@ -138,27 +219,14 @@ orderCounterdecrement.forEach(orderCounterdecrement => {
 }
 }
 
-function removeItem() { 
-const itemRemove = document.querySelectorAll('.addItemCard2-item__remove');
-itemRemove.forEach(itemRemove => {
-  itemRemove.addEventListener('click', () => {
-    const item = itemRemove.closest('.addItemCard2__item');
-    const itemCosts = item.querySelector('.order-item__sum').nextElementSibling.innerText.replace(/[^+\d]/g, '');
-    let itemNumber = Number(itemCosts);
-    totalAmountBasket -= itemNumber;
-    // item.remove();
-  })
-})
-} 
-
-//changed basket value(money)
+// changed basket value(money)
 btnchoise.forEach(btnchoise => {
   btnchoise.addEventListener('click', () => {
+  costs = btnchoise.parentNode.parentNode.querySelector('.item__costs');
+  imgSrc = btnchoise.parentNode.parentNode.querySelector('.item__image').getAttribute('src');
+  title = btnchoise.parentNode.parentNode.querySelector('.item__name').innerText;
+  descr = btnchoise.parentNode.parentNode.querySelector('.item__descr').innerText;
     if(data.length < 40) {
-    costs = btnchoise.nextSibling.nextSibling;
-    imgSrc = btnchoise.parentNode.parentNode.childNodes[3].getAttribute('src');
-    title = btnchoise.parentElement.parentElement.childNodes[5].innerText;
-    descr = btnchoise.parentElement.parentElement.childNodes[7].innerText;
     price = btnchoise.nextSibling.nextSibling.innerText.replace(/[a-zа-яё]/gi, '').trim();
     datasetPrice = costs.dataset['price'];
     let costsText = costs.innerText.replace(/[^+\d]/g, '').trim();
@@ -170,6 +238,8 @@ btnchoise.forEach(btnchoise => {
     localStorage.setItem("array", JSON.stringify(data));
     console.log(data);
     console.log(data.length);
+  } else {
+    
   }});
 });
 
