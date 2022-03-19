@@ -78,6 +78,8 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
   @extend %fontSmall;
   margin-bottom: 16px;
   padding: 0 20px;
+  overflow: hidden;
+  max-height: 63px;
 }
 
 .item__costs {

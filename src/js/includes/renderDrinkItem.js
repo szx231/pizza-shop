@@ -1,4 +1,6 @@
-drinkName = [
+const drinks = document.querySelector('.drinks__item_wrapper');
+
+let drinkName = [
   "Adrenaline Game",
   "Pepsi dark",
   "Pepsi light",
@@ -9,7 +11,7 @@ drinkName = [
   "Pepsi dark light",
 ] ;
 
-drinkDescr = [
+let drinkDescr = [
   "Напиток безалкогольный, тонизирующий, газированный. Ароматизированный. Пастеризованный",
   "Торговая марка, принадлежащая американской компании PepsiCo, безалкогольный сильногазированный прохладительный напиток.",
   "Безалкогольный газированный напиток, производимый американской компанией PepsiCo.",
@@ -21,7 +23,7 @@ drinkDescr = [
 ];
 
 
-drinkCosts = [
+let drinkCosts = [
   "475 ₽",
   "395 ₽",
   "425 ₽",
@@ -33,7 +35,7 @@ drinkCosts = [
 ];
 
 
-drinkImg = [
+let drinkImg = [
   "images/drinks/item07.png",
   "images/drinks/item02.png",
   "images/drinks/item03.png",
@@ -45,20 +47,44 @@ drinkImg = [
 ];
 
 
+let dataPrice = [
+  "475",
+  "395",
+  "425",
+  "525",
+  "425",
+  "525",
+  "425",
+  "525",
+];
 
-<div class="item pizza__item">
-  <div class="empty"></div>
-  <img draggable="false"
-  src="images/pizza/pizza08.png"
-  alt="pizza"
-  class="item__image pizza__image"
-/>
-  <div  class="item__name pizza__name"
-  >EASY PEASY огуречный расколбас</div>
-  <div class="item__descr pizza__descr"
-  >Курица, Лук, Перец Халапеньо...</div>
-  <div class="item__bottom_choise">
-  <div class="btnchoise pizza__button">Выбрать</div>
-  <div class="item__costs pizza__costs">от 549 ₽</div>
-  </div>
-</div>
+
+
+function createDrinkIItem () {
+  for(let i=0; i <drinkName.length; i++) {
+    let newItem = document.createElement('div');
+    newItem.className = ('drinks__item');
+    const itemText = `
+    <div class="item drinks__item">
+    <img draggable="false"
+      src="${(drinkImg[i])}"
+      alt="drink"
+      class="item__image drinks__image"
+    />
+    <div  class="item__name drinks__name">${(drinkName[i])}</div>
+    <div  class="item__descr drinks__descr"
+    >${(drinkDescr[i])}</div
+    >
+    <div class="item__bottom_choise">
+    <button class="btnchoise drinks__button">Выбрать</button>
+    <div class="item__costs drinks__costst" data-price="${(dataPrice[i])}">${(drinkCosts[i])}</div>
+    </div>
+    </div>`;
+    newItem.innerText = itemText;
+    drinks.insertAdjacentHTML('beforeend', itemText)
+  }
+}
+
+
+
+export default createDrinkIItem;

@@ -25,6 +25,7 @@
     "gsap": "^3.9.1",
     "js-datepicker": "^5.18.0",
     "normalize.css": "^8.0.1",
+    "swiper": "^8.0.7",
     "wow.js": "^1.2.2"
   }
 }
