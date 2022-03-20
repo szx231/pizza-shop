@@ -7,30 +7,46 @@ import createSushiItem from './includes/renderSushiItem';
 import createPizzaiItem from './includes/renderPizzaItem';
 import createDrinkIItem from './includes/renderDrinkItem';
 import createDessertIItem from './includes/renderDessertItem'
-import renderPopup from './includes/PopUPLogin';
-import Swiper from 'swiper';
-import 'swiper/css/bundle';
+// import renderPopup from './includes/PopUPLogin';
+import basketIsFull from './includes/PopUPBasketFull';
 
-//lib 
 
-const slider = document.querySelector('.swiper');
-let mySwiper = new Swiper('.swiper', {
-  spaceBetween: 10,
-  slidesPerGroup: 2,
-  speed: 500,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-    clickable: true,
+if(document.querySelector('.addTOorder')) {
+const swiper1 = new Swiper('.mySwiper1', {
+spaceBetween: 10,
+slidesPerView: 4,
+slidesPerGroup: 2,
+speed: 500,
+loop: false,
+navigation: {
+  nextEl: '.swiper-button-next1',
+  prevEl: '.swiper-button-prev1',
+  clickable: true,
   },
   mousewheel: {
     sensitivity: 2,
   }
-  });
+})
+
+const swiper = new Swiper('.mySwiper', {
+spaceBetween: 10,
+slidesPerView: 4,
+slidesPerGroup: 2,
+speed: 500,
+loop: false,
+navigation: {
+  nextEl: '.swiper-button-next',
+  prevEl: '.swiper-button-prev',
+  clickable: true,
+  },
+  mousewheel: {
+    sensitivity: 2,
+  }
+})
+}
 
 import 'animate.css';
 import { gsap } from "gsap";
-import 'swiper/css';
 
 if(document.querySelector('.sushi__item_wrapper') !== null) {
   createSushiItem();
@@ -54,6 +70,17 @@ if(document.querySelector('.snacks__item_wrapper') !== null) {
 if(document.querySelector('.sause__item_wraper') !== null) {
   createSauseItem();
 }
+
+const menuDropdownList = document.querySelector('.menu-dropdown__list');
+if(menuDropdownList) {
+  menuDropdownList.style.display = "none";
+  setTimeout(() => {
+    menuDropdownList.style.display = "block";
+  }, 500);
+}
+
+
+
 //oload page style
 window.onload = () => {
   gsap.to('.assortment__item', {delay: 0.2, duration: 0.4, opacity: 1, stagger: 0.1}); 
@@ -66,6 +93,8 @@ window.onload = () => {
 //add sum on basket
 const basketSum = document.querySelector('.basket__sum');
 const promocodeCosts = document.querySelector('.promocode__costs');
+
+
 
 let data = [];
 
@@ -88,7 +117,7 @@ let resultDescr = [];
 let resultImg = [];
 let resultPrice = [];
 let datasetPrice = [];
-
+const allOrderCosts = document.querySelector('.addItemCard2-delivery-comment-delivery__costs');
 
 // COUNT INCREMENT(-)
 document.addEventListener('click', (e) => {
@@ -102,6 +131,7 @@ document.addEventListener('click', (e) => {
   costsEl.innerText = String(priceNumber+priceSingle + ' '+'₽');
   totalAmountBasket += priceSingle;
   promocodeCosts.innerText = `Итого: ${totalAmountBasket} ₽`;
+  allOrderCosts.innerText = `Итого: ${totalAmountBasket} ₽`;
   basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
     }
   })
@@ -121,6 +151,7 @@ document.addEventListener('click', (e) => {
     if(totalAmountBasket >= 0) {
     totalAmountBasket -= priceSingle;
     promocodeCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+    allOrderCosts.innerText = `Итого ${totalAmountBasket} ₽`;
     basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
     }}}
   })
@@ -142,11 +173,14 @@ document.addEventListener('click', (e) => {
     item.remove();
     totalAmountBasket -= itemNumber;
     promocodeCosts.innerText = `Итого: ${totalAmountBasket} ₽`;
+    allOrderCosts.innerText = `Итого: ${totalAmountBasket} ₽`;
     basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
     }
   })
 
-document.addEventListener("DOMContentLoaded", ready);
+if(document.querySelector('.wrap__addItemCard2') !== null) {
+  document.addEventListener("DOMContentLoaded", ready);
+}
 
 function ready() {
 const additem = document.querySelector('.additem');
@@ -169,6 +203,7 @@ if (localStorage.getItem("basket")) {
 	return sum + elem;
   }, 0);
   promocodeCosts.innerText = `Итого ${basketSumStartFixed} ₽`;
+  allOrderCosts.innerText = `Итого ${basketSumStartFixed} ₽`;
   totalAmountBasket = basketSumStartFixed;
 
     for (let i = 0; i < data.length/5; i++) {
@@ -277,17 +312,20 @@ if (localStorage.getItem("basket")) {
     additem.insertAdjacentHTML('afterend', addItemText)
     if(totalAmountBasket == undefined) {
       totalAmountBasket = 0;
-    }
+    } 
     totalAmountBasket += datasetPrice;
     promocodeCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+    allOrderCosts.innerText = `Итого ${totalAmountBasket} ₽`;
     basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
-  } else {
-    
-  }}
+  }} else {
+    if(e.target.closest('.btnchoise') && data.length >= 39) {
+      basketIsFull();
+    }
+  }
 });
 // changed basket value(money)
   document.addEventListener('click', (e) => {
-  if(e.target.closest('.btnchoise') || e.target.closest('.btnchoise')) {
+  if(e.target.closest('.btnchoise')) {
   costs = e.target.closest('.item').querySelector('.item__costs');
   imgSrc = e.target.closest('.item').querySelector('.item__image').getAttribute('src');
   title = e.target.closest('.item').querySelector('.item__name').innerText;
@@ -322,9 +360,12 @@ const filter = document.querySelector('.filter');
 const filterHeaderButton = document.querySelector('.filter-header__button');
 
 
-loginProfile.addEventListener('click', () => {
-  renderPopup();
-  rootfilter.style.filter = 'blur(10px)';
+document.addEventListener('click', (e) => {
+  if(1>0) {
+  console.log(e.target);
+  // renderPopup();
+  // rootfilter.style.filter = 'blur(10px)';
+  }
 });
 
 document.addEventListener('click', (e) => {

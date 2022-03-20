@@ -173,7 +173,7 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
 
 
 .menu-dropdown__list {
-  transition: 0.4s ease-in-out;
+  transition: .4s ease-in-out;
   opacity:0;
   visibility:hidden;
   padding: 20px 15px 20px 20px;

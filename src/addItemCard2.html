@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     <title>addItemCard2</title>
   </head>
   <body>
@@ -155,87 +159,107 @@
         </div>
       </div>
       <div class="addTOorder">
-        <button class="addTOorder__arrow addTOorder__arrow_right"></button>
-        <button class="addTOorder__arrow addTOorder__arrow_left"></button>
         <h3 class="addTOorder__title">Добавить к заказу?</h3>
-        <div class="addTOorder__row">
-          <div class="addTOorder__item">
-            <img
-              src="images/additemCard2/item01__row.jpg"
-              alt="frenchfries"
-              class="addTOorder__image"
-            />
-            <h4 class="addTOorder-item__title">Картофель из печи</h4>
-            <h5 class="addTOorder-item__descr">Порция 95 г</h5>
-            <button class="addTOorder-item__button" data-price="179">
-              179 ₽
-            </button>
-          </div>
-          <div class="addTOorder__item">
-            <img
-              src="images/additemCard2/item02__row.jpg"
-              alt="frenchfries"
-              class="addTOorder__image"
-            />
-            <h4 class="addTOorder-item__title">Филадельфия крем-брюле</h4>
-            <h5 class="addTOorder-item__descr">Порция 95 г</h5>
-            <button class="addTOorder-item__button" data-price="125">
-              125 ₽
-            </button>
-          </div>
-          <div class="addTOorder__item">
-            <img
-              src="images/additemCard2/item03__row.jpg"
-              alt="frenchfries"
-              class="addTOorder__image"
-            />
-            <h4 class="addTOorder-item__title">Супер Филадельфия</h4>
-            <h5 class="addTOorder-item__descr">Порция 95 г</h5>
-            <button class="addTOorder-item__button" data-price="230">
-              230 ₽
-            </button>
-          </div>
-          <div class="addTOorder__item">
-            <img
-              src="images/additemCard2/item04__row.jpg"
-              alt="frenchfries"
-              class="addTOorder__image"
-            />
-            <h4 class="addTOorder-item__title">Супер Додстер-лайт</h4>
-            <h5 class="addTOorder-item__descr">Порция 95 г</h5>
-            <button class="addTOorder-item__button" data-price="220">
-              220 ₽
-            </button>
-          </div>
-        </div>
-        <h3 class="addTOorder__title">Cоусы</h3>
-        <div
-          class="swiper-button-prev addTOorder__arrow addTOorder__arrowsause_left"
-        ></div>
-        <div
-          class="swiper-button-next addTOorder__arrow addTOorder__arrowsause_right"
-        ></div>
-        <div class="swiper">
-          <div class="addTOorder__row swiper-wrapper">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
             <div class="addTOorder__item swiper-slide">
               <img
-                src="images/additemCard2/sause01__row.jpg"
-                alt="sause"
+                src="images/additemCard2/item01__row.jpg"
+                alt="frenchfries"
                 class="addTOorder__image"
               />
-              <h4 class="addTOorder-item__title">Сырный соус</h4>
-              <h5 class="addTOorder-item__descr">Порция 25 г</h5>
-              <button class="addTOorder-item__button" data-price="85">
-                85 ₽
+              <h4 class="addTOorder-item__title">Картофель из печи</h4>
+              <h5 class="addTOorder-item__descr">Порция 95 г</h5>
+              <button class="addTOorder-item__button" data-price="179">
+                179 ₽
               </button>
             </div>
             <div class="addTOorder__item swiper-slide">
               <img
-                src="images/additemCard2/sause02__row.jpg"
+                src="images/additemCard2/item02__row.jpg"
+                alt="frenchfries"
+                class="addTOorder__image"
+              />
+              <h4 class="addTOorder-item__title">Филадельфия крем-брюле</h4>
+              <h5 class="addTOorder-item__descr">Порция 95 г</h5>
+              <button class="addTOorder-item__button" data-price="125">
+                125 ₽
+              </button>
+            </div>
+            <div class="addTOorder__item swiper-slide">
+              <img
+                src="images/additemCard2/item03__row.jpg"
+                alt="frenchfries"
+                class="addTOorder__image"
+              />
+              <h4 class="addTOorder-item__title">Супер Филадельфия</h4>
+              <h5 class="addTOorder-item__descr">Порция 95 г</h5>
+              <button class="addTOorder-item__button" data-price="230">
+                230 ₽
+              </button>
+            </div>
+            <div class="addTOorder__item swiper-slide">
+              <img
+                src="images/additemCard2/item04__row.jpg"
+                alt="frenchfries"
+                class="addTOorder__image"
+              />
+              <h4 class="addTOorder-item__title">Супер Додстер-лайт</h4>
+              <h5 class="addTOorder-item__descr">Порция 95 г</h5>
+              <button class="addTOorder-item__button" data-price="220">
+                220 ₽
+              </button>
+            </div>
+            <div class="addTOorder__item swiper-slide">
+              <img
+                src="images/snacks/item02.png"
+                alt="frenchfries"
+                class="addTOorder__image"
+              />
+              <h4 class="addTOorder-item__title">Мясной Стартер из печи</h4>
+              <h5 class="addTOorder-item__descr">Порция 195 г</h5>
+              <button class="addTOorder-item__button" data-price="315">
+                475 ₽
+              </button>
+            </div>
+            <div class="addTOorder__item swiper-slide">
+              <img
+                src="images/snacks/item03.png"
+                alt="frenchfries"
+                class="addTOorder__image"
+              />
+              <h4 class="addTOorder-item__title">Оладья из картофеля</h4>
+              <h5 class="addTOorder-item__descr">Порция 135 г</h5>
+              <button class="addTOorder-item__button" data-price="115">
+                115 ₽
+              </button>
+            </div>
+            <div class="addTOorder__item swiper-slide">
+              <img
+                src="images/additemCard2/item04__row.jpg"
+                alt="frenchfries"
+                class="addTOorder__image"
+              />
+              <h4 class="addTOorder-item__title">Острый додстер-спайки</h4>
+              <h5 class="addTOorder-item__descr">Порция 105 г</h5>
+              <button class="addTOorder-item__button" data-price="190">
+                190 ₽
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <h3 class="addTOorder__title">Cоусы</h3>
+        <div class="swiper mySwiper1">
+          <div class="swiper-wrapper">
+            <div class="addTOorder__item swiper-slide">
+              <img
+                src="images/sause/item01.png"
                 alt="sause"
                 class="addTOorder__image"
               />
-              <h4 class="addTOorder-item__title">Барбфекю</h4>
+              <h4 class="addTOorder-item__title">Соус горчичный</h4>
               <h5 class="addTOorder-item__descr">Порция 25 г</h5>
               <button class="addTOorder-item__button" data-price="95">
                 95 ₽
@@ -243,11 +267,35 @@
             </div>
             <div class="addTOorder__item swiper-slide">
               <img
-                src="images/additemCard2/sause03__row.jpg"
+                src="images/sause/item03.png"
                 alt="sause"
                 class="addTOorder__image"
               />
-              <h4 class="addTOorder-item__title">Ранч</h4>
+              <h4 class="addTOorder-item__title">Соус барбекю</h4>
+              <h5 class="addTOorder-item__descr">Порция 25 г</h5>
+              <button class="addTOorder-item__button" data-price="75">
+                75 ₽
+              </button>
+            </div>
+            <div class="addTOorder__item swiper-slide">
+              <img
+                src="images/sause/item04.png"
+                alt="sause"
+                class="addTOorder__image"
+              />
+              <h4 class="addTOorder-item__title">Соус сметанный</h4>
+              <h5 class="addTOorder-item__descr">Порция 25 г</h5>
+              <button class="addTOorder-item__button" data-price="65">
+                65 ₽
+              </button>
+            </div>
+            <div class="addTOorder__item swiper-slide">
+              <img
+                src="images/sause/item05.png"
+                alt="sause"
+                class="addTOorder__image"
+              />
+              <h4 class="addTOorder-item__title">Соус барбекю</h4>
               <h5 class="addTOorder-item__descr">Порция 25 г</h5>
               <button class="addTOorder-item__button" data-price="45">
                 45 ₽
@@ -255,18 +303,44 @@
             </div>
             <div class="addTOorder__item swiper-slide">
               <img
-                src="images/additemCard2/sause04__row.jpg"
+                src="images/sause/item06.png"
                 alt="sause"
                 class="addTOorder__image"
               />
-              <h4 class="addTOorder-item__title">Сгущёнка</h4>
+              <h4 class="addTOorder-item__title">Соус астория</h4>
               <h5 class="addTOorder-item__descr">Порция 25 г</h5>
-              <button class="addTOorder-item__button" data-price="85">
-                85 ₽
+              <button class="addTOorder-item__button" data-price="45">
+                45 ₽
+              </button>
+            </div>
+            <div class="addTOorder__item swiper-slide">
+              <img
+                src="images/sause/item07.png"
+                alt="sause"
+                class="addTOorder__image"
+              />
+              <h4 class="addTOorder-item__title">Соус Терияки</h4>
+              <h5 class="addTOorder-item__descr">Порция 25 г</h5>
+              <button class="addTOorder-item__button" data-price="55">
+                55 ₽
+              </button>
+            </div>
+            <div class="addTOorder__item swiper-slide">
+              <img
+                src="images/additemCard2/sause01__row.jpg"
+                alt="sause"
+                class="addTOorder__image"
+              />
+              <h4 class="addTOorder-item__title">Соус горчичный</h4>
+              <h5 class="addTOorder-item__descr">Порция 25 г</h5>
+              <button class="addTOorder-item__button" data-price="45">
+                45 ₽
               </button>
             </div>
           </div>
         </div>
+        <div class="swiper-button-next1"></div>
+        <div class="swiper-button-prev1"></div>
       </div>
       <div class="addItemCard2__about">
         <div class="addItemCard2-about__title">О вас</div>
@@ -300,7 +374,11 @@
           </div>
         </div>
       </div>
-      <form action="/*" method="post" class="addItemCard2delivery__form">
+      <form
+        action="trackYourOrder.html"
+        method="post"
+        class="addItemCard2delivery__form"
+      >
         <div class="addItemCard2__delivery">
           <div class="addItemCard2-delivery__header">
             <div class="addItemCard2-delivery__title">Доставка</div>
@@ -483,7 +561,7 @@
             ></textarea>
             <div class="addItemCard2-delivery-comment__delivery">
               <div class="addItemCard2-delivery-comment-delivery__costs">
-                Итого: 2 379 ₽
+                Итого: 0 ₽
               </div>
               <button
                 type="submit"
@@ -584,6 +662,7 @@
         </footer>
       </div>
     </div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>
