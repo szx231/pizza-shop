@@ -111,9 +111,7 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
   margin-bottom: 48px;
 }
 
-
 /* GENERAL BUTTON STYLE */
-
 
 .btnchoise {
   background-color: var(--color-orange);
@@ -234,16 +232,14 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
   position: absolute;
   top: -100%;
   right: 0%;
-  z-index: 0; 
-  background-color: transparent;
+  z-index: 10; 
+  /* background-color: transparent; */
   transition:  all 0.4s ease-in-out 0s;
 }
 
-.filter-container__open {
-  display: block;
-  position: fixed;
-  top: 0%;
-  opacity: 1;
+.fitler-wrap {
+  background-color: var(--color-white);
+  padding: 32px 10px 12px 20px;
 }
 
 .filter {
@@ -252,17 +248,28 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
   position: fixed;
   top: 0%;
   right: -100%;
-  padding: 32px 10px 12px 20px;
-  background-color: var(--color-white);
+  /* padding: 32px 10px 12px 20px; */
   height: 100vh;
   transition:  all 0.4s ease-in-out 0s;
   z-index: 11;  
+  display: none;
 }
+
+
+.filter-container__open {
+  display: block;
+  position: fixed;
+  top: 0%;
+  opacity: 1;
+  z-index: 200;
+}
+
 
 .filter__open {
   opacity: 1;
   top: 0%;
   right: 0%;
+  display: block;
 }
 
 .filter__header {

@@ -6,8 +6,8 @@ import createsnackItem  from './includes/renderSnacksItem';
 import createSushiItem from './includes/renderSushiItem';
 import createPizzaiItem from './includes/renderPizzaItem';
 import createDrinkIItem from './includes/renderDrinkItem';
-import createDessertIItem from './includes/renderDessertItem'
-// import renderPopup from './includes/PopUPLogin';
+import createDessertIItem from './includes/renderDessertItem';
+import renderPopup from './includes/PopUPLogin';
 import basketIsFull from './includes/PopUPBasketFull';
 
 
@@ -26,7 +26,7 @@ navigation: {
   mousewheel: {
     sensitivity: 2,
   }
-})
+});
 
 const swiper = new Swiper('.mySwiper', {
 spaceBetween: 10,
@@ -42,7 +42,7 @@ navigation: {
   mousewheel: {
     sensitivity: 2,
   }
-})
+});
 }
 
 import 'animate.css';
@@ -80,14 +80,13 @@ if(menuDropdownList) {
 }
 
 
-
 //oload page style
 window.onload = () => {
   gsap.to('.assortment__item', {delay: 0.2, duration: 0.4, opacity: 1, stagger: 0.1}); 
   gsap.to('.promotions__item', {opacity: 1, delay: 0.4, duration: 1});
   gsap.from(".wrap__header", {duration: .4, y: -500, opacity: 0});
   gsap.from(".section__deliveryAria", {duration: .4, y: 500, opacity: 0});
-  gsap.from(".section__pizza", {delay: 1, duration: 2, opacity: 0});
+  gsap.from(".section__pizza", {delay: 0.5, duration: 1, opacity: 0});
 };
 
 //add sum on basket
@@ -134,7 +133,7 @@ document.addEventListener('click', (e) => {
   allOrderCosts.innerText = `Итого: ${totalAmountBasket} ₽`;
   basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
     }
-  })
+  });
 
 
 // COUNT DECREMENT(-)
@@ -154,7 +153,7 @@ document.addEventListener('click', (e) => {
     allOrderCosts.innerText = `Итого ${totalAmountBasket} ₽`;
     basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
     }}}
-  })
+  });
 
 // item remove
   document.addEventListener('click', (e) => {
@@ -178,9 +177,8 @@ document.addEventListener('click', (e) => {
     }
   })
 
-if(document.querySelector('.wrap__addItemCard2') !== null) {
-  document.addEventListener("DOMContentLoaded", ready);
-}
+
+document.addEventListener("DOMContentLoaded", ready);
 
 function ready() {
 const additem = document.querySelector('.additem');
@@ -245,7 +243,7 @@ if (localStorage.getItem("basket")) {
           <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
         </button>
     </div>`;
-    additem.insertAdjacentHTML('afterend', addItemText)
+    additem.insertAdjacentHTML('afterend', addItemText);
 }
 }}
 
@@ -309,7 +307,7 @@ if (localStorage.getItem("basket")) {
           <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
         </button>
     </div>`;
-    additem.insertAdjacentHTML('afterend', addItemText)
+    additem.insertAdjacentHTML('afterend', addItemText);
     if(totalAmountBasket == undefined) {
       totalAmountBasket = 0;
     } 
@@ -340,69 +338,87 @@ if (localStorage.getItem("basket")) {
     localStorage.setItem("basket", JSON.stringify(basketSumValue));
     data.push(imgSrc, title, descr, price, datasetPrice);
     localStorage.setItem("array", JSON.stringify(data));
-  } else {
-    
   }}
 });
 
-AOS.init();
-const body = document.querySelector('body');
-const HTML = document.querySelector('html');
-const lockPaddingValue = window.innerWidth - document.querySelector('.root').offsetWidth + 'px';
-console.log(lockPaddingValue);
 
-const bodyfilter = document.querySelectorAll('body');
+const HTML = document.querySelector('html');
+
+
+
 const rootfilter = document.querySelector('.root');
-const loginProfile = document.querySelector('.nav-list__linkLOGIN');
 const btnfilter  = document.querySelectorAll('.btnfilter ');
 const filterContainer = document.querySelector('.filter-container');
 const filter = document.querySelector('.filter');
-const filterHeaderButton = document.querySelector('.filter-header__button');
 
 
+if(document.querySelector('.indexpage')) {
+  AOS.init();
+  const lockPaddingValue = window.innerWidth - document.querySelector('.root').offsetWidth + 'px';
+  const wrapheader = document.querySelector('.wrap__header');
+  wrapheader.style.paddingRight = lockPaddingValue;
+}
+
+//rendr POPUp login 
 document.addEventListener('click', (e) => {
-  if(1>0) {
-  console.log(e.target);
-  // renderPopup();
-  // rootfilter.style.filter = 'blur(10px)';
+  if(e.target.closest('.nav-list__linkLOGIN')) {
+  renderPopup();
   }
 });
 
+
+//render filter popup
 document.addEventListener('click', (e) => {
   if(e.target == filterContainer) {
     filter.classList.remove("filter__open");
     filterContainer.classList.remove('filter-container__open');
-    rootfilter.style.filter = 'blur(0px)';
     HTML.style.overflow = 'auto';
   }
 });
 
-document.addEventListener('keydown', (e) => {
-  if(e.keyCode === 27){
-    filter.classList.remove("filter__open");
-    filterContainer.classList.remove('filter-container__open');
-    rootfilter.style.filter = 'blur(0px)';
-    HTML.style.overflow = 'auto';
-  }
-});
 
 btnfilter.forEach(btnfilter => {
-  btnfilter.addEventListener('click', (e) => {
+  btnfilter.addEventListener('click', () => {
     filterContainer.classList.add('filter-container__open');
     filter.classList.add("filter__open");
-    rootfilter.style.filter = 'blur(10px)';
     HTML.style.overflow = 'hidden';
-    body.style.paddingRight = lockPaddingValue;
+    filterContainer.style.backdropFilter = 'blur(15px)';
   });
 });
 
 
-filterHeaderButton.addEventListener('click', (e) => {
+//closed filter popUp
+document.addEventListener('click', (e) => {
+  if(e.target.closest('.filter-header__button')) {
   filter.classList.toggle("filter__open");
   filterContainer.classList.toggle('filter-container__open');
   rootfilter.style.filter = 'blur(0px)';
   HTML.style.overflow = 'auto';
   e.stopPropagation();
+  }
 });
 
 
+document.addEventListener('keydown', function(e) {
+  if(e.keyCode === 27){
+    filter.classList.toggle("filter__open");
+    filterContainer.classList.toggle('filter-container__open');
+    HTML.style.overflow = 'auto';
+  }
+});
+
+
+//settings link and history order
+const accountProfileheaderbtn = document.querySelector('.accountProfile-header__btn');
+const accountProfileheaderbtnSet = document.querySelector('.settings');
+
+document.addEventListener('click', (e) => {
+  if(e.target == accountProfileheaderbtnSet) {
+    window.location.href = 'myAcc.html';
+  }
+})
+document.addEventListener('click', (e) => {
+  if(e.target == accountProfileheaderbtn) {
+    window.location.href = 'accProfile.html';
+  }
+})
