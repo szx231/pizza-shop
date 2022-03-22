@@ -4,14 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
     <title>addItemCard2</title>
   </head>
   <body>
-    <div class="wrap__header">
+    <div class="wrap__header" data-barba="wrapper">
       <div class="container">
         <header class="header">
           <div class="header-top">
@@ -95,74 +91,80 @@
         </header>
       </div>
     </div>
-    <div class="wrap__addItemCard2 m80">
-      <h2 class="addItemCard2__title additem">Ваш заказ</h2>
-      <div class="addItemCard2__item" id="startitem">
-        <div class="addItemCard2__item_wrap">
-          <img
-            class="addItemCard2-item__image"
-            src="images/additemCard2/item01.jpg"
-            alt="pizza"
-          />
-          <div class="addItemCard2__text">
-            <a class="addItemCard2-text__link" href="index.html">
-              <div
-                class="addItemCard2-text__title animate__animated animate__pulse infinite animate__infinite infinite"
-                id="underline"
-              >
-                Добавьте Пожалуйста что-то в корзину!
-              </div>
-            </a>
-            <div class="addItemCard2-text__descr"></div>
-          </div>
-        </div>
-        <div class="addItemCard2__item_wrap">
-          <div class="order-item__sum">
-            <button class="order-counter__btn order-counter__increment">
-              <img
-                src="images/order/Plus__icon.svg"
-                alt="icon"
-                class="order-counter-increment__image"
-              />
-            </button>
-            <div class="order-counter__number">1</div>
-            <button class="order-counter__btn order-counter__decrement">
-              <img
-                src="images/order/Minus__icon.svg"
-                alt="icon"
-                class="order-counter-decrement__image"
-              />
-            </button>
-          </div>
-          <div class="order-footer__costs addItemCard2-item__costs">0 ₽</div>
-        </div>
-        <button class="addItemCard2-item__remove">
-          <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
-        </button>
-      </div>
-      <div class="promocode">
-        <div class="promocode__input_wrap">
-          <input
-            type="text"
-            placeholder="Промокод"
-            maxlength="10"
-            class="promocode__input"
-          />
-          <button class="promocode__btn">
+    <div
+      class="main-content"
+      data-barba="container"
+      data-barba-namespace="home"
+    >
+      <div class="preloaloder-round"></div>
+      <img src="/images/loadAnimate.png" alt="" class="imgpreloaloder" />
+      <div class="wrap__addItemCard2 m80">
+        <h2 class="addItemCard2__title additem">Ваш заказ</h2>
+        <div class="addItemCard2__item" id="startitem">
+          <div class="addItemCard2__item_wrap">
             <img
-              src="images/additemCard2/btn__icon_vector.svg"
-              alt="arrowicon"
-              class="promocode-btn__image"
+              class="addItemCard2-item__image"
+              src="images/additemCard2/item01.jpg"
+              alt="pizza"
             />
+            <div class="addItemCard2__text">
+              <a class="addItemCard2-text__link" href="index.html">
+                <div
+                  class="addItemCard2-text__title animate__animated animate__pulse infinite animate__infinite infinite"
+                  id="underline"
+                >
+                  Добавьте Пожалуйста что-то в корзину!
+                </div>
+              </a>
+              <div class="addItemCard2-text__descr"></div>
+            </div>
+          </div>
+          <div class="addItemCard2__item_wrap">
+            <div class="order-item__sum">
+              <button class="order-counter__btn order-counter__increment">
+                <img
+                  src="images/order/Plus__icon.svg"
+                  alt="icon"
+                  class="order-counter-increment__image"
+                />
+              </button>
+              <div class="order-counter__number">1</div>
+              <button class="order-counter__btn order-counter__decrement">
+                <img
+                  src="images/order/Minus__icon.svg"
+                  alt="icon"
+                  class="order-counter-decrement__image"
+                />
+              </button>
+            </div>
+            <div class="order-footer__costs addItemCard2-item__costs">0 ₽</div>
+          </div>
+          <button class="addItemCard2-item__remove">
+            <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
           </button>
-          <div class="promocode__costs">Итого: 0 ₽</div>
         </div>
-      </div>
-      <div class="addTOorder">
-        <h3 class="addTOorder__title">Добавить к заказу?</h3>
-        <div class="swiper mySwiper">
-          <div class="swiper-wrapper">
-            <div class="addTOorder__item swiper-slide">
+        <div class="promocode">
+          <div class="promocode__input_wrap">
+            <input
+              type="text"
+              placeholder="Промокод"
+              maxlength="10"
+              class="promocode__input"
+            />
+            <button class="promocode__btn">
+              <img
+                src="images/additemCard2/btn__icon_vector.svg"
+                alt="arrowicon"
+                class="promocode-btn__image"
+              />
+            </button>
+            <div class="promocode__costs">Итого: 0 ₽</div>
+          </div>
+        </div>
+        <div class="addTOorder">
+          <h3 class="addTOorder__title">Добавить к заказу?</h3>
+          <div class="addTOorder__row">
+            <div class="addTOorder__item">
               <img
                 src="images/additemCard2/item01__row.jpg"
                 alt="frenchfries"
@@ -174,7 +176,7 @@
                 179 ₽
               </button>
             </div>
-            <div class="addTOorder__item swiper-slide">
+            <div class="addTOorder__item">
               <img
                 src="images/additemCard2/item02__row.jpg"
                 alt="frenchfries"
@@ -186,7 +188,7 @@
                 125 ₽
               </button>
             </div>
-            <div class="addTOorder__item swiper-slide">
+            <div class="addTOorder__item">
               <img
                 src="images/additemCard2/item03__row.jpg"
                 alt="frenchfries"
@@ -198,7 +200,7 @@
                 230 ₽
               </button>
             </div>
-            <div class="addTOorder__item swiper-slide">
+            <div class="addTOorder__item">
               <img
                 src="images/additemCard2/item04__row.jpg"
                 alt="frenchfries"
@@ -210,50 +212,10 @@
                 220 ₽
               </button>
             </div>
-            <div class="addTOorder__item swiper-slide">
-              <img
-                src="images/snacks/item02.png"
-                alt="frenchfries"
-                class="addTOorder__image"
-              />
-              <h4 class="addTOorder-item__title">Мясной Стартер из печи</h4>
-              <h5 class="addTOorder-item__descr">Порция 195 г</h5>
-              <button class="addTOorder-item__button" data-price="315">
-                475 ₽
-              </button>
-            </div>
-            <div class="addTOorder__item swiper-slide">
-              <img
-                src="images/snacks/item03.png"
-                alt="frenchfries"
-                class="addTOorder__image"
-              />
-              <h4 class="addTOorder-item__title">Оладья из картофеля</h4>
-              <h5 class="addTOorder-item__descr">Порция 135 г</h5>
-              <button class="addTOorder-item__button" data-price="115">
-                115 ₽
-              </button>
-            </div>
-            <div class="addTOorder__item swiper-slide">
-              <img
-                src="images/additemCard2/item04__row.jpg"
-                alt="frenchfries"
-                class="addTOorder__image"
-              />
-              <h4 class="addTOorder-item__title">Острый додстер-спайки</h4>
-              <h5 class="addTOorder-item__descr">Порция 105 г</h5>
-              <button class="addTOorder-item__button" data-price="190">
-                190 ₽
-              </button>
-            </div>
           </div>
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <h3 class="addTOorder__title">Cоусы</h3>
-        <div class="swiper mySwiper1">
-          <div class="swiper-wrapper">
-            <div class="addTOorder__item swiper-slide">
+          <h3 class="addTOorder__title">Cоусы</h3>
+          <div class="addTOorder__row">
+            <div class="addTOorder__item">
               <img
                 src="images/sause/item01.png"
                 alt="sause"
@@ -265,7 +227,7 @@
                 95 ₽
               </button>
             </div>
-            <div class="addTOorder__item swiper-slide">
+            <div class="addTOorder__item">
               <img
                 src="images/sause/item03.png"
                 alt="sause"
@@ -277,7 +239,7 @@
                 75 ₽
               </button>
             </div>
-            <div class="addTOorder__item swiper-slide">
+            <div class="addTOorder__item">
               <img
                 src="images/sause/item04.png"
                 alt="sause"
@@ -289,7 +251,7 @@
                 65 ₽
               </button>
             </div>
-            <div class="addTOorder__item swiper-slide">
+            <div class="addTOorder__item">
               <img
                 src="images/sause/item05.png"
                 alt="sause"
@@ -301,280 +263,242 @@
                 45 ₽
               </button>
             </div>
-            <div class="addTOorder__item swiper-slide">
-              <img
-                src="images/sause/item06.png"
-                alt="sause"
-                class="addTOorder__image"
+          </div>
+        </div>
+        <div class="addItemCard2__about">
+          <div class="addItemCard2-about__title">О вас</div>
+          <div class="addItemCard2-about__item_wrap">
+            <div class="addItemCard2-about__item">
+              <div class="addItemCard2-about-item__name">Имя*</div>
+              <input
+                placeholder="Алексей"
+                maxlength="20"
+                type="text"
+                class="addItemCard2-about__input"
               />
-              <h4 class="addTOorder-item__title">Соус астория</h4>
-              <h5 class="addTOorder-item__descr">Порция 25 г</h5>
-              <button class="addTOorder-item__button" data-price="45">
-                45 ₽
-              </button>
             </div>
-            <div class="addTOorder__item swiper-slide">
-              <img
-                src="images/sause/item07.png"
-                alt="sause"
-                class="addTOorder__image"
+            <div class="addItemCard2-about__item">
+              <div class="addItemCard2-about-item__name">Номер телефона*</div>
+              <input
+                placeholder="+7"
+                maxlength="20"
+                type="text"
+                class="addItemCard2-about__input"
               />
-              <h4 class="addTOorder-item__title">Соус Терияки</h4>
-              <h5 class="addTOorder-item__descr">Порция 25 г</h5>
-              <button class="addTOorder-item__button" data-price="55">
-                55 ₽
-              </button>
             </div>
-            <div class="addTOorder__item swiper-slide">
-              <img
-                src="images/additemCard2/sause01__row.jpg"
-                alt="sause"
-                class="addTOorder__image"
+            <div class="addItemCard2-about__item">
+              <div class="addItemCard2-about-item__name">Почта</div>
+              <input
+                placeholder="mail@gmail.com"
+                maxlength="20"
+                type="text"
+                class="addItemCard2-about__input"
               />
-              <h4 class="addTOorder-item__title">Соус горчичный</h4>
-              <h5 class="addTOorder-item__descr">Порция 25 г</h5>
-              <button class="addTOorder-item__button" data-price="45">
-                45 ₽
-              </button>
             </div>
           </div>
         </div>
-        <div class="swiper-button-next1"></div>
-        <div class="swiper-button-prev1"></div>
-      </div>
-      <div class="addItemCard2__about">
-        <div class="addItemCard2-about__title">О вас</div>
-        <div class="addItemCard2-about__item_wrap">
-          <div class="addItemCard2-about__item">
-            <div class="addItemCard2-about-item__name">Имя*</div>
-            <input
-              placeholder="Алексей"
-              maxlength="20"
-              type="text"
-              class="addItemCard2-about__input"
-            />
-          </div>
-          <div class="addItemCard2-about__item">
-            <div class="addItemCard2-about-item__name">Номер телефона*</div>
-            <input
-              placeholder="+7"
-              maxlength="20"
-              type="text"
-              class="addItemCard2-about__input"
-            />
-          </div>
-          <div class="addItemCard2-about__item">
-            <div class="addItemCard2-about-item__name">Почта</div>
-            <input
-              placeholder="mail@gmail.com"
-              maxlength="20"
-              type="text"
-              class="addItemCard2-about__input"
-            />
-          </div>
-        </div>
-      </div>
-      <form
-        action="trackYourOrder.html"
-        method="post"
-        class="addItemCard2delivery__form"
-      >
-        <div class="addItemCard2__delivery">
-          <div class="addItemCard2-delivery__header">
-            <div class="addItemCard2-delivery__title">Доставка</div>
-            <div class="addItemCard2-delivery__btn">
-              <label class="addItemCard2-delivery-btndelivery__label">
-                <input
-                  name="addItemCard2-delivery__btn"
-                  type="radio"
-                  class="addItemCard2-delivery-btndelivery__input"
-                  checked
-                />
-                <span>Доставка</span>
-              </label>
-              <label class="addItemCard2-delivery-btnpickup__label">
-                <input
-                  name="addItemCard2-delivery__btn"
-                  type="radio"
-                  class="addItemCard2-delivery-btnpickup__input"
-                />
-                <span>Самовывоз</span>
-              </label>
-            </div>
-          </div>
-          <div class="addItemCard2-delivery-item_wrap">
-            <div
-              class="addItemCard2-delivery__item addItemCard2-delivery-item__name01"
-            >
-              <div class="addItemCard2-delivery-item__name">Улица*</div>
-              <input
-                placeholder="Пушкина"
-                maxlength="20"
-                type="text"
-                class="addItemCard2-delivery-item__input addItemCard2-delivery-item__input01"
-                required
-              />
-            </div>
-            <div class="addItemCard2-delivery__item">
-              <div class="addItemCard2-delivery-item__name">Дом</div>
-              <input
-                placeholder="1а"
-                maxlength="20"
-                type="text"
-                class="addItemCard2-delivery-item__input"
-                required
-              />
-            </div>
-            <div class="addItemCard2-delivery__item">
-              <div class="addItemCard2-delivery-item__name">Подъезд</div>
-              <input
-                placeholder="1"
-                maxlength="20"
-                type="text"
-                class="addItemCard2-delivery-item__input"
-              />
-            </div>
-            <div class="addItemCard2-delivery__item">
-              <div class="addItemCard2-delivery-item__name">Этаж</div>
-              <input
-                placeholder="2"
-                maxlength="20"
-                type="text"
-                class="addItemCard2-delivery-item__input"
-                required
-              />
-            </div>
-            <div class="addItemCard2-delivery__item">
-              <div class="addItemCard2-delivery-item__name">Квартира</div>
-              <input
-                placeholder="3"
-                maxlength="20"
-                type="text"
-                class="addItemCard2-delivery-item__input"
-                required
-              />
-            </div>
-            <div class="addItemCard2-delivery__item">
-              <div class="addItemCard2-delivery-item__name">Домофон</div>
-              <input
-                placeholder="0000"
-                maxlength="20"
-                type="text"
-                class="addItemCard2-delivery-item__input"
-              />
-            </div>
-          </div>
-          <div class="addItemCard2-delivery__time">
-            <h4 class="addItemCard2-delivery-time__title">
-              Когда выполнить заказ?
-            </h4>
-            <label class="addItemCard2-delivery__check">
-              <input
-                type="radio"
-                class="addItemCard2-delivery__input"
-                name="delivery-time__check"
-                checked
-                value="Как можно скорее"
-              />
-              <span class="addItemCard2-delivery__checkbox"></span>
-              Как можно скорее
-            </label>
-            <label class="addItemCard2-delivery__check">
-              <input
-                type="radio"
-                class="addItemCard2-delivery__input"
-                name="delivery-time__check"
-                value="По времени"
-              />
-              <span class="addItemCard2-delivery__checkbox"></span>
-              По времени
-            </label>
-          </div>
-          <div class="addItemCard2-delivery__pay">
-            <h3 class="addItemCard2-delivery-pay__title">Оплата</h3>
-            <label class="addItemCard2-delivery__check">
-              <input
-                type="radio"
-                class="addItemCard2-delivery__input"
-                name="delivery-pay"
-                checked
-                value="Наличными"
-              />
-              <span class="addItemCard2-delivery__checkbox"></span>
-              Наличными
-            </label>
-            <label class="addItemCard2-delivery__check">
-              <input
-                type="radio"
-                class="addItemCard2-delivery__input"
-                name="delivery-pay"
-                value="Картой"
-              />
-              <span class="addItemCard2-delivery__checkbox"></span>
-              Картой
-            </label>
-            <label class="addItemCard2-delivery__check">
-              <input
-                type="radio"
-                class="addItemCard2-delivery__input"
-                name="delivery-pay"
-                value="Apple Pay"
-              />
-              <span class="addItemCard2-delivery__checkbox"></span>
-              Apple Pay
-            </label>
-          </div>
-          <div class="addItemCard2-delivery__change">
-            <h3 class="addItemCard2-delivery-change__title">Сдача</h3>
-            <label class="addItemCard2-delivery__check">
-              <input
-                type="radio"
-                class="addItemCard2-delivery__input"
-                name="delivery-change"
-                value="Без сдачи"
-              />
-              <span class="addItemCard2-delivery__checkbox"></span>
-              Без сдачи
-            </label>
-            <label class="addItemCard2-delivery__check">
-              <input
-                type="radio"
-                class="addItemCard2-delivery__input"
-                name="delivery-change"
-                checked
-                value="Сдача с"
-              />
-              <span class="addItemCard2-delivery__checkbox"></span>
-              Сдача с
-              <input
-                type="text"
-                placeholder="0 ₽"
-                class="addItemCard2-delivery-change__input"
-              />
-            </label>
-          </div>
-          <div class="addItemCard2-delivery__comment">
-            <h3 class="addItemCard2-delivery-comment__title">Комментарий</h3>
-            <textarea
-              class="addItemCard2-delivery-comment__textarea"
-              placeholder="Есть уточнения?"
-            ></textarea>
-            <div class="addItemCard2-delivery-comment__delivery">
-              <div class="addItemCard2-delivery-comment-delivery__costs">
-                Итого: 0 ₽
+        <form
+          action="trackYourOrder.html"
+          method="post"
+          class="addItemCard2delivery__form"
+        >
+          <div class="addItemCard2__delivery">
+            <div class="addItemCard2-delivery__header">
+              <div class="addItemCard2-delivery__title">Доставка</div>
+              <div class="addItemCard2-delivery__btn">
+                <label class="addItemCard2-delivery-btndelivery__label">
+                  <input
+                    name="addItemCard2-delivery__btn"
+                    type="radio"
+                    class="addItemCard2-delivery-btndelivery__input"
+                    checked
+                  />
+                  <span>Доставка</span>
+                </label>
+                <label class="addItemCard2-delivery-btnpickup__label">
+                  <input
+                    name="addItemCard2-delivery__btn"
+                    type="radio"
+                    class="addItemCard2-delivery-btnpickup__input"
+                  />
+                  <span>Самовывоз</span>
+                </label>
               </div>
-              <button
-                type="submit"
-                class="addItemCard2-delivery-comment-delivery__btn"
+            </div>
+            <div class="addItemCard2-delivery-item_wrap">
+              <div
+                class="addItemCard2-delivery__item addItemCard2-delivery-item__name01"
               >
-                Оформить заказ
-              </button>
+                <div class="addItemCard2-delivery-item__name">Улица*</div>
+                <input
+                  placeholder="Пушкина"
+                  maxlength="20"
+                  type="text"
+                  class="addItemCard2-delivery-item__input addItemCard2-delivery-item__input01"
+                  required
+                />
+              </div>
+              <div class="addItemCard2-delivery__item">
+                <div class="addItemCard2-delivery-item__name">Дом</div>
+                <input
+                  placeholder="1а"
+                  maxlength="20"
+                  type="text"
+                  class="addItemCard2-delivery-item__input"
+                  required
+                />
+              </div>
+              <div class="addItemCard2-delivery__item">
+                <div class="addItemCard2-delivery-item__name">Подъезд</div>
+                <input
+                  placeholder="1"
+                  maxlength="20"
+                  type="text"
+                  class="addItemCard2-delivery-item__input"
+                />
+              </div>
+              <div class="addItemCard2-delivery__item">
+                <div class="addItemCard2-delivery-item__name">Этаж</div>
+                <input
+                  placeholder="2"
+                  maxlength="20"
+                  type="text"
+                  class="addItemCard2-delivery-item__input"
+                  required
+                />
+              </div>
+              <div class="addItemCard2-delivery__item">
+                <div class="addItemCard2-delivery-item__name">Квартира</div>
+                <input
+                  placeholder="3"
+                  maxlength="20"
+                  type="text"
+                  class="addItemCard2-delivery-item__input"
+                  required
+                />
+              </div>
+              <div class="addItemCard2-delivery__item">
+                <div class="addItemCard2-delivery-item__name">Домофон</div>
+                <input
+                  placeholder="0000"
+                  maxlength="20"
+                  type="text"
+                  class="addItemCard2-delivery-item__input"
+                />
+              </div>
+            </div>
+            <div class="addItemCard2-delivery__time">
+              <h4 class="addItemCard2-delivery-time__title">
+                Когда выполнить заказ?
+              </h4>
+              <label class="addItemCard2-delivery__check">
+                <input
+                  type="radio"
+                  class="addItemCard2-delivery__input"
+                  name="delivery-time__check"
+                  checked
+                  value="Как можно скорее"
+                />
+                <span class="addItemCard2-delivery__checkbox"></span>
+                Как можно скорее
+              </label>
+              <label class="addItemCard2-delivery__check">
+                <input
+                  type="radio"
+                  class="addItemCard2-delivery__input"
+                  name="delivery-time__check"
+                  value="По времени"
+                />
+                <span class="addItemCard2-delivery__checkbox"></span>
+                По времени
+              </label>
+            </div>
+            <div class="addItemCard2-delivery__pay">
+              <h3 class="addItemCard2-delivery-pay__title">Оплата</h3>
+              <label class="addItemCard2-delivery__check">
+                <input
+                  type="radio"
+                  class="addItemCard2-delivery__input"
+                  name="delivery-pay"
+                  checked
+                  value="Наличными"
+                />
+                <span class="addItemCard2-delivery__checkbox"></span>
+                Наличными
+              </label>
+              <label class="addItemCard2-delivery__check">
+                <input
+                  type="radio"
+                  class="addItemCard2-delivery__input"
+                  name="delivery-pay"
+                  value="Картой"
+                />
+                <span class="addItemCard2-delivery__checkbox"></span>
+                Картой
+              </label>
+              <label class="addItemCard2-delivery__check">
+                <input
+                  type="radio"
+                  class="addItemCard2-delivery__input"
+                  name="delivery-pay"
+                  value="Apple Pay"
+                />
+                <span class="addItemCard2-delivery__checkbox"></span>
+                Apple Pay
+              </label>
+            </div>
+            <div class="addItemCard2-delivery__change">
+              <h3 class="addItemCard2-delivery-change__title">Сдача</h3>
+              <label class="addItemCard2-delivery__check">
+                <input
+                  type="radio"
+                  class="addItemCard2-delivery__input"
+                  name="delivery-change"
+                  value="Без сдачи"
+                />
+                <span class="addItemCard2-delivery__checkbox"></span>
+                Без сдачи
+              </label>
+              <label class="addItemCard2-delivery__check">
+                <input
+                  type="radio"
+                  class="addItemCard2-delivery__input"
+                  name="delivery-change"
+                  checked
+                  value="Сдача с"
+                />
+                <span class="addItemCard2-delivery__checkbox"></span>
+                Сдача с
+                <input
+                  type="text"
+                  placeholder="0 ₽"
+                  class="addItemCard2-delivery-change__input"
+                />
+              </label>
+            </div>
+            <div class="addItemCard2-delivery__comment">
+              <h3 class="addItemCard2-delivery-comment__title">Комментарий</h3>
+              <textarea
+                class="addItemCard2-delivery-comment__textarea"
+                placeholder="Есть уточнения?"
+              ></textarea>
+              <div class="addItemCard2-delivery-comment__delivery">
+                <div class="addItemCard2-delivery-comment-delivery__costs">
+                  Итого: 0 ₽
+                </div>
+                <button
+                  type="submit"
+                  class="addItemCard2-delivery-comment-delivery__btn"
+                >
+                  Оформить заказ
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
-    <div class="wrap__footer">
+    <div class="wrap__footer" data-barba="wrapper">
       <div class="container">
         <footer class="footer">
           <div class="footer-column_wrap">
@@ -662,7 +586,9 @@
         </footer>
       </div>
     </div>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+    <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

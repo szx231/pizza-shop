@@ -10,43 +10,46 @@ import createDessertIItem from './includes/renderDessertItem';
 import renderPopup from './includes/PopUPLogin';
 import basketIsFull from './includes/PopUPBasketFull';
 
-
-if(document.querySelector('.addTOorder')) {
-const swiper1 = new Swiper('.mySwiper1', {
-spaceBetween: 10,
-slidesPerView: 4,
-slidesPerGroup: 2,
-speed: 500,
-loop: false,
-navigation: {
-  nextEl: '.swiper-button-next1',
-  prevEl: '.swiper-button-prev1',
-  clickable: true,
-  },
-  mousewheel: {
-    sensitivity: 2,
-  }
-});
-
-const swiper = new Swiper('.mySwiper', {
-spaceBetween: 10,
-slidesPerView: 4,
-slidesPerGroup: 2,
-speed: 500,
-loop: false,
-navigation: {
-  nextEl: '.swiper-button-next',
-  prevEl: '.swiper-button-prev',
-  clickable: true,
-  },
-  mousewheel: {
-    sensitivity: 2,
-  }
-});
-}
-
 import 'animate.css';
 import { gsap } from "gsap";
+
+
+
+//animate to page navigation
+// const body = document.querySelector('body');
+// const img = document.querySelector('.imgpreloaloder');
+// const tl = gsap.timeline();
+
+
+// function pageAnimIn(container) {
+//   body.style.overflow = 'hidden';
+//   setTimeout(() => {
+//     img.style.visibility =  'visible';
+//   }, 800);
+//   console.log('1');
+//   return tl.to(container.querySelector('.preloaloder-round'), {
+//     scale: 10,
+//     duration: 2,
+//   })
+// }
+
+// function pageAnimOut(container) {
+//   body.style.overflow = 'hidden';
+//   setTimeout(() => {
+//     img.style.visibility =  'visible';
+//   }, 800);
+//   console.log('2');
+
+//   return tl.from(container.querySelector('.preloaloder-round'), {
+//     scale: 0,
+//     duration: 2
+//   })
+// }
+
+
+
+
+
 
 if(document.querySelector('.sushi__item_wrapper') !== null) {
   createSushiItem();
@@ -177,8 +180,10 @@ document.addEventListener('click', (e) => {
     }
   })
 
+if(document.querySelector('.addItemCard2__item') !== null) {
+  document.addEventListener("DOMContentLoaded", ready);
+}
 
-document.addEventListener("DOMContentLoaded", ready);
 
 function ready() {
 const additem = document.querySelector('.additem');
@@ -188,7 +193,9 @@ if (localStorage.getItem("basket")) {
   basketSumValue = basket;
   basketSum.innerText = `${basket} ₽`;
   const data = JSON.parse(localStorage.getItem("array"));
-  startitem.style.display = 'none';
+  if(startitem) {
+    startitem.style.display = 'none';
+  }
   for (let i = 0; i < data.length; i += 5) {
     resultName.push((data[i + 1]));
     resultDescr.push((data[i + 2]));
@@ -399,7 +406,7 @@ document.addEventListener('click', (e) => {
 });
 
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', (e) => {
   if(e.keyCode === 27){
     filter.classList.toggle("filter__open");
     filterContainer.classList.toggle('filter-container__open');
