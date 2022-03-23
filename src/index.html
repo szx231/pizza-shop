@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="root">
-    <div class="wrap__header" data-barba="wrapper">
+    <div class="wrap__header">
       <div class="container">
         <header class="header">
           <div class="header-top">
@@ -89,9 +89,9 @@
         </header>
       </div>
     </div>
-    <div class="main-content" data-barba="container" data-barba-namespace="home">
-    <div class="preloaloder-round"></div>
-		<img src="/images/loadAnimate.png" alt="" class="imgpreloaloder">
+    <div class="main-content" data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="home">
+    <div class="preloaloder-round"><img src="/images/loadAnimate.png" alt="" class="imgpreloaloder"></div>
     <section class="main indexpage">
         <article class="article assortment">
           <a href='menuPromotison.html' class="assortment__item">
@@ -319,12 +319,13 @@
         </p>
       </div>
       <div class="delivery-conditions__item">
-        <div class="delivery-conditions__link">Показать полностью</div>
+        <button class="delivery-conditions__btn">Показать полностью</button>
       </div>
     </div>
     </section>
     </div>
-      <div class="wrap__footer" data-barba="wrapper">
+    </div>
+      <div class="wrap__footer">
         <div class="container">
         <footer class="footer">
           <div class="footer-column_wrap">
@@ -610,6 +611,7 @@
     </div>
     </div>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/@barba/core"></script>
   <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
   <script type="module" src="./js/main.js"></script>
   </body>

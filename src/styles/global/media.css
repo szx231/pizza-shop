@@ -1,0 +1,125 @@
+@media (max-width:1350px) {
+  .main-content {
+    max-width:1150px
+  }
+  .item_wrapper  {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .promotions {
+    display: grid;
+    grid-template-columns: repeat(2, 30%);
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width:1150px) {
+  .main-content {
+    max-width:970px
+  }
+  .item_wrapper  {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+  }
+  .promotions {
+    grid-template-columns: repeat(2, 40%);
+  }
+
+}
+
+@media (max-width:970px) {
+  .main-content {
+    max-width:750px
+  }
+  .addTOorder__row {
+    display: grid;
+    grid-template-columns: repeat(2, 30%);
+    justify-items: center;
+    justify-content: center;
+  }
+  .addTOorder {
+    text-align: center;
+  }
+  .item_wrapper  {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .promotions {
+    grid-template-columns: repeat(2, 50%);
+  }
+  .nav__login {
+    align-items: flex-start;
+  }
+  .list-item_delivery {
+    align-items: flex-start;
+  }
+  .addItemCard2-delivery-item_wrap {
+    display: block;
+  }
+}
+
+
+@media (max-width:750px) {
+  .main-content {
+    max-width:520px
+  }
+  .item_wrapper  {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .footer-column_wrap {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+  }
+  .logo {
+    justify-content: center;
+  }
+  .footer__column {
+      margin-top: 10px;
+  }
+  .footer__bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .item__sale {
+    left: 40%;
+  }
+  .promotions {
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+  }
+  .promotions-item__descr {
+    padding: 0 0 10px 0;
+    text-align: center;
+  }
+  .nav {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .list-item_delivery {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .list-item__location  {
+    justify-self: end;
+  }
+  .delivery__form {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 10px 20px !important;
+    min-height: 80px;
+    justify-items: center;
+    gap: 10px;
+  }
+  .delivery__input {
+    padding: 10px 15px 10px 33px;
+    width: 100%;
+  }
+  .accLoginfilter {
+    padding: 60px 125px;
+  }
+}

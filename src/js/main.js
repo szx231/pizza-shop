@@ -13,44 +13,6 @@ import basketIsFull from './includes/PopUPBasketFull';
 import 'animate.css';
 import { gsap } from "gsap";
 
-
-
-//animate to page navigation
-// const body = document.querySelector('body');
-// const img = document.querySelector('.imgpreloaloder');
-// const tl = gsap.timeline();
-
-
-// function pageAnimIn(container) {
-//   body.style.overflow = 'hidden';
-//   setTimeout(() => {
-//     img.style.visibility =  'visible';
-//   }, 800);
-//   console.log('1');
-//   return tl.to(container.querySelector('.preloaloder-round'), {
-//     scale: 10,
-//     duration: 2,
-//   })
-// }
-
-// function pageAnimOut(container) {
-//   body.style.overflow = 'hidden';
-//   setTimeout(() => {
-//     img.style.visibility =  'visible';
-//   }, 800);
-//   console.log('2');
-
-//   return tl.from(container.querySelector('.preloaloder-round'), {
-//     scale: 0,
-//     duration: 2
-//   })
-// }
-
-
-
-
-
-
 if(document.querySelector('.sushi__item_wrapper') !== null) {
   createSushiItem();
 }
@@ -180,10 +142,8 @@ document.addEventListener('click', (e) => {
     }
   })
 
-if(document.querySelector('.addItemCard2__item') !== null) {
-  document.addEventListener("DOMContentLoaded", ready);
-}
 
+document.addEventListener("DOMContentLoaded", ready);
 
 function ready() {
 const additem = document.querySelector('.additem');
@@ -348,11 +308,7 @@ if (localStorage.getItem("basket")) {
   }}
 });
 
-
 const HTML = document.querySelector('html');
-
-
-
 const rootfilter = document.querySelector('.root');
 const btnfilter  = document.querySelectorAll('.btnfilter ');
 const filterContainer = document.querySelector('.filter-container');
@@ -405,7 +361,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-
+//close filter popUP on 'ESC'
 document.addEventListener('keydown', (e) => {
   if(e.keyCode === 27){
     filter.classList.toggle("filter__open");
@@ -429,3 +385,38 @@ document.addEventListener('click', (e) => {
     window.location.href = 'accProfile.html';
   }
 })
+
+
+// animate to page navigation
+
+// const tl = gsap.timeline();
+
+
+// function pageAnimIn(container) {
+//   console.log('1');
+//   return tl.to(container.querySelector('.preloaloder-round'), {
+//     scale: 2,
+//     duration: 1,
+//   })
+// }
+
+// barba.init({
+//     transitions :[
+//       {
+//         name: 'base',
+//         async leave(data) {
+//           await pageAnimIn(data.current.container)
+//         },
+//       }
+//     ]
+//   })
+
+
+const deliveryConditionsText = document.querySelector('.delivery-conditions__text');
+
+document.addEventListener('click', (e) => {
+  if(e.target.closest('.delivery-conditions__btn')) {
+    deliveryConditionsText.classList.toggle('delivery-conditions__text_active');
+  }
+})
+
