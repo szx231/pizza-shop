@@ -13,6 +13,8 @@ import basketIsFull from './includes/PopUPBasketFull';
 import 'animate.css';
 import { gsap } from "gsap";
 
+animate to page navigation
+
 if(document.querySelector('.sushi__item_wrapper') !== null) {
   createSushiItem();
 }
@@ -46,15 +48,8 @@ if(menuDropdownList) {
 
 
 //oload page style
-window.onload = () => {
-  gsap.to('.assortment__item', {delay: 0.2, duration: 0.4, opacity: 1, stagger: 0.1}); 
-  gsap.to('.promotions__item', {opacity: 1, delay: 0.4, duration: 1});
-  gsap.from(".wrap__header", {duration: .4, y: -500, opacity: 0});
-  gsap.from(".section__deliveryAria", {duration: .4, y: 500, opacity: 0});
-  gsap.from(".section__pizza", {delay: 0.5, duration: 1, opacity: 0});
-};
 
-//add sum on basket
+add sum on basket
 const basketSum = document.querySelector('.basket__sum');
 const promocodeCosts = document.querySelector('.promocode__costs');
 
@@ -315,12 +310,7 @@ const filterContainer = document.querySelector('.filter-container');
 const filter = document.querySelector('.filter');
 
 
-if(document.querySelector('.indexpage')) {
-  AOS.init();
-  const lockPaddingValue = window.innerWidth - document.querySelector('.root').offsetWidth + 'px';
-  const wrapheader = document.querySelector('.wrap__header');
-  wrapheader.style.paddingRight = lockPaddingValue;
-}
+
 
 //rendr POPUp login 
 document.addEventListener('click', (e) => {
@@ -333,6 +323,7 @@ document.addEventListener('click', (e) => {
 //render filter popup
 document.addEventListener('click', (e) => {
   if(e.target == filterContainer) {
+    body.style.paddingRight = '0px';
     filter.classList.remove("filter__open");
     filterContainer.classList.remove('filter-container__open');
     HTML.style.overflow = 'auto';
@@ -340,8 +331,11 @@ document.addEventListener('click', (e) => {
 });
 
 
+let body = document.querySelector('body');
+let lockPaddingValue = window.innerWidth - document.documentElement.clientWidth + 'px';
 btnfilter.forEach(btnfilter => {
   btnfilter.addEventListener('click', () => {
+    body.style.paddingRight = lockPaddingValue;
     filterContainer.classList.add('filter-container__open');
     filter.classList.add("filter__open");
     HTML.style.overflow = 'hidden';
@@ -386,32 +380,7 @@ document.addEventListener('click', (e) => {
   }
 })
 
-
-// animate to page navigation
-
-// const tl = gsap.timeline();
-
-
-// function pageAnimIn(container) {
-//   console.log('1');
-//   return tl.to(container.querySelector('.preloaloder-round'), {
-//     scale: 2,
-//     duration: 1,
-//   })
-// }
-
-// barba.init({
-//     transitions :[
-//       {
-//         name: 'base',
-//         async leave(data) {
-//           await pageAnimIn(data.current.container)
-//         },
-//       }
-//     ]
-//   })
-
-
+//expand text
 const deliveryConditionsText = document.querySelector('.delivery-conditions__text');
 
 document.addEventListener('click', (e) => {
@@ -419,4 +388,73 @@ document.addEventListener('click', (e) => {
     deliveryConditionsText.classList.toggle('delivery-conditions__text_active');
   }
 })
+
+const tl = gsap.timeline();
+
+
+function pageAnimIn(container) {
+  return tl.to(container.querySelector('.preloaloder-round'), {
+    scale: 2,
+    duration: 1,
+  })
+}
+
+
+function pageAnimOut(container) {
+  return tl.from(container.querySelector('.preloaloder-round'), {
+    scale: 2,
+    duration: 1
+  })
+}
+
+barba.init({
+  preventRunning: true,
+  debug: true,
+    transitions :[
+      {
+        name: 'base',
+        async leave(data) {
+          await pageAnimIn(data.current.container)
+          data.current.container.remove();
+        },
+        async enter(data) {
+          await pageAnimOut(data.next.container)
+        }
+      }
+    ],
+    views: [
+      {
+        namespace: 'home', 
+          afterEnter() {
+          b2();
+          b();
+        }
+      }
+    ]
+  })
+
+  barba.hooks.beforeEnter:
+function b() {
+  let i = 2;
+  let y = 4;
+  let c = i+y;
+  console.log('привет', c);
+}
+
+function b2() {
+  if(document.querySelector('.indexpage')) {
+  AOS.init();
+}
+  if(document.querySelector('.sushi__item_wrapper') !== null) {
+  createSushiItem();
+}
+window.onload = () => {
+  gsap.to('.assortment__item', {delay: 0.2, duration: 0.4, opacity: 1, stagger: 0.1}); 
+  gsap.to('.promotions__item', {opacity: 1, delay: 0.4, duration: 1});
+  gsap.from(".wrap__header", {duration: .4, y: -500, opacity: 0});
+  gsap.from(".section__deliveryAria", {duration: .4, y: 500, opacity: 0});
+  gsap.from(".section__pizza", {delay: 0.5, duration: 1, opacity: 0});
+};
+}
+
 
