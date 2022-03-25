@@ -761,8 +761,7 @@
 }
 
 #underline {
-  padding: 0 0 3px 0;
-  border-bottom: 1px solid #000;
+  padding: 0 20px;
 }
 
 .addItemCard2-text__descr {
@@ -808,7 +807,7 @@
   align-items: center;
 }
 .promocode__input {
-  min-width: 320px;
+  width: 70%;
   padding: 13px 16px; 
   @extend %fontSmall;
   color: rgba(165, 165, 165, 1);
@@ -825,7 +824,7 @@
   min-width: 48px;
   height: 48px;
   background-color: var(--color-orange);
-  left: 34%;
+  left: 64%;
   position: absolute;
 }
 
@@ -1537,6 +1536,7 @@
 
 .accountProfile__header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 24px;
   margin-top: 40px;
@@ -1547,6 +1547,7 @@
   font-weight: 600;
   font-size: 40px;
   line-height: 48px;
+  margin-bottom: 10px;
 }
 
 .accountProfile-header__buttons {
@@ -1559,6 +1560,7 @@
   min-width: 360px;
   border-radius: 6px;
   position: relative;
+  height: 50px;
 }
 
 .accountProfile-header-check__input {
@@ -1899,15 +1901,6 @@
   line-height: 32px;
 }
 
-.myAcc-personalData-header__icon {
-  width: 20px;
-  height: 20px;
-  background-repeat: no-repeat;
-  background-image: url(/images/myAcc/myAcc__change__image.svg);
-  position: absolute;
-  left: 87%;
-  cursor: pointer;
-}
 
 .myAcc-personalData-header__change {
   font-weight: 400;
@@ -1952,14 +1945,11 @@
   line-height: 32px;
 }
 
-.myAcc-password__icon {
-  width: 20px;
-  height: 20px;
+.myAcc-password__change {
   background-repeat: no-repeat;
   background-image: url(/images/myAcc/myAcc__change__image.svg);
-  position: absolute;
-  left: 84%;
-  cursor: pointer;
+  padding: 0 0 0 40px;
+  background-position-x: 5%;
 }
 
 .myAcc-password__change{
@@ -2090,6 +2080,7 @@
 
 .myAcc-passwordChanged__input_wrap {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -2137,18 +2128,16 @@
 }
 
 
-.main-content {
-  position: relative;
-	overflow: hidden;
-	min-height: 100%;
-  margin: 0 auto;
-}
-
 .preloaloder-round {
   background: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  /* left: 50%;
+  top: 55%; */
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   z-index: 10;
@@ -2168,6 +2157,5 @@
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 	z-index: 11;
-	/* visibility: hidden; */
 	}
 
