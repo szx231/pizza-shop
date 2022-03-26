@@ -43,6 +43,9 @@
     justify-content: center;
     margin-top: 10px;
   }
+  .item__sale {
+    left:37%;
+  }
 }
 
 @media (max-width:970px) {
@@ -96,6 +99,9 @@
   .myAcc2__btn {
     display: flex;
     margin: 0 auto;
+  }
+  .item__sale {
+    left: 34%;
   }
 }
 

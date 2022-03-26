@@ -160,6 +160,11 @@
   }
 }
 
+.delivery-aria {
+  margin-bottom: 50px;
+}
+
+ 
 .assortment-item__image {
   align-self: flex-end;
 }
@@ -183,7 +188,6 @@
   border-radius: 12px;
   position: relative;
   cursor: pointer;
-  opacity: 0;
   transition: all .2s ease-in-out; 
   &:hover {
     margin-top: -8px;
@@ -320,7 +324,7 @@
   text-align: center;
   align-items: center;
   color: var(--color-white);
-  width: 105px;
+  width: 115px;
   height: 40px;
   border-radius: 12px;
   background: linear-gradient(225deg, rgba(133,57,226,1) 9%, rgba(87,42,170,1) 77%);
@@ -2131,13 +2135,13 @@
 .preloaloder-round {
   background: #fff;
   position: fixed;
-  /* left: 50%;
-  top: 55%; */
-  -webkit-transform: translate(-50%, -50%);
+  left: 0%;
+  top: 5%;
+  /* -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transform: translate(0%, 0%); */
   width: 100%;
   height: 100%;
   z-index: 10;
