@@ -6,23 +6,34 @@ import basketIsFull from './includes/PopUPBasketFull';
 import 'animate.css';
 import { gsap } from "gsap";
 
-document.cookie = 'cookie2=value2; SameSite=None; Secure';
-console.log(document.cookie);
-function global() {
-  window.scrollTo(0, 0);
-  gsap.to('.assortment__item', {delay: 0.4, duration: 0.8, opacity: 1, stagger: 0.2}); 
+window.scrollTo(0, 0);
+gsap.to('.assortment__item', {delay: 0.4, duration: 0.8, opacity: 1, stagger: 0.2}); 
 
-  if(document.querySelector('.indexpage')) {
-  createitemPizza();
-  createitemSushi();
-  createitemSnacks();
-  createitemSause();
-  createitemDrink();
-  createitemDessert();
-  createitemCombo();
-  }
+// if(document.querySelector('.pizza__item_wrapper')) {
+//   createitemPizza();
+// }
+// if(document.querySelector('.sushi__item_wrapper')) {
+//   createitemSushi();
+// }
+// if(document.querySelector('.snacks__item_wrapper')) {
+//   createitemSnacks();
+// }
+// if(document.querySelector('.desserts__item_wrapper')) {
+//   createitemDessert();
+// }
+// if(document.querySelector('.drinks__item_wrapper')) {
+//   createitemDrink();
+// }
+// if(document.querySelector('.sause__item_wraper')) {
+//   createitemSause();
+// }
+// if(document.querySelector('.combo__item_wrapper')) {
+//   createitemCombo();
+// }
 
+//hid menu dropdown 
 const menuDropdownList = document.querySelector('.menu-dropdown__list');
+
 if(menuDropdownList) {
   menuDropdownList.style.display = "none";
   setTimeout(() => {
@@ -33,7 +44,24 @@ if(menuDropdownList) {
 // add sum on basket
 const basketSum = document.querySelector('.basket__sum');
 const promocodeCosts = document.querySelector('.promocode__costs');
+const allOrderCosts = document.querySelector('.addItemCard2-delivery-comment-delivery__costs');
+const HTML = document.querySelector('html');
+const rootfilter = document.querySelector('.root');
+let body = document.querySelector('body');
+const btnfilter  = document.querySelectorAll('.btnfilter ');
+const filterContainer = document.querySelector('.filter-container');
+const filter = document.querySelector('.filter');
+//expand text
+const deliveryConditionsText = document.querySelector('.delivery-conditions__text');
+//settings link and history order
+const accountProfileheaderbtn = document.querySelector('.accountProfile-header__btn');
+const accountProfileheaderbtnSet = document.querySelector('.settings');
+//scroll size
+const lockPaddingValue = window.innerWidth - document.documentElement.clientWidth + 'px';
+const additem = document.querySelector('.additem');
+const startitem = document.querySelector('#startitem');
 
+//main array
 let data = [];
 
 //basket summ after reload page
@@ -55,266 +83,262 @@ let resultDescr = [];
 let resultImg = [];
 let resultPrice = [];
 let datasetPrice = [];
-const allOrderCosts = document.querySelector('.addItemCard2-delivery-comment-delivery__costs');
-
-const HTML = document.querySelector('html');
-const rootfilter = document.querySelector('.root');
-let body = document.querySelector('body');
-const btnfilter  = document.querySelectorAll('.btnfilter ');
-const filterContainer = document.querySelector('.filter-container');
-const filter = document.querySelector('.filter');
-
-//expand text
-const deliveryConditionsText = document.querySelector('.delivery-conditions__text');
-
-//settings link and history order
-const accountProfileheaderbtn = document.querySelector('.accountProfile-header__btn');
-const accountProfileheaderbtnSet = document.querySelector('.settings');
-
-let lockPaddingValue = window.innerWidth - document.documentElement.clientWidth + 'px';
 
 if(document.querySelector('.indexpage')) {
   AOS.init();
 }
 
-
-// COUNT INCREMENT(+)
-document.addEventListener('click', (e) => {
-  if(e.target.closest('.order-counter__increment') && document.querySelector('#startitem').style.display == 'none') {
-  const costsEl = e.target.closest('.addItemCard2__item').querySelector('.addItemCard2-item__costs');
-  const numberEl = e.target.closest('.addItemCard2__item').querySelector('.order-counter__number');
-  let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
-  let priceNumber = Number(priceSumm);
-  let priceSingle = Number(costsEl.dataset['price']);
-  numberEl.innerText = Number(numberEl.innerText) + 1;
-  costsEl.innerText = String(priceNumber+priceSingle + ' '+'₽');
-  totalAmountBasket += priceSingle;
-  promocodeCosts.innerText = `Итого: ${totalAmountBasket} ₽`;
-  allOrderCosts.innerText = `Итого: ${totalAmountBasket} ₽`;
+// if change goods on basket change summ
+function changeSumBasket() {
+  promocodeCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+  allOrderCosts.innerText = `Итого ${totalAmountBasket} ₽`;
   basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
-    }
-  });
-
-
-// COUNT DECREMENT(-)
-  document.addEventListener('click', (e) => {
-    if(e.target.closest('.order-counter__decrement') ||    totalAmountBasket == 0) {
-    const costsEl = e.target.closest('.addItemCard2__item').querySelector('.addItemCard2-item__costs');
-    const numberEl = e.target.closest('.addItemCard2__item').querySelector('.order-counter__number');
-    let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
-    let priceNumber = Number(priceSumm);
-    let priceSingle = Number(costsEl.dataset['price']);
-    if((Number(numberEl.innerText>=1))){
-    numberEl.innerText = Number(numberEl.innerText) - 1;
-    costsEl.innerText = String(priceNumber-priceSingle +' '+'₽');
-    if(totalAmountBasket >= 0) {
-    totalAmountBasket -= priceSingle;
-    promocodeCosts.innerText = `Итого ${totalAmountBasket} ₽`;
-    allOrderCosts.innerText = `Итого ${totalAmountBasket} ₽`;
-    basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
-    }}
-    }
-  });
-
-// item remove
-  document.addEventListener('click', (e) => {
-    if(e.target.closest('.addItemCard2-item__remove')) {
-      if(totalAmountBasket == undefined) {
+}
+//addToOrder goods
+document.addEventListener('click', addItemCard2);
+function addItemCard2(e) {
+  if (e.target.closest('.addTOorder-item__button')) {
+    if (totalAmountBasket == undefined) {
       totalAmountBasket = 0;
     }
-    const item = e.target.closest('.addItemCard2__item');
-    const itemCosts = item.querySelector('.order-item__sum').nextElementSibling.innerText;
-    let itemNumber = Number(itemCosts.replace(/[^+\d]/g, ''));
-    data.splice(data.length-5);
-    basketSumValue -= itemNumber;
-    basketSum.innerText = `${basketSumValue} ₽`;
-    localStorage.setItem("basket", JSON.stringify(basketSumValue));
-    localStorage.setItem("array", JSON.stringify(data));
-    item.remove();
-    totalAmountBasket -= itemNumber;
-    promocodeCosts.innerText = `Итого: ${totalAmountBasket} ₽`;
-    allOrderCosts.innerText = `Итого: ${totalAmountBasket} ₽`;
-    basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
-    }
-  })
-
-
-
-function ready() {
-const additem = document.querySelector('.additem');
-const startitem = document.querySelector('#startitem');
-if (localStorage.getItem("basket")) {
-  const basket = JSON.parse(localStorage.getItem("basket"));
-  basketSumValue = basket;
-  basketSum.innerText = `${basket} ₽`;
-  const data = JSON.parse(localStorage.getItem("array"));
-  if(startitem) {
+    const additem = document.querySelector('.additem');
+    const startitem = document.querySelector('#startitem');
+    const item = e.target.closest('.addTOorder__item');
     startitem.style.display = 'none';
-  }
-  for (let i = 0; i < data.length; i += 5) {
-    resultName.push((data[i + 1]));
-    resultDescr.push((data[i + 2]));
-    resultImg.push((data[i + 0]));
-    resultPrice.push((data[i + 3]));
-    datasetPrice.push((data[i + 3]));
-}
-  const basketSumStart = resultPrice.map((num) => Number(num.replace(/[^+\d]/g, '')));
-  const basketSumStartFixed = basketSumStart.reduce((sum, elem) =>{
-	return sum + elem;
-  }, 0);
-    if(document.querySelector('.wrap__addItemCard2')) {
-    promocodeCosts.innerText = `Итого ${basketSumStartFixed} ₽`;
-    allOrderCosts.innerText = `Итого ${basketSumStartFixed} ₽`;
-    totalAmountBasket = basketSumStartFixed;
-    for (let i = 0; i < data.length/5; i++) {
-    const addItemText = `<div class="addItemCard2__item">
-        <div class="addItemCard2__item_wrap">
-          <img
-            class="addItemCard2-item__image"
-            src=${(resultImg[i])}
-            alt="pizza"
-          />
-          <div class="addItemCard2__text">
-            <div class="addItemCard2-text__title">
-              ${(resultName[i])}
-            </div>
-            <div class="addItemCard2-text__descr">${(resultDescr[i])}</div>
+    costs = e.target.innerText;
+    imgSrc = item.querySelector('.addTOorder__image').getAttribute('src');
+    title = item.querySelector('.addTOorder-item__title').innerText;
+    descr = item.querySelector('.addTOorder-item__descr').innerText;
+    if (data.length < 40) {
+      price = costs.replace(/[a-zа-яё]/gi, '').trim();
+      datasetPrice = Number(e.target.dataset['price']);
+      let costsText = costs.replace(/[^+\d]/g, '').trim();
+      let costsNumber = Number(costsText);
+      basketSumValue += costsNumber;
+      basketSum.innerText = `${basketSumValue} ₽`;
+      localStorage.setItem("basket", JSON.stringify(basketSumValue));
+      data.push(imgSrc, title, descr, price, datasetPrice);
+      localStorage.setItem("array", JSON.stringify(data));
+      const addItemText = `<div class="addItemCard2__item">
+      <div class="addItemCard2__item_wrap">
+        <img
+          class="addItemCard2-item__image"
+          src=${imgSrc}
+          alt="pizza"
+        />
+        <div class="addItemCard2__text">
+          <div class="addItemCard2-text__title">
+            ${title}
           </div>
+          <div class="addItemCard2-text__descr">${descr}</div>
         </div>
-        <div class="addItemCard2__item_wrap">
-          <div class="order-item__sum">
-            <button class="order-counter__btn order-counter__increment">
-              <img
-                src="images/order/Plus__icon.svg"
-                alt="icon"
-                class="order-counter-increment__image"
-              />
-            </button>
-            <div class="order-counter__number">1</div>
-            <button class="order-counter__btn order-counter__decrement">
-              <img
-                src="images/order/Minus__icon.svg"
-                alt="icon"
-                class="order-counter-decrement__image"
-              />
-            </button>
-          </div>
-          <div class="order-footer__costs addItemCard2-item__costs" ${('data-price='+datasetPrice[i])}>${(resultPrice[i])}</div>
+      </div>
+      <div class="addItemCard2__item_wrap">
+        <div class="order-item__sum">
+          <button class="order-counter__btn order-counter__increment">
+            <img
+              src="images/order/Plus__icon.svg"
+              alt="icon"
+              class="order-counter-increment__image"
+            />
+          </button>
+          <div class="order-counter__number">1</div>
+          <button class="order-counter__btn order-counter__decrement">
+            <img
+              src="images/order/Minus__icon.svg"
+              alt="icon"
+              class="order-counter-decrement__image"
+            />
+          </button>
         </div>
-        <button class="addItemCard2-item__remove">
-          <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
-        </button>
+        <div class="order-footer__costs addItemCard2-item__costs" ${('data-price='+datasetPrice)}>${costs}</div>
+      </div>
+      <button class="addItemCard2-item__remove">
+        <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
+      </button>
     </div>`;
-    additem.insertAdjacentHTML('afterend', addItemText);
+      additem.insertAdjacentHTML('afterend', addItemText);
+      totalAmountBasket += datasetPrice;
+      changeSumBasket();
     }
+  }
 }
-}}
-ready();
 
-  document.addEventListener('click', (e) => {
-  if(e.target.closest('.addTOorder-item__button')) {
-    console.log('knopka')
-  const additem = document.querySelector('.additem');
-  const startitem = document.querySelector('#startitem');
-  if(startitem) {
-    startitem.style.display = 'none';
-  }
-  costs = e.target.innerText;
-  imgSrc = e.target.closest('.addTOorder__item').querySelector('.addTOorder__image').getAttribute('src');
-  title = e.target.closest('.addTOorder__item').querySelector('.addTOorder-item__title').innerText;
-  descr = e.target.closest('.addTOorder__item').querySelector('.addTOorder-item__descr').innerText;
-    if(data.length < 40) {
-    price =  costs.replace(/[a-zа-яё]/gi, '').trim();
-    datasetPrice = Number(e.target.dataset['price']);
-    let costsText = costs.replace(/[^+\d]/g, '').trim();
-    let costsNumber = Number(costsText);
-    basketSumValue += costsNumber;
-    basketSum.innerText = `${basketSumValue} ₽`;
-    localStorage.setItem("basket", JSON.stringify(basketSumValue));
-    data.push(imgSrc, title, descr, price, datasetPrice);
-    localStorage.setItem("array", JSON.stringify(data));
-    const addItemText = `<div class="addItemCard2__item">
-        <div class="addItemCard2__item_wrap">
-          <img
-            class="addItemCard2-item__image"
-            src=${imgSrc}
-            alt="pizza"
-          />
-          <div class="addItemCard2__text">
-            <div class="addItemCard2-text__title">
-              ${title}
-            </div>
-            <div class="addItemCard2-text__descr">${descr}</div>
-          </div>
-        </div>
-        <div class="addItemCard2__item_wrap">
-          <div class="order-item__sum">
-            <button class="order-counter__btn order-counter__increment">
-              <img
-                src="images/order/Plus__icon.svg"
-                alt="icon"
-                class="order-counter-increment__image"
-              />
-            </button>
-            <div class="order-counter__number">1</div>
-            <button class="order-counter__btn order-counter__decrement">
-              <img
-                src="images/order/Minus__icon.svg"
-                alt="icon"
-                class="order-counter-decrement__image"
-              />
-            </button>
-          </div>
-          <div class="order-footer__costs addItemCard2-item__costs" ${('data-price='+datasetPrice)}>${costs}</div>
-        </div>
-        <button class="addItemCard2-item__remove">
-          <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
-        </button>
-    </div>`;
-    additem.insertAdjacentHTML('afterend', addItemText);
-    if(totalAmountBasket == undefined) {
-      totalAmountBasket = 0;
-    } 
-    totalAmountBasket += datasetPrice;
-    promocodeCosts.innerText = `Итого ${totalAmountBasket} ₽`;
-    allOrderCosts.innerText = `Итого ${totalAmountBasket} ₽`;
-    basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
-  }} else {
-    if(e.target.closest('.btnchoise') && data.length >= 39) {
-      basketIsFull();
-    }
-  }
-});
+// // COUNT INCREMENT(+)
+// document.addEventListener('click', incrementGoods);
+// function incrementGoods(e) {
+//   if (e.target.closest('.order-counter__increment')) {
+//     const item = e.target.closest('.addItemCard2__item');
+//     const costsEl = item.querySelector('.addItemCard2-item__costs');
+//     const numberEl = item.querySelector('.order-counter__number');
+//     let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
+//     let priceNumber = Number(priceSumm);
+//     let priceSingle = Number(costsEl.dataset['price']);
+//     numberEl.innerText = Number(numberEl.innerText) + 1;
+//     costsEl.innerText = String(priceNumber + priceSingle + ' ' + '₽');
+//     basketSumValue += priceSingle;
+//     basketSum.innerText = `${basketSumValue} ₽`;
+//     totalAmountBasket += priceSingle;
+//     promocodeCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+//     allOrderCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+//     basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
+//   }
+// }
+// // COUNT DECREMENT(-)
+// document.addEventListener('click', decrementGoods);
+// function decrementGoods(e) {
+//   if (e.target.closest('.order-counter__decrement') || totalAmountBasket == 0) {
+//     const item = e.target.closest('.addItemCard2__item');
+//     const costsEl = item.querySelector('.addItemCard2-item__costs');
+//     const numberEl = item.querySelector('.order-counter__number');
+//     let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
+//     let priceNumber = Number(priceSumm);
+//     let priceSingle = Number(costsEl.dataset['price']);
+//     if ((Number(numberEl.innerText >= 1))) {
+//       numberEl.innerText = Number(numberEl.innerText) - 1;
+//       costsEl.innerText = String(priceNumber - priceSingle + ' ' + '₽');
+//       if (totalAmountBasket >= 0) {
+//         basketSumValue -= priceSingle;
+//         basketSum.innerText = `${basketSumValue} ₽`;
+//         totalAmountBasket -= priceSingle;
+//         promocodeCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+//         allOrderCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+//         basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
+//       }
+//     }
+//   }
+// }
+
+// // item remove
+// document.addEventListener('click', removeGoods);
+// function removeGoods(e) {
+//   if (e.target.closest('.addItemCard2-item__remove')) {
+//     if (totalAmountBasket == undefined) {
+//       totalAmountBasket = 0;
+//     }
+//     const item = e.target.closest('.addItemCard2__item');
+//     const itemCosts = item.querySelector('.order-item__sum').nextElementSibling.innerText;
+//     let itemNumber = Number(itemCosts.replace(/[^+\d]/g, ''));
+//     data.splice(data.length - 5);
+//     basketSumValue -= itemNumber;
+//     basketSum.innerText = `${basketSumValue} ₽`;
+//     localStorage.setItem("basket", JSON.stringify(basketSumValue));
+//     localStorage.setItem("array", JSON.stringify(data));
+//     item.remove();
+//     if (promocodeCosts) {
+//       totalAmountBasket -= itemNumber;
+//       promocodeCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+//       allOrderCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+//       basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
+//     }
+//   }
+// }
+
+// startpage content
+// document.addEventListener("DOMContentLoaded", ready);  
+// function ready() {
+//   if (localStorage.getItem("basket")) {
+//     const basket = JSON.parse(localStorage.getItem("basket"));
+//     basketSumValue = basket;
+//     basketSum.innerText = `${basket} ₽`;
+//     const data = JSON.parse(localStorage.getItem("array"));
+//     if (startitem) {
+//       startitem.style.display = 'none';
+//     }
+//     for (let i = 0; i < data.length; i += 5) {
+//       resultName.push((data[i + 1]));
+//       resultDescr.push((data[i + 2]));
+//       resultImg.push((data[i + 0]));
+//       resultPrice.push((data[i + 3]));
+//       datasetPrice.push((data[i + 3]));
+//     }
+//     const basketSumStart = resultPrice.map((num) => Number(num.replace(/[^+\d]/g, '')));
+//     const basketSumStartFixed = basketSumStart.reduce((sum, elem) => {return sum + elem;}, 0);
+//     if (document.querySelector('.wrap__addItemCard2')) {
+//       promocodeCosts.innerText = `Итого ${basketSumStartFixed} ₽`;
+//       allOrderCosts.innerText = `Итого ${basketSumStartFixed} ₽`;
+//       totalAmountBasket = basketSumStartFixed;
+//       for (let i = 0; i < data.length / 5; i++) {
+//         const addItemText = `
+//         <div class="addItemCard2__item">
+//         <div class="addItemCard2__item_wrap">
+//           <img
+//             class="addItemCard2-item__image"
+//             src=${(resultImg[i])}
+//             alt="pizza"
+//           />
+//           <div class="addItemCard2__text">
+//             <div class="addItemCard2-text__title">
+//               ${(resultName[i])}
+//             </div>
+//             <div class="addItemCard2-text__descr">${(resultDescr[i])}</div>
+//           </div>
+//         </div>
+//         <div class="addItemCard2__item_wrap">
+//           <div class="order-item__sum">
+//             <button class="order-counter__btn order-counter__increment">
+//               <img
+//                 src="images/order/Plus__icon.svg"
+//                 alt="icon"
+//                 class="order-counter-increment__image"
+//               />
+//             </button>
+//             <div class="order-counter__number">1</div>
+//             <button class="order-counter__btn order-counter__decrement">
+//               <img
+//                 src="images/order/Minus__icon.svg"
+//                 alt="icon"
+//                 class="order-counter-decrement__image"
+//               />
+//             </button>
+//           </div>
+//           <div class="order-footer__costs addItemCard2-item__costs" ${('data-price='+datasetPrice[i])}>${(resultPrice[i])}</div>
+//         </div>
+//         <button class="addItemCard2-item__remove">
+//           <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
+//         </button>
+//     </div>
+//         `;
+//         additem.insertAdjacentHTML('afterend', addItemText);
+//       }
+//     }
+//   }
+
+// }
+// ready();
+
 // changed basket value(money)
-  document.addEventListener('click', (e) => {
-  if(e.target.closest('.btnchoise')) {
-  costs = e.target.closest('.item').querySelector('.item__costs');
-  imgSrc = e.target.closest('.item').querySelector('.item__image').getAttribute('src');
-  title = e.target.closest('.item').querySelector('.item__name').innerText;
-  descr = e.target.closest('.item').querySelector('.item__descr').innerText;
-    if(data.length < 40) {
-    price =  costs.innerText.replace(/[a-zа-яё]/gi, '').trim();
-    datasetPrice = costs.dataset['price'];
-    let costsText = costs.innerText.replace(/[^+\d]/g, '').trim();
-    let costsNumber = Number(costsText);
-    basketSumValue += costsNumber;
-    basketSum.innerText = `${basketSumValue} ₽`;
-    localStorage.setItem("basket", JSON.stringify(basketSumValue));
-    data.push(imgSrc, title, descr, price, datasetPrice);
-    localStorage.setItem("array", JSON.stringify(data));
-  }}
-});
-
-
-//rendr POPUp login 
-document.addEventListener('click', (e) => {
-  if(e.target.closest('.nav-list__linkLOGIN')) {
-  renderPopup();
+document.addEventListener('click', addGoods);
+function addGoods(e) {
+  if (e.target.closest('.btnchoise')) {
+    const item = e.target.closest('.item');
+    costs = item.querySelector('.item__costs');
+    imgSrc = item.querySelector('.item__image').getAttribute('src');
+    title = item.querySelector('.item__name').innerText;
+    descr = item.querySelector('.item__descr').innerText;
+    if (data.length < 40) {
+      price = costs.innerText.replace(/[a-zа-яё]/gi, '').trim();
+      datasetPrice = costs.dataset['price'];
+      let costsText = costs.innerText.replace(/[^+\d]/g, '').trim();
+      let costsNumber = Number(costsText);
+      basketSumValue += costsNumber;
+      basketSum.innerText = `${basketSumValue} ₽`;
+      localStorage.setItem("basket", JSON.stringify(basketSumValue));
+      data.push(imgSrc, title, descr, price, datasetPrice);
+      localStorage.setItem("array", JSON.stringify(data));
+    } else {basketIsFull()}
   }
-});
+}
+  
+//rendr PopUp login 
+document.addEventListener('click', renderPopupLogin);
+function renderPopupLogin(e) {
+  if (e.target.closest('.nav-list__linkLOGIN')) {
+    renderPopup();
+  }
+}
 
-
-//render filter popup
+//hid filter PopUP
 document.addEventListener('click', (e) => {
   if(e.target == filterContainer) {
     body.style.paddingRight = '0px';
@@ -324,105 +348,59 @@ document.addEventListener('click', (e) => {
   }
 });
 
-
+//render filter PopUP
 btnfilter.forEach(btnfilter => {
   btnfilter.addEventListener('click', () => {
-      body.style.paddingRight = lockPaddingValue;
-      filterContainer.classList.add('filter-container__open');
-      filter.classList.add("filter__open");
-      HTML.style.overflow = 'hidden';
-      filterContainer.style.backdropFilter = 'blur(15px)';
+    body.style.paddingRight = lockPaddingValue;
+    filterContainer.classList.add('filter-container__open');
+    filter.classList.add("filter__open");
+    HTML.style.overflow = 'hidden';
+    filterContainer.style.backdropFilter = 'blur(15px)';
   });
 });
 
-
-// //closed filter popUp
+//closed filter popUp(if click btn)
 document.addEventListener('click', (e) => {
-  if(e.target.closest('.filter-header__button')) {
-  filter.classList.toggle("filter__open");
-  filterContainer.classList.toggle('filter-container__open');
-  rootfilter.style.filter = 'blur(0px)';
-  HTML.style.overflow = 'auto';
-  e.stopPropagation();
+  if (e.target.closest('.filter-header__button')) {
+    filter.classList.toggle("filter__open");
+    filterContainer.classList.toggle('filter-container__open');
+    rootfilter.style.filter = 'blur(0px)';
+    HTML.style.overflow = 'auto';
+    e.stopPropagation();
   }
 });
 
 //close filter popUP on 'ESC'
 document.addEventListener('keydown', (e) => {
-  if(e.keyCode === 27){
+  if (e.keyCode === 27) {
     filter.classList.toggle("filter__open");
     filterContainer.classList.toggle('filter-container__open');
     HTML.style.overflow = 'auto';
   }
 });
 
+// move to another page(myAcc)
 document.addEventListener('click', (e) => {
   if(e.target == accountProfileheaderbtnSet) {
     window.location.href = 'myAcc.html';
   }
 })
+
+// move to another page(accProfile)
 document.addEventListener('click', (e) => {
   if(e.target == accountProfileheaderbtn) {
     window.location.href = 'accProfile.html';
   }
 })
 
-
+//change class delivery-conditions__btn
 document.addEventListener('click', (e) => {
   if(e.target.closest('.delivery-conditions__btn')) {
     deliveryConditionsText.classList.toggle('delivery-conditions__text_active');
   }
 })
-}
-global();
 
-
-const tl = gsap.timeline();
-
-
-function pageAnimIn(container) {
-  return tl.to(container.querySelector('.preloaloder-round'), {
-    scale: 2,
-    duration: 1,
-  })
-}
-
-
-function pageAnimOut(container) {
-  return tl.from(container.querySelector('.preloaloder-round'), {
-    scale: 2,
-    duration: 1
-  })
-}
-
-barba.init({
-  preventRunning: true,
-  debug: true,
-    transitions :[
-      {
-        name: 'base',
-        async leave(data) {
-          await pageAnimIn(data.current.container)
-          data.current.container.remove();
-        },
-        async enter(data) {
-          await pageAnimOut(data.next.container)
-        }
-      }
-    ],
-  })
-
-
-
-  
-
-barba.hooks.beforeEnter(() => {
-  global();
-});
-
-
-
-
+//function for change item on pages
 function createitemCombo() {
 const combo = document.querySelector('.combo__item_wrapper');
 let comboName = [
@@ -1058,6 +1036,282 @@ let dataPrice = [
 }
 
 
+const tl = gsap.timeline();
+function pageAnimIn(container) {
+  return tl.to(container.querySelector('.preloaloder-round'), {
+    scale: 2,
+    duration: 1,
+  })
+}
+function pageAnimOut(container) {
+  return tl.from(container.querySelector('.preloaloder-round'), {
+    scale: 2,
+    duration: 1
+  })
+}
+
+barba.init({
+  preventRunning: true,
+  debug: true,
+    transitions :[
+      {
+        name: 'base',
+        async leave(data) {
+          await pageAnimIn(data.current.container)
+          data.current.container.remove();
+        },
+        async enter(data) {
+          await pageAnimOut(data.next.container)
+        }
+      }
+    ],
+    views: [
+      {
+        namespace: 'home',
+        afterEnter() {
+          console.log('21');
+          const HTML = document.querySelector('html');
+          const rootfilter = document.querySelector('.root');
+          let body = document.querySelector('body');
+          const btnfilter  = document.querySelectorAll('.btnfilter ');
+          const filterContainer = document.querySelector('.filter-container');
+          const filter = document.querySelector('.filter');
+          //scroll size
+          const lockPaddingValue = window.innerWidth - document.documentElement.clientWidth + 'px';
+
+          //main array
+          let data = [];
+
+          //basket summ after reload page
+          if(localStorage.getItem("array")) {
+            let dataload = JSON.parse(localStorage.getItem("array"));
+            data = dataload;
+          }
+          window.scrollTo(0, 0);
+          gsap.to('.assortment__item', {delay: 0.4, duration: 0.8, opacity: 1, stagger: 0.2}); 
+
+          if(document.querySelector('.pizza__item_wrapper')) {
+            createitemPizza();
+          }
+          if(document.querySelector('.sushi__item_wrapper')) {
+            createitemSushi();
+          }
+          if(document.querySelector('.snacks__item_wrapper')) {
+            createitemSnacks();
+          }
+          if(document.querySelector('.desserts__item_wrapper')) {
+            createitemDessert();
+          }
+          if(document.querySelector('.drinks__item_wrapper')) {
+            createitemDrink();
+          }
+          if(document.querySelector('.sause__item_wraper')) {
+            createitemSause();
+          }
+          if(document.querySelector('.combo__item_wrapper')) {
+            createitemCombo();
+          }
+          // if(document.querySelector('.indexpage')) {
+          //   AOS.init();
+          // }
+          function renderPopupLogin(e) {
+          if (e.target.closest('.nav-list__linkLOGIN')) {
+            renderPopup();
+          }
+          }
+          //hid filter PopUP
+          document.addEventListener('click', (e) => {
+            if(e.target == filterContainer) {
+              body.style.paddingRight = '0px';
+              filter.classList.remove("filter__open");
+              filterContainer.classList.remove('filter-container__open');
+              HTML.style.overflow = 'auto';
+            }
+          });
+
+          //render filter PopUP
+          btnfilter.forEach(btnfilter => {
+            btnfilter.addEventListener('click', () => {
+              body.style.paddingRight = lockPaddingValue;
+              filterContainer.classList.add('filter-container__open');
+              filter.classList.add("filter__open");
+              HTML.style.overflow = 'hidden';
+              filterContainer.style.backdropFilter = 'blur(15px)';
+            });
+          });
+
+          //closed filter popUp(if click btn)
+          document.addEventListener('click', (e) => {
+            if (e.target.closest('.filter-header__button')) {
+              filter.classList.toggle("filter__open");
+              filterContainer.classList.toggle('filter-container__open');
+              rootfilter.style.filter = 'blur(0px)';
+              HTML.style.overflow = 'auto';
+              e.stopPropagation();
+            }
+          });
+
+          //close filter popUP on 'ESC'
+          document.addEventListener('keydown', (e) => {
+            if (e.keyCode === 27) {
+              filter.classList.toggle("filter__open");
+              filterContainer.classList.toggle('filter-container__open');
+              HTML.style.overflow = 'auto';
+            }
+          });
+
+        }
+      }, 
+      {
+        namespace: 'addItemCard2',
+        afterEnter() {
+          window.scrollTo(0, 0);
+          console.log('100');
+          let datasetPrice = [];
+          const additem = document.querySelector('.additem');
+          const startitem = document.querySelector('#startitem');
+          const basketSum = document.querySelector('.basket__sum');
+          const promocodeCosts = document.querySelector('.promocode__costs');
+          const allOrderCosts = document.querySelector('.addItemCard2-delivery-comment-delivery__costs');
+          // COUNT INCREMENT(+)
+          document.addEventListener('click', incrementGoods);
+          function incrementGoods(e) {
+            if (e.target.closest('.order-counter__increment')) {
+              const item = e.target.closest('.addItemCard2__item');
+              const costsEl = item.querySelector('.addItemCard2-item__costs');
+              const numberEl = item.querySelector('.order-counter__number');
+              let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
+              let priceNumber = Number(priceSumm);
+              let priceSingle = Number(costsEl.dataset['price']);
+              numberEl.innerText = Number(numberEl.innerText) + 1;
+              costsEl.innerText = String(priceNumber + priceSingle + ' ' + '₽');
+          
+              totalAmountBasket += priceSingle;
+              promocodeCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+              allOrderCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+              basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
+            }
+          }
+          // COUNT DECREMENT(-)
+          document.addEventListener('click', decrementGoods);
+          function decrementGoods(e) {
+            if (e.target.closest('.order-counter__decrement') || totalAmountBasket == 0) {
+              const item = e.target.closest('.addItemCard2__item');
+              const costsEl = item.querySelector('.addItemCard2-item__costs');
+              const numberEl = item.querySelector('.order-counter__number');
+              let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
+              let priceNumber = Number(priceSumm);
+              let priceSingle = Number(costsEl.dataset['price']);
+              if ((Number(numberEl.innerText >= 1))) {
+                numberEl.innerText = Number(numberEl.innerText) - 1;
+                costsEl.innerText = String(priceNumber - priceSingle + ' ' + '₽');
+                if (totalAmountBasket >= 0) {
+                  totalAmountBasket -= priceSingle;
+                  promocodeCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+                  allOrderCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+                  basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
+                }
+              }
+            }
+          }
+
+// item remove
+          document.addEventListener('click', removeGoods);
+          function removeGoods(e) {
+          if (e.target.closest('.addItemCard2-item__remove')) {
+    if (totalAmountBasket == undefined) {
+      totalAmountBasket = 0;
+    }
+    const item = e.target.closest('.addItemCard2__item');
+    const itemCosts = item.querySelector('.order-item__sum').nextElementSibling.innerText;
+    let itemNumber = Number(itemCosts.replace(/[^+\d]/g, ''));
+    data.splice(data.length - 5);
+    basketSumValue -= itemNumber;
+    basketSum.innerText = `${basketSumValue} ₽`;
+    localStorage.setItem("basket", JSON.stringify(basketSumValue));
+    localStorage.setItem("array", JSON.stringify(data));
+    item.remove();
+    if (promocodeCosts) {
+      totalAmountBasket -= itemNumber;
+      promocodeCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+      allOrderCosts.innerText = `Итого ${totalAmountBasket} ₽`;
+      basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') +' ' +'₽';
+    }
+          }
+          }
+          function ready() {
+          if (localStorage.getItem("basket")) {
+            const basket = JSON.parse(localStorage.getItem("basket"));
+            basketSumValue = basket;
+            basketSum.innerText = `${basket} ₽`;
+            promocodeCosts.innerText = `Итого ${basket} ₽`;
+            allOrderCosts.innerText = `Итого ${basket} ₽`;
+            const data = JSON.parse(localStorage.getItem("array"));
+            if (startitem) {
+              startitem.style.display = 'none';
+            }
+            for (let i = 0; i < data.length; i += 5) {
+              resultName.push((data[i + 1]));
+              resultDescr.push((data[i + 2]));
+              resultImg.push((data[i + 0]));
+              resultPrice.push((data[i + 3]));
+              datasetPrice.push((data[i + 3]));
+            }
+            const basketSumStart = resultPrice.map((num) => Number(num.replace(/[^+\d]/g, '')));
+            const basketSumStartFixed = basketSumStart.reduce((sum, elem) => {return sum + elem;}, 0);
+            if (document.querySelector('.wrap__addItemCard2')) {
+              totalAmountBasket = basketSumStartFixed;
+              for (let i = 0; i < data.length / 5; i++) {
+                const addItemText = `
+                <div class="addItemCard2__item">
+                <div class="addItemCard2__item_wrap">
+                  <img
+                    class="addItemCard2-item__image"
+                    src=${(resultImg[i])}
+                    alt="pizza"
+                  />
+                  <div class="addItemCard2__text">
+                    <div class="addItemCard2-text__title">
+                      ${(resultName[i])}
+                    </div>
+                    <div class="addItemCard2-text__descr">${(resultDescr[i])}</div>
+                  </div>
+                </div>
+                <div class="addItemCard2__item_wrap">
+                  <div class="order-item__sum">
+                    <button class="order-counter__btn order-counter__increment">
+                      <img
+                        src="images/order/Plus__icon.svg"
+                        alt="icon"
+                        class="order-counter-increment__image"
+                      />
+                    </button>
+                    <div class="order-counter__number">1</div>
+                    <button class="order-counter__btn order-counter__decrement">
+                      <img
+                        src="images/order/Minus__icon.svg"
+                        alt="icon"
+                        class="order-counter-decrement__image"
+                      />
+                    </button>
+                  </div>
+                  <div class="order-footer__costs addItemCard2-item__costs" ${('data-price='+datasetPrice[i])}>${(resultPrice[i])}</div>
+                </div>
+                <button class="addItemCard2-item__remove">
+                  <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
+                </button>
+            </div>
+                `;
+                additem.insertAdjacentHTML('afterend', addItemText);
+              }
+            }
+            }
+          }
+          ready();
+        }
+      }
+    ]
+  })
 
 
 
