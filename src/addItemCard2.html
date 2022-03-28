@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>addItemCard2</title>
+    <link rel="icon" href="images/pizzalogo32х32.png" type="image/x-icon" />
   </head>
   <body>
     <div class="wrap__header">
@@ -16,18 +17,19 @@
                 <div class="list-item_delivery">
                   <li class="nav-list__item list-item__location">
                     <img
+                      draggable="false"
                       src="images/location.png"
                       alt="pizza"
                       class="nav-list__icon"
                     />
                     <select class="list-item__city" name="listcity" required>
-                      <option>Москва</option>
-                      <option>Санкт-Петербург</option>
-                      <option>Краснодар</option>
-                      <option>Казань</option>
-                      <option>Новосибирск</option>
-                      <option>Владивосток</option>
-                      <option>Другой.....</option>
+                      <option value="1">Москва</option>
+                      <option value="2">Санкт-Петербург</option>
+                      <option value="3">Краснодар</option>
+                      <option value="4">Казань</option>
+                      <option value="5">Новосибирск</option>
+                      <option value="6">Владивосток</option>
+                      <option value="7">Другой.....</option>
                     </select>
                   </li>
                   <li class="nav-list__item">
@@ -51,11 +53,12 @@
                 </li>
                 <li class="nav-list__item list-item_login">
                   <img
+                    draggable="false"
                     src="images/header/login__nav.svg"
                     alt="login"
                     class="login__icon"
                   />
-                  <a href="#" class="nav-list__link nav-list__linkLOGIN">
+                  <a class="nav-list__link nav-list__linkLOGIN">
                     Войти в аккаунт
                   </a>
                 </li>
@@ -64,28 +67,124 @@
           </div>
           <div class="header-bottom">
             <div class="delivery">
-              <div class="delivery__logo">
-                <a href="index.html" class="delivery__logo">
-                  <img
-                    draggable="false"
-                    src="images/pizzalogo.png
+              <a href="index.html" class="delivery__logo">
+                <img
+                  draggable="false"
+                  src="images/pizzalogo.png
               "
-                    alt="logo"
-                    class="delivery-logo__image"
-                  />
-                  <span class="delivery-logo__text">Куда пицца</span>
-                </a>
-              </div>
-              <div class="basket">
+                  alt="logo"
+                  class="delivery-logo__image"
+                />
+                <span class="delivery-logo__text">Куда пицца</span>
+              </a>
+              <ul class="menu-nav__list">
+                <li class="menu-nav__item">
+                  <a href="menuPromotison.html" class="menu-nav__link">Акции</a>
+                </li>
+                <li class="menu-nav__item">
+                  <a href="menuPizza.html" class="menu-nav__link">Пицца</a>
+                </li>
+                <li class="menu-nav__item">
+                  <a href="menuSushi.html" class="menu-nav__link">Суши</a>
+                </li>
+                <li class="menu-nav__item">
+                  <a href="menuDrink.html" class="menu-nav__link">Напитки</a>
+                </li>
+                <li class="menu-nav__item">
+                  <a href="menuSnacks.html" class="menu-nav__link">Закуски</a>
+                </li>
+                <li class="menu-nav__item">
+                  <a href="menuCombo.html" class="menu-nav__link">Комбо</a>
+                </li>
+                <li class="menu-nav__item">
+                  <a href="menuDesserts.html" class="menu-nav__link">Десерты</a>
+                </li>
+                <li class="menu-nav__item">
+                  <a href="menuSause.html" class="menu-nav__link">Соусы</a>
+                </li>
+                <li class="menu-nav__item">
+                  <div class="menu__dropdown">
+                    <div class="menu-nav__link menu-link__dropdown">Другое</div>
+                    <ul class="menu-dropdown__list">
+                      <li class="menu-dropdown__item" target="_blank">
+                        <a
+                          class="menu-dropdown__link"
+                          target="_blank"
+                          href="menuPromotison.html"
+                          >Акции</a
+                        >
+                      </li>
+                      <li class="menu-dropdown__item" target="_blank">
+                        <a
+                          class="menu-dropdown__link"
+                          target="_blank"
+                          href="https://sila-uma.ru/aboutdodo/"
+                          >Пользовательское соглашение</a
+                        >
+                      </li>
+                      <li class="menu-dropdown__item" target="_blank">
+                        <a
+                          class="menu-dropdown__link"
+                          target="_blank"
+                          href="https://dodopizza.ru/moscow/legal/useragreement"
+                          >Пользовательское соглашение</a
+                        >
+                      </li>
+                      <li class="menu-dropdown__item" target="_blank">
+                        <a
+                          class="menu-dropdown__link"
+                          target="_blank"
+                          href="https://dodopizza.ru/moscow/legal/useragreement"
+                          >Условия гарантии</a
+                        >
+                      </li>
+                      <li class="menu-dropdown__item" target="_blank">
+                        <a
+                          class="menu-dropdown__link"
+                          target="_blank"
+                          href="https://dodopizza.ru/moscow/avtozavodskaya/contacts"
+                          >Ресторан</a
+                        >
+                      </li>
+                      <li class="menu-dropdown__item">
+                        <a
+                          class="menu-dropdown__link"
+                          target="_blank"
+                          href="https://dodopizza.ru/moscow/contacts"
+                          >Контакты</a
+                        >
+                      </li>
+                      <li class="menu-dropdown__item">
+                        <a
+                          class="menu-dropdown__link"
+                          target="_blank"
+                          href="https://techis.ru/dodopizza"
+                          >Поддержка</a
+                        >
+                      </li>
+                      <li class="menu-dropdown__item">
+                        <a
+                          class="menu-dropdown__link"
+                          target="_blank"
+                          href="https://dodopizza.by/minsk/currentorders"
+                          >Отследить заказ</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+              <a href="addItemCard2.html" class="basket">
                 <div class="basket__item">
                   <img
+                    draggable="false"
                     src="images/basket.png"
                     alt="basket"
                     class="basket__logo"
                   />
                   <span class="basket__sum">0 ₽</span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </header>
@@ -175,7 +274,10 @@
                   class="addTOorder__image"
                 />
                 <h4 class="addTOorder-item__title">Картофель из печи</h4>
-                <h5 class="addTOorder-item__descr">Порция 95 г</h5>
+                <h5 class="addTOorder-item__descr">
+                  Дополнительно: кориандр молотый, черный перец молотый,
+                  молотые....
+                </h5>
                 <button class="addTOorder-item__button" data-price="179">
                   179 ₽
                 </button>
@@ -187,7 +289,10 @@
                   class="addTOorder__image"
                 />
                 <h4 class="addTOorder-item__title">Филадельфия крем-брюле</h4>
-                <h5 class="addTOorder-item__descr">Порция 95 г</h5>
+                <h5 class="addTOorder-item__descr">
+                  Дополнительно: кориандр молотый, черный перец молотый,
+                  молотые....
+                </h5>
                 <button class="addTOorder-item__button" data-price="125">
                   125 ₽
                 </button>
@@ -199,7 +304,10 @@
                   class="addTOorder__image"
                 />
                 <h4 class="addTOorder-item__title">Супер Филадельфия</h4>
-                <h5 class="addTOorder-item__descr">Порция 95 г</h5>
+                <h5 class="addTOorder-item__descr">
+                  Дополнительно: кориандр молотый, черный перец молотый,
+                  молотые....
+                </h5>
                 <button class="addTOorder-item__button" data-price="230">
                   230 ₽
                 </button>
@@ -211,7 +319,10 @@
                   class="addTOorder__image"
                 />
                 <h4 class="addTOorder-item__title">Супер Додстер-лайт</h4>
-                <h5 class="addTOorder-item__descr">Порция 95 г</h5>
+                <h5 class="addTOorder-item__descr">
+                  Дополнительно: кориандр молотый, черный перец молотый,
+                  молотые....
+                </h5>
                 <button class="addTOorder-item__button" data-price="220">
                   220 ₽
                 </button>
@@ -226,7 +337,9 @@
                   class="addTOorder__image"
                 />
                 <h4 class="addTOorder-item__title">Соус горчичный</h4>
-                <h5 class="addTOorder-item__descr">Порция 25 г</h5>
+                <h5 class="addTOorder-item__descr">
+                  Майонез, тартар, ремулад, меньер....
+                </h5>
                 <button class="addTOorder-item__button" data-price="95">
                   95 ₽
                 </button>
@@ -238,7 +351,9 @@
                   class="addTOorder__image"
                 />
                 <h4 class="addTOorder-item__title">Соус барбекю</h4>
-                <h5 class="addTOorder-item__descr">Порция 25 г</h5>
+                <h5 class="addTOorder-item__descr">
+                  Майонез, тартар, ремулад, меньер....
+                </h5>
                 <button class="addTOorder-item__button" data-price="75">
                   75 ₽
                 </button>
@@ -250,7 +365,9 @@
                   class="addTOorder__image"
                 />
                 <h4 class="addTOorder-item__title">Соус сметанный</h4>
-                <h5 class="addTOorder-item__descr">Порция 25 г</h5>
+                <h5 class="addTOorder-item__descr">
+                  Майонез, тартар, ремулад, меньер....
+                </h5>
                 <button class="addTOorder-item__button" data-price="65">
                   65 ₽
                 </button>
@@ -262,7 +379,9 @@
                   class="addTOorder__image"
                 />
                 <h4 class="addTOorder-item__title">Соус барбекю</h4>
-                <h5 class="addTOorder-item__descr">Порция 25 г</h5>
+                <h5 class="addTOorder-item__descr">
+                  Майонез, тартар, ремулад, меньер....
+                </h5>
                 <button class="addTOorder-item__button" data-price="45">
                   45 ₽
                 </button>

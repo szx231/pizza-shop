@@ -86,6 +86,7 @@
   display: flex;
   margin-top: 11px;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -727,14 +728,14 @@
 }
 
 .addItemCard2__item {
-  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-white);
   border: 1px solid var(--color-border);
+      padding: 10px;
   max-width: 850px;
-  height: 152px;
+  min-height: 152px;
   border-radius: 12px;
   margin-bottom: 16px;
   transition: all .2s ease-in-out;
@@ -762,10 +763,16 @@
   font-weight: 600;
   line-height: 28px;
   font-size: 18px;  
+  margin-right: 40px;
 }
 
 #underline {
   padding: 0 20px;
+}
+
+.addItemCard2__text {
+  display: flex;
+  align-items: center;
 }
 
 .addItemCard2-text__descr {
@@ -773,7 +780,9 @@
   @extend %fontSmall;
   font-weight: 400;
   line-height: 22px;
-  max-width: 430px;
+  max-width: 400px;
+  margin-right: 40px;
+  text-align: center;
 }
 
 .addItemCard2-item__costs {
@@ -1242,6 +1251,7 @@
   @extend %fontMedium;
   line-height: 28px;
   color: var(--color-orange);
+  min-width: 140px;
 }
 
 .addItemCard2-delivery-comment-delivery__btn {
@@ -1360,7 +1370,7 @@
   color: rgba(165, 165, 165, 1);
   border-radius: 6px;
   padding: 13px 16px;
-  min-width: 320px;
+  max-width: 420px;
   border: 1px solid var(--color-border);
   margin-bottom: 16px;
 }

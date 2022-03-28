@@ -9,6 +9,7 @@
     display: grid;
     grid-template-columns: repeat(2, 30%);
     justify-content: center;
+    justify-items: center;
     gap: 20px;
   }
 }
@@ -46,18 +47,22 @@
   .item__sale {
     left:37%;
   }
+    .menu-nav__list {
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width:970px) {
   .main-content {
     max-width:750px
   }
+  .addItemCard2-text__descr {
+    overflow: hidden;
+    height: 45px;
+  }
   .accountProfile-order__top {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-  }
-  .menu-nav__list {
-    flex-wrap: wrap;
   }
   .addTOorder__row {
     display: grid;
@@ -103,12 +108,19 @@
   .item__sale {
     left: 34%;
   }
+  .addItemCard2-item__remove {
+    left: 95%;
+  }
 }
 
 
 @media (max-width:750px) {
   .main-content {
     max-width:520px
+  }
+  .delivery {
+    display: grid;
+    justify-items: center;
   }
   .accLoginfilter {
     padding: 35px 100px;
@@ -200,6 +212,18 @@
   .accountProfile-order-top__line {
     top: 5%;
   }
+  .addItemCard2__item {
+    display: block;
+  }
+  .addItemCard2-text__descr {
+    margin-right: 0;
+  }
+  .addItemCard2-text__title {
+    margin-right: 0;
+  }
+  .addItemCard2__item_wrap {
+    justify-content: center;
+  }
 }
 
 @media (max-width:500px) {
@@ -211,7 +235,6 @@
   }
   .addItemCard2__item {
     display: block;
-    padding: 0 10px 175px 0;
   }
   .promocode__input_wrap {
     display: grid;
@@ -259,5 +282,34 @@
   }
   .accountProfile-order-top__line {
     top: 3%;
+  }
+  .addItemCard2__item_wrap {
+    display: grid;
+    justify-items: center;
+  }
+  .addItemCard2__text {
+    display: grid;
+    justify-items: center;
+  }
+  .addItemCard2__title {
+    display: grid;
+    justify-content: center;
+}
+  .addItemCard2-item__remove {
+    left: 90%;
+}
+  .delivery {
+    display: grid;
+  }
+  .menu-nav__list {
+    display: grid;
+    justify-items: flex-start;
+  }
+  .header-bottom {
+    display: grid;
+    justify-content: center;
+  }
+  .menu-nav__item {
+    margin-bottom: 5px;
   }
 }
