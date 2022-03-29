@@ -19,6 +19,8 @@ if(menuDropdownList) {
   }, 500);
 }
 
+const promocodeCosts = document.querySelector('.promocode__costs');
+const allOrderCosts = document.querySelector('.addItemCard2-delivery-comment-delivery__costs');
 // add sum on basket
 const basketSum = document.querySelector('.basket__sum');
 const HTML = document.querySelector('html');
@@ -38,29 +40,39 @@ const lockPaddingValue = window.innerWidth - document.documentElement.clientWidt
 //main array
 let data = [];
 
-//basket summ after reload page
-if(localStorage.getItem("array")) {
-  let dataload = JSON.parse(localStorage.getItem("array"));
-  data = dataload;
-}
-
+let numberOfGoods = 0;
 let basketSumValue = 0;
 let imgSrc;
 let title;
 let descr;
-let price;
+
 let costs;
+let dataAtr;
 
 let resultName = [];  
 let resultDescr = [];
 let resultImg = [];
+
 let resultPrice = [];
-let datasetPrice = [];
+let resultdataAtr = [];
+
+//basket summ after reload page
+if(localStorage.getItem("array")) {
+  let dataload = JSON.parse(localStorage.getItem("array"));
+  data = dataload;
+  resultName = data[0];
+  resultDescr = data[1];
+  resultImg = data[2];
+  resultPrice = data[3];
+  resultdataAtr = data[4];
+  numberOfGoods = data[5];
+  console.log(data);
+  console.log(resultName);
+}
 
 if(document.querySelector('.indexpage')) {
   AOS.init();
 }
-
 // changed basket value(money)
 document.addEventListener('click', addGoods);
 function addGoods(e) {
@@ -71,19 +83,162 @@ function addGoods(e) {
     title = item.querySelector('.item__name').innerText;
     descr = item.querySelector('.item__descr').innerText;
     if (data.length < 40) {
-      price = costs.innerText.replace(/[a-zа-яё]/gi, '').trim();
-      datasetPrice = costs.dataset['price'];
+      numberOfGoods += 1;
+      dataAtr = costs.dataset['price'];
       let costsText = costs.innerText.replace(/[^+\d]/g, '').trim();
       let costsNumber = Number(costsText);
       basketSumValue += costsNumber;
       basketSum.innerText = `${basketSumValue} ₽`;
       localStorage.setItem("basket", JSON.stringify(basketSumValue));
-      data.push(imgSrc, title, descr, price, datasetPrice);
+      data = [];
+      resultName.push(title);
+      resultDescr.push(descr);
+      resultImg.push(imgSrc);
+      resultdataAtr.push(dataAtr);
+      resultPrice.push(costsNumber);
+      data.push(resultName, resultDescr, resultImg, resultdataAtr, resultPrice, numberOfGoods);
       localStorage.setItem("array", JSON.stringify(data));
     } else {basketIsFull()}
   }
 }
-  
+//add item on additemCard page
+document.addEventListener('click', addItemCard2);
+function addItemCard2(e) {
+  if (e.target.closest('.addTOorder-item__button')) {
+    const additem = document.querySelector('.additem');
+    const startitem = document.querySelector('#startitem');
+    const item = e.target.closest('.addTOorder__item');
+    startitem.style.display = 'none';
+    costs = e.target;
+    imgSrc = item.querySelector('.addTOorder__image').getAttribute('src');
+    title = item.querySelector('.addTOorder-item__title').innerText;
+    descr = item.querySelector('.addTOorder-item__descr').innerText;
+    if (data.length < 40) {
+      numberOfGoods += 1;
+      let costsText = costs.innerText.replace(/[^+\d]/g, '').trim();
+      let costsNumber = Number(costsText);
+      dataAtr = Number(e.target.dataset['price']);
+      resultName.push(title);
+      resultDescr.push(descr);
+      resultImg.push(imgSrc);
+      resultPrice.push(costsNumber);
+      resultdataAtr.push(dataAtr);
+      data = [];
+      data.push(resultName, resultDescr, resultImg, resultdataAtr, resultPrice, numberOfGoods);
+      localStorage.setItem("array", JSON.stringify(data));
+      const addItemText = `
+<div class="addItemCard2__item">
+<div class="addItemCard2__item_wrap">
+  <img
+    class="addItemCard2-item__image"
+    src=${imgSrc}
+    alt="${title}"
+  />
+  <div class="addItemCard2__text">
+    <div class="addItemCard2-text__title">
+      ${title}
+    </div>
+    <div class="addItemCard2-text__descr">${descr}</div>
+  </div>
+</div>
+<div class="addItemCard2__item_wrap">
+  <div class="order-item__sum">
+    <button class="order-counter__btn order-counter__increment">
+      <img
+        src="images/order/Plus__icon.svg"
+        alt="icon"
+        class="order-counter-increment__image"
+      />
+    </button>
+    <div class="order-counter__number">1</div>
+    <button class="order-counter__btn order-counter__decrement">
+      <img
+        src="images/order/Minus__icon.svg"
+        alt="icon"
+        class="order-counter-decrement__image"
+      />
+    </button>
+  </div>
+  <div class="order-footer__costs addItemCard2-item__costs" ${('data-price='+dataAtr)}>${costsNumber} ₽</div>
+</div>
+<button class="addItemCard2-item__remove">
+  <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
+</button>
+</div>
+`;
+      additem.insertAdjacentHTML('afterend', addItemText);
+      basketSum.innerText = `${basketSumValue} ₽`;
+      basketSumValue += dataAtr;
+      promocodeCosts.innerText = `Итого ${basketSumValue} ₽`;
+      allOrderCosts.innerText = `Итого ${basketSumValue} ₽`;
+      basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') + ' ' + '₽';
+      localStorage.setItem("basket", JSON.stringify(basketSumValue));
+    }
+  }
+}
+// item remove
+document.addEventListener('click', removeGoods);
+function removeGoods(e) {
+  if (e.target.closest('.addItemCard2-item__remove')) {
+    const item = e.target.closest('.addItemCard2__item');
+    const itemCosts = item.querySelector('.order-item__sum').nextElementSibling.innerText;
+    let itemNumber = Number(itemCosts.replace(/[^+\d]/g, ''));
+    item.remove();
+    numberOfGoods -= 1;
+    for (let i = 0; i < data.length - 1; i++) {
+      data[i].splice(0, 1);
+    }
+      data = [];
+      data.push(resultName, resultDescr, resultImg, resultdataAtr, resultPrice, numberOfGoods);
+      basketSumValue -= itemNumber;
+      promocodeCosts.innerText = `Итого ${basketSumValue} ₽`;
+      allOrderCosts.innerText = `Итого ${basketSumValue} ₽`;
+      basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') + ' ' + '₽';
+      localStorage.setItem("basket", JSON.stringify(basketSumValue));
+
+      localStorage.setItem("array", JSON.stringify(data));
+  }
+}
+// COUNT INCREMENT(+)
+document.addEventListener('click', incrementGoods);
+function incrementGoods(e) {
+  if (e.target.closest('.order-counter__increment')) {
+    const item = e.target.closest('.addItemCard2__item');
+    const costsEl = item.querySelector('.addItemCard2-item__costs');
+    const numberEl = item.querySelector('.order-counter__number');
+    let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
+    let priceNumber = Number(priceSumm);
+    let priceSingle = Number(costsEl.dataset['price']);
+    numberEl.innerText = Number(numberEl.innerText) + 1;
+    costsEl.innerText = String(priceNumber + priceSingle + ' ' + '₽');
+    basketSumValue += priceSingle;
+    promocodeCosts.innerText = `Итого ${basketSumValue} ₽`;
+    allOrderCosts.innerText = `Итого ${basketSumValue} ₽`;
+    basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') + ' ' + '₽';
+  }
+}
+// COUNT DECREMENT(-)
+document.addEventListener('click', decrementGoods);
+function decrementGoods(e) {
+  if (e.target.closest('.order-counter__decrement') || basketSumValue == 0) {
+    const item = e.target.closest('.addItemCard2__item');
+    const costsEl = item.querySelector('.addItemCard2-item__costs');
+    const numberEl = item.querySelector('.order-counter__number');
+    let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
+    let priceNumber = Number(priceSumm);
+    let priceSingle = Number(costsEl.dataset['price']);
+    if ((Number(numberEl.innerText >= 1))) {
+      numberEl.innerText = Number(numberEl.innerText) - 1;
+      costsEl.innerText = String(priceNumber - priceSingle + ' ' + '₽');
+      if (basketSumValue >= 0) {
+        basketSumValue -= priceSingle;
+        promocodeCosts.innerText = `Итого ${basketSumValue} ₽`;
+        allOrderCosts.innerText = `Итого ${basketSumValue} ₽`;
+        basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') + ' ' + '₽';
+      }
+    }
+  }
+}
 //rendr PopUp login 
 document.addEventListener('click', renderPopupLogin);
 function renderPopupLogin(e) {
@@ -101,7 +256,6 @@ document.addEventListener('click', (e) => {
     HTML.style.overflow = 'auto';
   }
 });
-
 //render filter PopUP
 btnfilter.forEach(btnfilter => {
   btnfilter.addEventListener('click', () => {
@@ -125,7 +279,6 @@ function closedFilterPopUpbtn(e) {
     e.stopPropagation();
   }
 }
-
 
 //close filter popUP on 'ESC'
 document.addEventListener('keydown', (e) => {
@@ -156,6 +309,45 @@ document.addEventListener('click', (e) => {
     deliveryConditionsText.classList.toggle('delivery-conditions__text_active');
   }
 })
+
+//hid filter PopUP
+document.addEventListener('click', (e) => {
+  if (e.target == filterContainer) {
+    body.style.paddingRight = '0px';
+    filter.classList.remove("filter__open");
+    filterContainer.classList.remove('filter-container__open');
+    HTML.style.overflow = 'auto';
+  }
+});
+//render filter PopUP
+btnfilter.forEach(btnfilter => {
+  btnfilter.addEventListener('click', () => {
+    body.style.paddingRight = lockPaddingValue;
+    filterContainer.classList.add('filter-container__open');
+    filter.classList.add("filter__open");
+    HTML.style.overflow = 'hidden';
+    filterContainer.style.backdropFilter = 'blur(15px)';
+  });
+});
+//closed filter popUp(if click btn)
+document.addEventListener('click', (e) => {
+  if (e.target.closest('.filter-header__button')) {
+    filter.classList.toggle("filter__open");
+    filterContainer.classList.toggle('filter-container__open');
+    rootfilter.style.filter = 'blur(0px)';
+    HTML.style.overflow = 'auto';
+    e.stopPropagation();
+  }
+});
+//close filter popUP on 'ESC'
+document.addEventListener('keydown', (e) => {
+  if (e.keyCode === 27) {
+    filter.classList.toggle("filter__open");
+    filterContainer.classList.toggle('filter-container__open');
+    HTML.style.overflow = 'auto';
+  }
+});
+
 
 //function for change item on pages
 function createitemCombo() {
@@ -494,7 +686,7 @@ let dataPrice = [
     <div class="item__descr pizza__descr"
     >${(pizzaDescr[i])}</div>
     <div class="item__bottom_choise">
-    <div class="btnchoise pizza__button">Выбрать</div>
+    <button class="btnchoise pizza__button">Выбрать</button>
     <div class="item__costs pizza__costs" data-price="${(dataPrice[i])}">${(pizzaCosts[i])}</div>
     </div>
     </div>`;
@@ -792,9 +984,6 @@ let dataPrice = [
 }
 }
 
-
-
-
 const tl = gsap.timeline();
 function pageAnimIn(container) {
   return tl.to(container.querySelector('.preloaloder-round'), {
@@ -825,15 +1014,10 @@ barba.init({
   views: [{
     namespace: 'home',
     beforeEnter() {
-      const HTML = document.querySelector('html');
-      const rootfilter = document.querySelector('.root');
-      let body = document.querySelector('body');
-      const btnfilter = document.querySelectorAll('.btnfilter ');
-      const filterContainer = document.querySelector('.filter-container');
-      const filter = document.querySelector('.filter');
-      //scroll size
-      const lockPaddingValue = window.innerWidth - document.documentElement.clientWidth + 'px';
-      //main array
+      if(localStorage.getItem("array")) {
+      let dataload = JSON.parse(localStorage.getItem("array"));
+      data = dataload;
+      }
       //basket summ after reload page
       if (localStorage.getItem("basket")) {
         const basket = JSON.parse(localStorage.getItem("basket"));
@@ -871,198 +1055,23 @@ barba.init({
       // if(document.querySelector('.indexpage')) {
       //   AOS.init();
       // }
-      function renderPopupLogin(e) {
-        if (e.target.closest('.nav-list__linkLOGIN')) {
-          renderPopup();
-        }
-      }
-      //hid filter PopUP
-      document.addEventListener('click', (e) => {
-        if (e.target == filterContainer) {
-          body.style.paddingRight = '0px';
-          filter.classList.remove("filter__open");
-          filterContainer.classList.remove('filter-container__open');
-          HTML.style.overflow = 'auto';
-        }
-      });
-      //render filter PopUP
-      btnfilter.forEach(btnfilter => {
-        btnfilter.addEventListener('click', () => {
-          body.style.paddingRight = lockPaddingValue;
-          filterContainer.classList.add('filter-container__open');
-          filter.classList.add("filter__open");
-          HTML.style.overflow = 'hidden';
-          filterContainer.style.backdropFilter = 'blur(15px)';
-        });
-      });
-      //closed filter popUp(if click btn)
-      document.addEventListener('click', (e) => {
-        if (e.target.closest('.filter-header__button')) {
-          filter.classList.toggle("filter__open");
-          filterContainer.classList.toggle('filter-container__open');
-          rootfilter.style.filter = 'blur(0px)';
-          HTML.style.overflow = 'auto';
-          e.stopPropagation();
-        }
-      });
-      //close filter popUP on 'ESC'
-      document.addEventListener('keydown', (e) => {
-        if (e.keyCode === 27) {
-          filter.classList.toggle("filter__open");
-          filterContainer.classList.toggle('filter-container__open');
-          HTML.style.overflow = 'auto';
-        }
-      });
     }
   }, {
     namespace: 'addItemCard2',
     beforeEnter() {
       window.scrollTo(0, 0);
-      let datasetPrice = [];
+      if(localStorage.getItem("array")) {
+      let dataload = JSON.parse(localStorage.getItem("array"));
+      data = dataload;
+      }
       const additem = document.querySelector('.additem');
       const startitem = document.querySelector('#startitem');
       const basketSum = document.querySelector('.basket__sum');
-      const promocodeCosts = document.querySelector('.promocode__costs');
-      const allOrderCosts = document.querySelector('.addItemCard2-delivery-comment-delivery__costs');
-      //add item on additemCard page
-      document.addEventListener('click', addItemCard2);
-      function addItemCard2(e) {
-        if (e.target.closest('.addTOorder-item__button')) {
-          const additem = document.querySelector('.additem');
-          const startitem = document.querySelector('#startitem');
-          const item = e.target.closest('.addTOorder__item');
-          startitem.style.display = 'none';
-          costs = e.target.innerText;
-          imgSrc = item.querySelector('.addTOorder__image').getAttribute('src');
-          title = item.querySelector('.addTOorder-item__title').innerText;
-          descr = item.querySelector('.addTOorder-item__descr').innerText;
-          if (data.length < 40) {
-            price = costs.replace(/[a-zа-яё]/gi, '').trim();
-            datasetPrice = Number(e.target.dataset['price']);
-            let costsText = costs.replace(/[^+\d]/g, '').trim();
-            data.push(imgSrc, title, descr, price, datasetPrice);
-            localStorage.setItem("array", JSON.stringify(data));
-            const addItemText = `
-      <div class="addItemCard2__item">
-      <div class="addItemCard2__item_wrap">
-        <img
-          class="addItemCard2-item__image"
-          src=${imgSrc}
-          alt="${title}"
-        />
-        <div class="addItemCard2__text">
-          <div class="addItemCard2-text__title">
-            ${title}
-          </div>
-          <div class="addItemCard2-text__descr">${descr}</div>
-        </div>
-      </div>
-      <div class="addItemCard2__item_wrap">
-        <div class="order-item__sum">
-          <button class="order-counter__btn order-counter__increment">
-            <img
-              src="images/order/Plus__icon.svg"
-              alt="icon"
-              class="order-counter-increment__image"
-            />
-          </button>
-          <div class="order-counter__number">1</div>
-          <button class="order-counter__btn order-counter__decrement">
-            <img
-              src="images/order/Minus__icon.svg"
-              alt="icon"
-              class="order-counter-decrement__image"
-            />
-          </button>
-        </div>
-        <div class="order-footer__costs addItemCard2-item__costs" ${('data-price='+datasetPrice)}>${costs}</div>
-      </div>
-      <button class="addItemCard2-item__remove">
-        <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
-      </button>
-    </div>
-      `;
-            additem.insertAdjacentHTML('afterend', addItemText);
-            basketSum.innerText = `${basketSumValue} ₽`;
-            basketSumValue += datasetPrice;
-            promocodeCosts.innerText = `Итого ${basketSumValue} ₽`;
-            allOrderCosts.innerText = `Итого ${basketSumValue} ₽`;
-            basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') + ' ' + '₽';
-            localStorage.setItem("basket", JSON.stringify(basketSumValue));
-          }
-        }
-      }
-      // COUNT INCREMENT(+)
-      document.addEventListener('click', incrementGoods);
-      function incrementGoods(e) {
-        if (e.target.closest('.order-counter__increment')) {
-          const item = e.target.closest('.addItemCard2__item');
-          const costsEl = item.querySelector('.addItemCard2-item__costs');
-          const numberEl = item.querySelector('.order-counter__number');
-          let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
-          let priceNumber = Number(priceSumm);
-          let priceSingle = Number(costsEl.dataset['price']);
-          numberEl.innerText = Number(numberEl.innerText) + 1;
-          costsEl.innerText = String(priceNumber + priceSingle + ' ' + '₽');
-          basketSumValue += priceSingle;
-          promocodeCosts.innerText = `Итого ${basketSumValue} ₽`;
-          allOrderCosts.innerText = `Итого ${basketSumValue} ₽`;
-          basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') + ' ' + '₽';
-        }
-      }
-      // COUNT DECREMENT(-)
-      document.addEventListener('click', decrementGoods);
-      function decrementGoods(e) {
-        if (e.target.closest('.order-counter__decrement') || basketSumValue == 0) {
-          const item = e.target.closest('.addItemCard2__item');
-          const costsEl = item.querySelector('.addItemCard2-item__costs');
-          const numberEl = item.querySelector('.order-counter__number');
-          let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
-          let priceNumber = Number(priceSumm);
-          let priceSingle = Number(costsEl.dataset['price']);
-          if ((Number(numberEl.innerText >= 1))) {
-            numberEl.innerText = Number(numberEl.innerText) - 1;
-            costsEl.innerText = String(priceNumber - priceSingle + ' ' + '₽');
-            if (basketSumValue >= 0) {
-              basketSumValue -= priceSingle;
-              promocodeCosts.innerText = `Итого ${basketSumValue} ₽`;
-              allOrderCosts.innerText = `Итого ${basketSumValue} ₽`;
-              basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') + ' ' + '₽';
-            }
-          }
-        }
-      }
-      // item remove
-      document.addEventListener('click', removeGoods);
-      function removeGoods(e) {
-        if (e.target.closest('.addItemCard2-item__remove')) {
-          const item = e.target.closest('.addItemCard2__item');
-          const itemCosts = item.querySelector('.order-item__sum').nextElementSibling.innerText;
-          let itemNumber = Number(itemCosts.replace(/[^+\d]/g, ''));
-          item.remove();
-          if (promocodeCosts) {
-            data.splice(data.length - 5);
-            basketSumValue -= itemNumber;
-            promocodeCosts.innerText = `Итого ${basketSumValue} ₽`;
-            allOrderCosts.innerText = `Итого ${basketSumValue} ₽`;
-            basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') + ' ' + '₽';
-            localStorage.setItem("basket", JSON.stringify(basketSumValue));
-            localStorage.setItem("array", JSON.stringify(data));
-          }
-        }
-      }
       //startpage content
       function ready() {
         if (localStorage.getItem("basket")) {
           if (startitem) {
             startitem.style.display = 'none';
-          }
-          for (let i = 0; i < data.length; i += 5) {
-            resultName.push((data[i + 1]));
-            resultDescr.push((data[i + 2]));
-            resultImg.push((data[i + 0]));
-            resultPrice.push((data[i + 3]));
-            datasetPrice.push((data[i + 3]));
           }
           if (localStorage.getItem("basket")) {
             const basket = JSON.parse(localStorage.getItem("basket"));
@@ -1071,10 +1080,8 @@ barba.init({
             promocodeCosts.innerText = `Итого ${basket} ₽`;
             allOrderCosts.innerText = `Итого ${basket} ₽`;
           };
-          console.log(data);
-          console.log(resultName);
           if (document.querySelector('.wrap__addItemCard2')) {
-            for (let i = 0; i < data.length / 5; i++) {
+            for (let i = 0; i < numberOfGoods; i++) {
               const addItemText = `
                 <div class="addItemCard2__item">
                 <div class="addItemCard2__item_wrap">
@@ -1108,7 +1115,7 @@ barba.init({
                       />
                     </button>
                   </div>
-                  <div class="order-footer__costs addItemCard2-item__costs" ${('data-price='+datasetPrice[i])}>${(resultPrice[i])}</div>
+                  <div class="order-footer__costs addItemCard2-item__costs" ${('data-price='+resultdataAtr[i])}>${(resultPrice[i])} ₽</div>
                 </div>
                 <button class="addItemCard2-item__remove">
                   <img src="images/additemCard2/removeCardBtn.png" alt="" class="" />
@@ -1252,7 +1259,7 @@ barba.init({
     <div class="item__descr pizza__descr"
     >${(pizzaDescr[i])}</div>
     <div class="item__bottom_choise">
-    <div class="btnchoise pizza__button">Выбрать</div>
+    <button class="btnchoise pizza__button">Выбрать</button>
     <div class="item__costs pizza__costs" data-price="${(dataPrice[i])}">${(pizzaCosts[i])}</div>
     </div>
     </div>`;
@@ -1446,5 +1453,16 @@ barba.init({
 }]
 })
 
+barba.hooks.enter(() => {
+  //basket summ after reload page
+  if(localStorage.getItem("array")) {
+  let dataload = JSON.parse(localStorage.getItem("array"));
+  data = dataload;
+  resultName = data[0];
+  resultDescr = data[1];
+  resultImg = data[2];
+  resultPrice = data[3];
+}
+});
 
 
