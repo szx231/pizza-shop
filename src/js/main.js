@@ -8,7 +8,6 @@ import { gsap } from "gsap";
 
 window.scrollTo(0, 0);
 gsap.to('.assortment__item', {delay: 0.4, duration: 0.8, opacity: 1, stagger: 0.2}); 
-
 //hid menu dropdown 
 const menuDropdownList = document.querySelector('.menu-dropdown__list');
 
@@ -19,8 +18,6 @@ if(menuDropdownList) {
   }, 500);
 }
 
-const promocodeCosts = document.querySelector('.promocode__costs');
-const allOrderCosts = document.querySelector('.addItemCard2-delivery-comment-delivery__costs');
 // add sum on basket
 const basketSum = document.querySelector('.basket__sum');
 const HTML = document.querySelector('html');
@@ -52,12 +49,10 @@ let dataAtr;
 let resultName = [];  
 let resultDescr = [];
 let resultImg = [];
-
 let resultPrice = [];
 let resultdataAtr = [];
-
 //basket summ after reload page
-if(localStorage.getItem("array")) {
+if(localStorage.getItem("array") && localStorage.array.length >= 20) {
   let dataload = JSON.parse(localStorage.getItem("array"));
   data = dataload;
   resultName = data[0];
@@ -66,9 +61,13 @@ if(localStorage.getItem("array")) {
   resultPrice = data[3];
   resultdataAtr = data[4];
   numberOfGoods = data[5];
-  console.log(data);
-  console.log(resultName);
 }
+
+if (localStorage.getItem("basket")) {
+    const basket = JSON.parse(localStorage.getItem("basket"));
+    basketSumValue = basket;
+    basketSum.innerText = `${basketSumValue} ₽`
+  };
 
 if(document.querySelector('.indexpage')) {
   AOS.init();
@@ -105,6 +104,8 @@ function addGoods(e) {
 document.addEventListener('click', addItemCard2);
 function addItemCard2(e) {
   if (e.target.closest('.addTOorder-item__button')) {
+    let promocodeCosts = document.querySelector('.promocode__costs');
+    let allOrderCosts = document.querySelector('.addItemCard2-delivery-comment-delivery__costs');
     const additem = document.querySelector('.additem');
     const startitem = document.querySelector('#startitem');
     const item = e.target.closest('.addTOorder__item');
@@ -183,20 +184,28 @@ function removeGoods(e) {
     const item = e.target.closest('.addItemCard2__item');
     const itemCosts = item.querySelector('.order-item__sum').nextElementSibling.innerText;
     let itemNumber = Number(itemCosts.replace(/[^+\d]/g, ''));
-    item.remove();
+    let title = item.querySelector('.addItemCard2-text__title');
+    let promocodeCosts = document.querySelector('.promocode__costs');
+    let allOrderCosts = document.querySelector('.addItemCard2-delivery-comment-delivery__costs');
     numberOfGoods -= 1;
+    item.remove();
+    let titleTrim = title.innerText.trim();
+    let delElem = data[0];
+    let indexElem = delElem.indexOf(titleTrim);
     for (let i = 0; i < data.length - 1; i++) {
-      data[i].splice(0, 1);
+      data[i].splice(indexElem, 1);
     }
+    data = [];
+    data.push(resultName, resultDescr, resultImg, resultdataAtr, resultPrice, numberOfGoods);
+    basketSumValue -= itemNumber;
+    promocodeCosts.innerText = `Итого ${basketSumValue} ₽`;
+    allOrderCosts.innerText = `Итого ${basketSumValue} ₽`;
+    basketSum.innerText = basketSumValue+' '+'₽'
+    if(numberOfGoods < 1) {
       data = [];
-      data.push(resultName, resultDescr, resultImg, resultdataAtr, resultPrice, numberOfGoods);
-      basketSumValue -= itemNumber;
-      promocodeCosts.innerText = `Итого ${basketSumValue} ₽`;
-      allOrderCosts.innerText = `Итого ${basketSumValue} ₽`;
-      basketSum.innerText = promocodeCosts.innerText.replace(/[^+\d]/g, '') + ' ' + '₽';
-      localStorage.setItem("basket", JSON.stringify(basketSumValue));
-
-      localStorage.setItem("array", JSON.stringify(data));
+    }
+    localStorage.setItem("basket", JSON.stringify(basketSumValue));
+    localStorage.setItem("array", JSON.stringify(data));
   }
 }
 // COUNT INCREMENT(+)
@@ -206,6 +215,8 @@ function incrementGoods(e) {
     const item = e.target.closest('.addItemCard2__item');
     const costsEl = item.querySelector('.addItemCard2-item__costs');
     const numberEl = item.querySelector('.order-counter__number');
+    let promocodeCosts = document.querySelector('.promocode__costs');
+    let allOrderCosts = document.querySelector('.addItemCard2-delivery-comment-delivery__costs');
     let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
     let priceNumber = Number(priceSumm);
     let priceSingle = Number(costsEl.dataset['price']);
@@ -220,10 +231,12 @@ function incrementGoods(e) {
 // COUNT DECREMENT(-)
 document.addEventListener('click', decrementGoods);
 function decrementGoods(e) {
-  if (e.target.closest('.order-counter__decrement') || basketSumValue == 0) {
+  if (e.target.closest('.order-counter__decrement') && basketSumValue >= 0) {
     const item = e.target.closest('.addItemCard2__item');
     const costsEl = item.querySelector('.addItemCard2-item__costs');
     const numberEl = item.querySelector('.order-counter__number');
+    let promocodeCosts = document.querySelector('.promocode__costs');
+    let allOrderCosts = document.querySelector('.addItemCard2-delivery-comment-delivery__costs');
     let priceSumm = costsEl.innerText.replace(/[^+\d]/g, '');
     let priceNumber = Number(priceSumm);
     let priceSingle = Number(costsEl.dataset['price']);
@@ -1052,34 +1065,25 @@ barba.init({
       if (document.querySelector('.combo__item_wrapper')) {
         createitemCombo();
       }
-      // if(document.querySelector('.indexpage')) {
-      //   AOS.init();
-      // }
+        AOS.init();
     }
   }, {
     namespace: 'addItemCard2',
     beforeEnter() {
+      let promocodeCosts = document.querySelector('.promocode__costs');
+      let allOrderCosts = document.querySelector('.addItemCard2-delivery-comment-delivery__costs');
       window.scrollTo(0, 0);
-      if(localStorage.getItem("array")) {
-      let dataload = JSON.parse(localStorage.getItem("array"));
-      data = dataload;
-      }
       const additem = document.querySelector('.additem');
       const startitem = document.querySelector('#startitem');
       const basketSum = document.querySelector('.basket__sum');
       //startpage content
       function ready() {
         if (localStorage.getItem("basket")) {
-          if (startitem) {
-            startitem.style.display = 'none';
-          }
-          if (localStorage.getItem("basket")) {
-            const basket = JSON.parse(localStorage.getItem("basket"));
-            basketSumValue = basket;
-            basketSum.innerText = `${basket} ₽`
-            promocodeCosts.innerText = `Итого ${basket} ₽`;
-            allOrderCosts.innerText = `Итого ${basket} ₽`;
-          };
+          const basket = JSON.parse(localStorage.getItem("basket"));
+          basketSumValue = basket;
+        };
+        if (localStorage.getItem("basket")) {
+          startitem.style.display = 'none';
           if (document.querySelector('.wrap__addItemCard2')) {
             for (let i = 0; i < numberOfGoods; i++) {
               const addItemText = `
@@ -1125,6 +1129,15 @@ barba.init({
               additem.insertAdjacentHTML('afterend', addItemText);
             }
           }
+          let allitem = [...document.querySelectorAll('.addItemCard2-item__costs')]
+          let allitemCosts = allitem.map((e) => e.innerText.replace(/[^+\d]/g, '').trim());
+          let busketSumReload = allitemCosts.map((e) => Number(e));
+          let resultSum = busketSumReload.reduce(function(sum, elem) {
+            return sum + elem;
+          }, 0);
+          basketSum.innerText = `${resultSum} ₽`
+          promocodeCosts.innerText = `Итого ${resultSum} ₽`;
+          allOrderCosts.innerText = `Итого ${resultSum} ₽`;
         }
       }
       ready();
@@ -1450,19 +1463,20 @@ barba.init({
       }
     })
   }
+}, {
+  namespace: 'menuPromotison',
+  beforeEnter() {
+    AOS.init();
+  }
 }]
 })
 
+
 barba.hooks.enter(() => {
   //basket summ after reload page
-  if(localStorage.getItem("array")) {
-  let dataload = JSON.parse(localStorage.getItem("array"));
-  data = dataload;
-  resultName = data[0];
-  resultDescr = data[1];
-  resultImg = data[2];
-  resultPrice = data[3];
-}
+  if (localStorage.getItem("basket")) {
+    const basket = JSON.parse(localStorage.getItem("basket"));
+    basketSumValue = basket;
+    basketSum.innerText = `${basketSumValue} ₽`
+  };
 });
-
-
