@@ -54,7 +54,7 @@
   @extend %fontSmall;
   line-height: 18px;
   border: none;
-  background: url(../images/header/city__icon__arow.svg) no-repeat;
+  background: url(/images/header/city__icon__arow.svg) no-repeat;
   background-position-x: 55%;
   background-position-y: 50%;
   appearance: none;
@@ -165,7 +165,6 @@
   margin-bottom: 50px;
 }
 
- 
 .assortment-item__image {
   align-self: flex-end;
 }
@@ -195,7 +194,8 @@
   border-radius: 12px;
   position: relative;
   cursor: pointer;
-  transition: all .2s ease-in-out; 
+  transition: all .2s ease-in-out;
+  user-select: none;
   &:hover {
     margin-top: -8px;
     margin-bottom: 8px;
@@ -277,7 +277,7 @@
   font-weight: 400;
   @extend %fontSmall;
   color: rgba(165, 165, 165, 1);
-  background-image: url(../images/delivery__aria/input__icon.svg);
+  background-image: url(/images/delivery__aria/input__icon.svg);
   background-repeat: no-repeat;
   background-position-y: 40%;
   background-position-x: 1%;
@@ -450,7 +450,7 @@
 }
 
 .phone-item__icon {
-  background: url(../images/footer/footer__icon_phone.svg);
+  background: url(/images/footer/footer__icon_phone.svg);
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
@@ -459,7 +459,7 @@
 }
 
 .adress-item__location {
-  background: url(../images/footer/footer__icon__location.svg);
+  background: url(/images/footer/footer__icon__location.svg);
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
@@ -492,7 +492,7 @@
 }
 
 .social-item__linkfb {
-  background: url(../images/footer/footer__icon_fb.svg);
+  background: url(/images/footer/footer__icon_fb.svg);
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
@@ -501,7 +501,7 @@
 }
 
 .social-item__linkInst {
-  background: url(../images/footer/footer__icon_inst.svg);
+  background: url(/images/footer/footer__icon_inst.svg);
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
@@ -1151,34 +1151,6 @@
   padding: 13px 16px;
 }
 
-.addItemCard3-delivery-time {
-  max-width: 160px;
-  padding: 13px 0px 13px 16px;
-  color: rgba(165, 165, 165, 1);
-  @extend %fontSmall;
-  font-weight: 400;
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  background: url(/images/additemCard3/Calendar.svg);
-  background-repeat: no-repeat;
-  background-position-x: 85%;
-  background-position-y: 50%;
-}
-
-.addItemCard3-delivery-date {
-  max-width: 160px;
-  padding: 13px 0px 13px 16px;
-  color: rgba(165, 165, 165, 1);
-  @extend %fontSmall;
-  font-weight: 400;
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  background: url(/images/additemCard3/Arrow_input.svg);
-  background-repeat: no-repeat;
-  background-position-x: 85%;
-  background-position-y: 50%;
-}
-
 .addItemCard2-delivery__pay {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1274,11 +1246,12 @@
 .wrap__trackYourOrder  {
   padding: 200px 0;
 }
-.trackYourOrder {
+
+.trackYourOrder-container  {
   display: grid;
   justify-content: center;
-  align-items: center;
   justify-items: center;
+  align-items: center;
 }
 
 .trackYourOrder__title {
@@ -1325,8 +1298,8 @@
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   padding: 60px 265px;
-  opacity: 1;
-  transition: all 1s ease-in-out;
+  opacity: 0;
+  transition: all .3s ease-in-out;
   z-index: 10;
 }
 
@@ -1403,152 +1376,6 @@
   max-width: 320px;
 }
 
-.restaurant__select {
-  font-weight: 400;
-  @extend %fontSmall;
-  color: rgba(165, 165, 165, 1);
-  padding: 13px 16px;
-  max-width: 100%;
-  background-color: var(--color-white);
-  border-radius: 6px;
-  border: 1px solid var(--color-border);
-  background-image: url(/images/additemCard3/arrow__icon__restaurant.svg);
-  background-repeat: no-repeat;
-  background-position-x: 98%;
-  background-position-y: 50%;
-}
-
-
-.addItemCard3-delivery__check {
-  display: flex;
-  position: relative;
-  align-items: center;
-}
-
-.addItemCard3-delivery__input {
-  -webkit-appearance: none;
-  appearance: none;
-  margin-right:20px;
-  position: absolute;
-}
-
-.addItemCard3-delivery__checkbox {
-  display: block;
-  width: 16px;
-  height: 16px;
-  background: url(/images/additemCard2/checkbox__disable.svg);
-  margin-right: 10px;
-}
-
-.addItemCard3-delivery__input:checked + 
-.addItemCard3-delivery__checkbox {
-  background: url(/images/additemCard2/checkbox__check.svg);
-}
-
-.addItemCard3-delivery__date {
-  font-weight: 400;
-  @extend %fontSmall;
-  color: rgba(165, 165, 165, 1);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  padding: 13px 16px;
-}
-
-.smsCodefilter-delivery__datetime {
-  font-weight: 400;
-  @extend %fontSmall;
-  color: rgba(165, 165, 165, 1);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  padding: 13px 16px;
-}
-
-.smsCodefilter__container {
-  display: grid;
-  justify-items: center;
-  text-align: center;
-  min-width: 375px;
-  position: relative;
-}
-
-.smsCodefilter {
-  min-width: 850px;
-  background-color: rgba(265, 265, 265, 1);
-  border-radius: 24px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  padding: 60px 265px;
-}
-
-.smsCodefilter__title {
-  font-family: 'Inter-Regular';
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 40px;
-  margin-bottom: 16px;
-}
-
-.smsCodefilter__descr {
-  font-weight: 400;
-  @extend %fontSmall;
-  margin-bottom: 20px;
-}
-
-
-
-.smsCodefilter__button {
-  @extend %fontSmall;
-  padding: 13px 96px;
-  max-width: 240px;
-  background-color: var(--color-orange);
-  color: var(--color-white);
-  font-weight: 400;
-  border-radius: 6px;
-  margin-bottom: 12px;
-  border: none;
-}
-
-.smsCodefilter__agreement {
-  @extend %fontSmall;
-  font-weight: 400;
-}
-
-.smsCodefilter-repeat__timer {
-  @extend %fontSmall;
-  font-weight: 400;
-  color: rgba(165, 165, 165, 1);
-}
-
-.smsCodefilter-item_wrap {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.smsCodefilter-item {
-  @extend %fontSmall;
-  max-width: 48px;
-  border-radius: 6px;
-  padding: 13px 18px;
-  font-weight: 400;
-  color: rgba(165, 165, 165, 1);
-  border: 1px solid var(--color-border);
-}
-
-.smsCodefilter-repeat__send {
-  font-weight: 400;
-  @extend %fontSmall;
-  color: var(--color-orange);
-  border: none;
-  background: transparent;
-}
-
 
 .accountProfile {
   margin-top: 100px;
@@ -1570,23 +1397,45 @@
   margin-bottom: 10px;
 }
 
-.accountProfile-header__buttons {
+.myAccProfileBtn {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
-  border: 1px solid var(--color-border);
-  background-color: var(--color-white);
+  gap: 20px;
   align-items: center;
-  min-width: 360px;
-  border-radius: 6px;
-  position: relative;
-  height: 50px;
 }
 
-.accountProfile-header-check__input {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
+.SettingLink {
+  max-width: 180px;
+  padding: 13px 20px;
+  color: var(--color-black);
+  background-color: transparent;
+  border-radius: 6px;
+  font-weight: 400;
+  @extend %fontSmall;
+  text-align: center;
+  border: 1px solid var(--color-orange);
+  transition: all .2s ease-in-out;
+  &:hover {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+  }
+}
+
+.ProfileLink {
+  max-width: 180px;
+  padding: 13px 20px;
+  color: var(--color-black);
+  background-color: transparent;
+  border-radius: 6px;
+  font-weight: 400;
+  @extend %fontSmall;
+  text-align: center;
+  border: 1px solid var(--color-orange);
+  transition: all .2s ease-in-out;
+  &:hover {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+  }
 }
 
 .accountProfile-header__check {
@@ -1594,37 +1443,7 @@
   @extend %fontSmall;
 }
 
-.accountProfile-header_btnhistory input:checked ~ span {
-  background-color: var(--color-orange);
-  color: var(--color-white);
-  border-radius: 6px;
-  height: 48px;
-  width: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  font-weight: 400;
-  @extend %fontLarge;
-}
 
-.accountProfile-header__btnsettings input:checked ~ span {
-  background-color: var(--color-orange);
-  color: var(--color-white);
-  border-radius: 6px;
-  height: 48px;
-  width: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  font-weight: 400;
-  @extend %fontLarge;
-}
 
 .accountProfile__order {
   background-color: var(--color-white);
@@ -1751,6 +1570,7 @@
   background-color: var(--color-white);
   @extend %fontSmall;
   border-radius: 6px;
+  cursor: pointer;
   &:not(:last-child) {
     margin-right: 16px;
   }
@@ -1761,6 +1581,7 @@
   border-radius: 6px;
   background-color: var(--color-orange);
   padding: 15px 24px;
+  cursor: pointer;
 }
 
 .accountProfile-page__button_left {
@@ -1785,6 +1606,7 @@
   border-bottom: 1px solid var(--color-border);
   margin-bottom: 12px;
 }
+
 .accountProfile2-order-bottom__text {
   font-weight: 400;
   @extend %fontSmall;
@@ -1983,6 +1805,7 @@
   cursor: pointer;
 }
 
+
 .myAcc__subscription {
   padding: 25px 32px;
   border-radius: 12px;
@@ -2046,7 +1869,6 @@
   margin-bottom: 16px;
 }
 
-
 .myAcc2__title {
   font-family: 'Inter-Bold';
   font-weight: 600;
@@ -2084,7 +1906,6 @@
   border: none;
   background-color: var(--color-orange);
 }
-
 
 .myAcc__passwordChanged {
   border: 1px solid var(--color-border);
@@ -2168,8 +1989,6 @@
   border-radius: 50%;
   transform: scale(0);
 }
-
-
 
 .imgpreloaloder {
 	position: fixed;

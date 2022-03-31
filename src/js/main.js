@@ -2,7 +2,7 @@ import '../styles/style.css';
 import './includes/test';
 import renderPopup from './includes/PopUPLogin';
 import basketIsFull from './includes/PopUPBasketFull';
-
+import renderFilter from './includes/PopUPFilter';
 import 'animate.css';
 import { gsap } from "gsap";
 
@@ -17,32 +17,23 @@ if(menuDropdownList) {
     menuDropdownList.style.display = "block";
   }, 500);
 }
-
 // add sum on basket
 const basketSum = document.querySelector('.basket__sum');
-const HTML = document.querySelector('html');
-const rootfilter = document.querySelector('.root');
-let body = document.querySelector('body');
-const btnfilter  = document.querySelectorAll('.btnfilter ');
-const filterContainer = document.querySelector('.filter-container');
-const filter = document.querySelector('.filter');
 //expand text
-const deliveryConditionsText = document.querySelector('.delivery-conditions__text');
 //settings link and history order
 const accountProfileheaderbtn = document.querySelector('.accountProfile-header__btn');
 const accountProfileheaderbtnSet = document.querySelector('.settings');
 //scroll size
-const lockPaddingValue = window.innerWidth - document.documentElement.clientWidth + 'px';
 
 //main array
 let data = [];
 
 let numberOfGoods = 0;
 let basketSumValue = 0;
+
 let imgSrc;
 let title;
 let descr;
-
 let costs;
 let dataAtr;
 
@@ -81,7 +72,7 @@ function addGoods(e) {
     imgSrc = item.querySelector('.item__image').getAttribute('src');
     title = item.querySelector('.item__name').innerText;
     descr = item.querySelector('.item__descr').innerText;
-    if (data.length < 40) {
+    if (numberOfGoods <= 12) {
       numberOfGoods += 1;
       dataAtr = costs.dataset['price'];
       let costsText = costs.innerText.replace(/[^+\d]/g, '').trim();
@@ -211,7 +202,7 @@ function removeGoods(e) {
 // COUNT INCREMENT(+)
 document.addEventListener('click', incrementGoods);
 function incrementGoods(e) {
-  if (e.target.closest('.order-counter__increment')) {
+  if (e.target.closest('.order-counter__increment') && numberOfGoods >= 1)  {
     const item = e.target.closest('.addItemCard2__item');
     const costsEl = item.querySelector('.addItemCard2-item__costs');
     const numberEl = item.querySelector('.order-counter__number');
@@ -231,7 +222,7 @@ function incrementGoods(e) {
 // COUNT DECREMENT(-)
 document.addEventListener('click', decrementGoods);
 function decrementGoods(e) {
-  if (e.target.closest('.order-counter__decrement') && basketSumValue >= 0) {
+  if (e.target.closest('.order-counter__decrement')  && numberOfGoods >= 1) {
     const item = e.target.closest('.addItemCard2__item');
     const costsEl = item.querySelector('.addItemCard2-item__costs');
     const numberEl = item.querySelector('.order-counter__number');
@@ -260,107 +251,19 @@ function renderPopupLogin(e) {
   }
 }
 
-//hid filter PopUP
-document.addEventListener('click', (e) => {
-  if(e.target == filterContainer) {
-    body.style.paddingRight = '0px';
-    filter.classList.remove("filter__open");
-    filterContainer.classList.remove('filter-container__open');
-    HTML.style.overflow = 'auto';
-  }
-});
-//render filter PopUP
-btnfilter.forEach(btnfilter => {
-  btnfilter.addEventListener('click', () => {
-    body.style.paddingRight = lockPaddingValue;
-    filterContainer.classList.add('filter-container__open');
-    filter.classList.add("filter__open");
-    HTML.style.overflow = 'hidden';
-    filterContainer.style.backdropFilter = 'blur(15px)';
-  });
-});
-
-//closed filter popUp(if click btn)
-document.addEventListener('click', closedFilterPopUpbtn)
-function closedFilterPopUpbtn(e) {
-  if (e.target.closest('.filter-header__button')) {
-    console.log('1');
-    filter.classList.toggle("filter__open");
-    filterContainer.classList.toggle('filter-container__open');
-    rootfilter.style.filter = 'blur(0px)';
-    HTML.style.overflow = 'auto';
-    e.stopPropagation();
-  }
-}
-
-//close filter popUP on 'ESC'
-document.addEventListener('keydown', (e) => {
-  if (e.keyCode === 27) {
-    filter.classList.toggle("filter__open");
-    filterContainer.classList.toggle('filter-container__open');
-    HTML.style.overflow = 'auto';
-  }
-});
-
-// move to another page(myAcc)
-document.addEventListener('click', (e) => {
-  if(e.target == accountProfileheaderbtnSet) {
-    window.location.href = 'myAcc.html';
-  }
-})
-
-// move to another page(accProfile)
-document.addEventListener('click', (e) => {
-  if(e.target == accountProfileheaderbtn) {
-    window.location.href = 'accProfile.html';
-  }
-})
-
 //change class delivery-conditions__btn
 document.addEventListener('click', (e) => {
+  let deliveryConditionsText = document.querySelector('.delivery-conditions__text');
   if(e.target.closest('.delivery-conditions__btn')) {
     deliveryConditionsText.classList.toggle('delivery-conditions__text_active');
   }
 })
-
-//hid filter PopUP
+//render filter popup
 document.addEventListener('click', (e) => {
-  if (e.target == filterContainer) {
-    body.style.paddingRight = '0px';
-    filter.classList.remove("filter__open");
-    filterContainer.classList.remove('filter-container__open');
-    HTML.style.overflow = 'auto';
+  if(e.target.closest('.btnfilter ')) {
+    renderFilter();
   }
-});
-//render filter PopUP
-btnfilter.forEach(btnfilter => {
-  btnfilter.addEventListener('click', () => {
-    body.style.paddingRight = lockPaddingValue;
-    filterContainer.classList.add('filter-container__open');
-    filter.classList.add("filter__open");
-    HTML.style.overflow = 'hidden';
-    filterContainer.style.backdropFilter = 'blur(15px)';
-  });
-});
-//closed filter popUp(if click btn)
-document.addEventListener('click', (e) => {
-  if (e.target.closest('.filter-header__button')) {
-    filter.classList.toggle("filter__open");
-    filterContainer.classList.toggle('filter-container__open');
-    rootfilter.style.filter = 'blur(0px)';
-    HTML.style.overflow = 'auto';
-    e.stopPropagation();
-  }
-});
-//close filter popUP on 'ESC'
-document.addEventListener('keydown', (e) => {
-  if (e.keyCode === 27) {
-    filter.classList.toggle("filter__open");
-    filterContainer.classList.toggle('filter-container__open');
-    HTML.style.overflow = 'auto';
-  }
-});
-
+})
 
 //function for change item on pages
 function createitemCombo() {
@@ -444,7 +347,8 @@ let dataPrice = [
     <div class="item__descr combo__descr">${(comboDescr[i])}</div>
     <div class="item__bottom_choise">
     <button class="btnchoise combo__button">Выбрать</button>
-    <div class="item__costs combo__costs" data-price=">${(dataPrice[i])}">${(comboCosts[i])}</div>
+    <div class="item__costs drinks__costst" data-price="${(dataPrice[i])}">${(comboCosts[i])}</div>
+    </div>
     </div>
     </div>`;
     newItem.innerText = itemText;
@@ -531,7 +435,7 @@ let dessertPrice = [
     >
     <div class="item__bottom_choise">
     <button  class="btnchoise desserts__button">Выбрать</button>
-    <div class="item__costs desserts__costst" data-price="${(dessertPrice[i])}">${(dessertCosts[i])}</div>
+    <div class="item__costs desserts__costs" data-price="${(dessertPrice[i])}">${(dessertCosts[i])}</div>
     </div>
     </div>`;
     newItem.innerText = itemText;
@@ -617,7 +521,7 @@ let dataPrice = [
     >
     <div class="item__bottom_choise">
     <button class="btnchoise drinks__button">Выбрать</button>
-    <div class="item__costs drinks__costst" data-price="${(dataPrice[i])}">${(drinkCosts[i])}</div>
+    <div class="item__costs drinks__costs" data-price="${(dataPrice[i])}">${(drinkCosts[i])}</div>
     </div>
     </div>`;
     newItem.innerText = itemText;
@@ -1027,6 +931,7 @@ barba.init({
   views: [{
     namespace: 'home',
     beforeEnter() {
+      //render filter PopUP
       if(localStorage.getItem("array")) {
       let dataload = JSON.parse(localStorage.getItem("array"));
       data = dataload;
@@ -1065,7 +970,9 @@ barba.init({
       if (document.querySelector('.combo__item_wrapper')) {
         createitemCombo();
       }
-        AOS.init();
+      if(document.querySelector('.indexpage')) {
+      AOS.init();
+      }
     }
   }, {
     namespace: 'addItemCard2',
@@ -1422,55 +1329,12 @@ barba.init({
     createitemSushi();
   }
 }, {
-  namespace: 'myAcc',
-  beforeEnter() {
-    document.addEventListener('click', (e) => {
-      if (e.target == accountProfileheaderbtnSet) {
-        window.location.href = 'myAcc.html';
-      }
-    })
-    document.addEventListener('click', (e) => {
-      if (e.target == accountProfileheaderbtn) {
-        window.location.href = 'accProfile.html';
-      }
-    })
-  }
-}, {
-  namespace: 'myAcc2',
-  beforeEnter() {
-    document.addEventListener('click', (e) => {
-      if (e.target == accountProfileheaderbtnSet) {
-        window.location.href = 'myAcc.html';
-      }
-    })
-    document.addEventListener('click', (e) => {
-      if (e.target == accountProfileheaderbtn) {
-        window.location.href = 'accProfile.html';
-      }
-    })
-  }
-}, {
-  namespace: 'myAcc3',
-  beforeEnter() {
-    document.addEventListener('click', (e) => {
-      if (e.target == accountProfileheaderbtnSet) {
-        window.location.href = 'myAcc.html';
-      }
-    })
-    document.addEventListener('click', (e) => {
-      if (e.target == accountProfileheaderbtn) {
-        window.location.href = 'accProfile.html';
-      }
-    })
-  }
-}, {
   namespace: 'menuPromotison',
   beforeEnter() {
     AOS.init();
   }
 }]
 })
-
 
 barba.hooks.enter(() => {
   //basket summ after reload page
@@ -1480,3 +1344,5 @@ barba.hooks.enter(() => {
     basketSum.innerText = `${basketSumValue} ₽`
   };
 });
+
+

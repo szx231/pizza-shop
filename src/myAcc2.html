@@ -190,93 +190,77 @@
         </header>
       </div>
     </div>
-    <div class="wrap" data-barba="wrapper">
+    <div data-barba="wrapper">
       <div data-barba="container" data-barba-namespace="myAcc2">
-        <div class="preloaloder-round">
-          <img src="/images/loadAnimate.png" alt="img" class="imgpreloaloder" />
-        </div>
-        <section class="accountProfile">
-          <div class="accountProfile__header">
-            <h2 class="accountProfile-header__title">Мой аккаунт</h2>
-            <div class="accountProfile-header__buttons">
-              <label class="accountProfile-header_btnhistory">
-                <input
-                  type="radio"
-                  name="accountProfile-header__buttons"
-                  class="accountProfile-header-check__input"
-                  value="История заказов"
-                />
-                <span class="accountProfile-header__btn">История заказов</span>
-              </label>
-              <label class="accountProfile-header__btnsettings">
-                <input
-                  type="radio"
-                  name="accountProfile-header__buttons"
-                  class="accountProfile-header-check__input"
-                  value="Настройки"
-                  checked
-                />
-                <span class="accountProfile-header__btn settings">
-                  Настройки
-                </span>
-              </label>
-            </div>
+        <div class="wrap">
+          <div class="preloaloder-round">
+            <img
+              src="/images/loadAnimate.png"
+              alt="img"
+              class="imgpreloaloder"
+            />
           </div>
-        </section>
-      </div>
-    </div>
-    <div class="myAcc2__wrap" data-barba="wrapper">
-      <div data-barba="container" data-barba-namespace="myAcc">
-        <div class="myAcc2">
-          <h1 class="myAcc2__title">Изменение личных данных</h1>
-          <div class="myAcc2-input_wrap">
-            <div class="myAcc2__block">
-              <div class="myAcc2-block__name">Имя*</div>
-              <input
-                placeholder="Вадим"
-                type="text"
-                class="myAcc2-block__input"
-              />
+          <section class="accountProfile">
+            <div class="accountProfile__header">
+              <h2 class="accountProfile-header__title">Мой аккаунт</h2>
+              <div class="myAccProfileBtn">
+                <a href="accProfile.html" class="SettingLink"
+                  >История Заказов</a
+                >
+                <a href="index.html" class="ProfileLink">Меню</a>
+              </div>
             </div>
-            <div class="myAcc2__block">
-              <div class="myAcc2-block__name">Номер телефона*</div>
-              <input
-                placeholder="+7 (926) 223-10-11"
-                type="text"
-                class="myAcc2-block__input"
-              />
+          </section>
+          <div class="myAcc2">
+            <h1 class="myAcc2__title">Изменение личных данных</h1>
+            <div class="myAcc2-input_wrap">
+              <div class="myAcc2__block">
+                <div class="myAcc2-block__name">Имя*</div>
+                <input
+                  placeholder="Вадим"
+                  type="text"
+                  class="myAcc2-block__input"
+                />
+              </div>
+              <div class="myAcc2__block">
+                <div class="myAcc2-block__name">Номер телефона*</div>
+                <input
+                  placeholder="+7 (926) 223-10-11"
+                  type="text"
+                  class="myAcc2-block__input"
+                />
+              </div>
+              <div class="myAcc2__block">
+                <div class="myAcc2-block__name">Почта</div>
+                <input
+                  placeholder="mail@gmail.com"
+                  type="text"
+                  class="myAcc2-block__input"
+                />
+              </div>
+              <div class="myAcc2__block">
+                <div class="myAcc2-block__name">Дата рождения</div>
+                <input
+                  placeholder="13.02.1996"
+                  type="text"
+                  class="myAcc2-block__input"
+                />
+              </div>
             </div>
-            <div class="myAcc2__block">
-              <div class="myAcc2-block__name">Почта</div>
-              <input
-                placeholder="mail@gmail.com"
-                type="text"
-                class="myAcc2-block__input"
-              />
-            </div>
-            <div class="myAcc2__block">
-              <div class="myAcc2-block__name">Дата рождения</div>
-              <input
-                placeholder="13.02.1996"
-                type="text"
-                class="myAcc2-block__input"
-              />
-            </div>
+            <button class="myAcc2__btn">Сохранить изменения</button>
           </div>
-          <button class="myAcc2__btn">Сохранить изменения</button>
-        </div>
-        <div class="myAcc__password">
-          <h2 class="myAcc-password__title">Пароль</h2>
-          <a href="myAcc3.html" class="myAcc-password__change">Изменить</a>
-          <div class="myAcc-password__icon"></div>
-        </div>
-        <div class="myAcc__subscription">
-          <h3 class="myAcc-subscription__title">Подписки</h3>
-          <label class="myAcc-subscription__check">
-            <input type="checkbox" class="myAcc-subscription__checkinput" />
-            Получать предложения и акции
-            <span class="myAcc-subscription__checkbox"></span>
-          </label>
+          <div class="myAcc__password">
+            <h2 class="myAcc-password__title">Пароль</h2>
+            <a href="myAcc.html" class="myAcc-password__change">Изменить</a>
+          </div>
+          <div class="myAcc__subscription">
+            <h3 class="myAcc-subscription__title">Подписки</h3>
+            <label class="myAcc-subscription__check">
+              <input type="checkbox" class="myAcc-subscription__checkinput" />
+              Получать предложения и акции
+              <span class="myAcc-subscription__checkbox"></span>
+            </label>
+          </div>
         </div>
       </div>
     </div>

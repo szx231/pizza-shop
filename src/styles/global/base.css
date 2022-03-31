@@ -16,8 +16,6 @@ html, body {
 }
 
 
-
-
 iframe {
   border: none !important;
 }
@@ -152,8 +150,8 @@ img {
   margin: 0 auto;
   position: sticky;
   z-index: 100;
-  width: 100%;
   top: 0%;
+  width: 100%;
 }
 
 .wrap__footer {
@@ -172,13 +170,13 @@ img {
 }
 
 .wrap__addItemCard2 {
-  max-width: 870px;
+  max-width: 850px;
   padding: 10px 10px;
   margin: 0 auto;
 } 
 
 .wrap__trackYourOrder {
-  width: 870px;
+  max-width: 1920px;
   padding: 10px 10px;
   margin: 0 auto;
 } 
@@ -193,23 +191,13 @@ img {
   z-index: 1000;
 }
 
-.smsCodefilter__wrap {
-  width: 870px;
-  padding: 10px 10px;
-  margin: 0 auto;
-}
 
 .wrap {
-  max-width: 870px;
+  max-width: 1350px;
   padding: 10px 10px;
   margin: 0 auto;
 }
 
-.myAcc2__wrap {
-  max-width: 870px;
-  padding: 10px 10px;
-  margin: 0 auto;
-}
 
 .main-content {
   position: relative;

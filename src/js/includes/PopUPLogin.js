@@ -1,6 +1,7 @@
 const HTML = document.querySelector('html');
-const rootfilter = document.querySelector('.root');
+let body = document.querySelector('body');
 function renderPopup() {
+  const lockPaddingValue = window.innerWidth - document.documentElement.clientWidth + 'px';
   const popup = `
     <div class="accLoginfilter__wrap">
       <div class="accLoginfilter">
@@ -26,34 +27,52 @@ function renderPopup() {
     </div>`
 document.body.insertAdjacentHTML('beforeend', popup);
 HTML.style.overflow = 'hidden';
+body.style.paddingRight = lockPaddingValue;
 const accLoginfilterwrap = document.querySelector('.accLoginfilter__wrap');
 accLoginfilterwrap.style.backdropFilter =  'blur(15px)';
 const accLoginfilterButtonClose = document.querySelector('.accLoginfilter__buttonClose');
+const accLoginfilterButton = document.querySelector('.accLoginfilter__button');
+const accLoginfilter = document.querySelector('.accLoginfilter');
+setTimeout(() => {
+  accLoginfilter.style.opacity = '1';
+}, 100);
 
+
+function removePopUpLogin() {
+  accLoginfilter.style.opacity = '0';
+  accLoginfilter.addEventListener('transitionend', () => accLoginfilterwrap.remove());
+  setTimeout(() => {
+    accLoginfilterwrap.style.backdropFilter = 'blur(0px)';
+    HTML.style.overflow = 'auto';
+    body.style.paddingRight = '0px';
+  }, 450);
+};
 
 document.addEventListener('keydown', function(e) {
   if(e.keyCode === 27){
-    accLoginfilterwrap.remove();
-    accLoginfilterwrap.style.backdropFilter = 'blur(0px)';
-    HTML.style.overflow = 'auto';
+    removePopUpLogin();
   }
 });
 
 document.addEventListener('click', function(e) {
   if(e.target == accLoginfilterwrap) {
-    accLoginfilterwrap.remove();
-    accLoginfilterwrap.style.filter = 'blur(0px)';
-    HTML.style.overflow = 'auto';
+    removePopUpLogin();
   }
 });
 
 document.addEventListener('click', (e) => {
   if(e.target == accLoginfilterButtonClose) {
-    accLoginfilterwrap.remove();
-    accLoginfilterwrap.style.filter = 'blur(0px)';
-    HTML.style.overflow = 'auto';
+    removePopUpLogin();
+  }
+})
+
+document.addEventListener('click', (e) => {
+  if(e.target == accLoginfilterButton) {
+    removePopUpLogin();
   }
 })
 }
+
+
 
 export default renderPopup;

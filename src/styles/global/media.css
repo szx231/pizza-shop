@@ -256,9 +256,6 @@
   .addItemCard2-delivery__btn {
     min-width: 0px;
   }
-  .addItemCard2-delivery-btndelivery__label input:checked ~ span {
-    width: 155px;
-  }
   .addItemCard2-delivery__pay {
     display: block;
   }
@@ -273,12 +270,6 @@
   }
   .accLoginfilter {
     padding: 20px 20px;
-  }
-  .accountProfile-header__buttons {
-    min-width: 220px;
-  }
-  .accountProfile-header__btnsettings input:checked ~ span {
-    left: 48vw;
   }
   .accountProfile-order-top__line {
     top: 3%;
