@@ -1,0 +1,324 @@
+@media (max-width:1350px) {
+  .main-content {
+    max-width:1150px
+  }
+  .item_wrapper  {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .promotions {
+    display: grid;
+    grid-template-columns: repeat(2, 30%);
+    justify-content: center;
+    justify-items: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width:1150px) {
+  .main-content {
+    max-width:970px
+  }
+  .item_wrapper  {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+  }
+  .promotions {
+    grid-template-columns: repeat(2, 40%);
+  }
+  .nav__menu {
+    text-align: center;
+    display: block;
+  }
+  .menu-nav__list {
+    display: inline-flex;
+        justify-content: center;
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+}
+  .basketTWO {
+    grid-column-start: 2;
+    justify-self: end;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .item__sale {
+    left:37%;
+  }
+    .menu-nav__list {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width:970px) {
+  .main-content {
+    max-width:750px
+  }
+  .addItemCard2-text__descr {
+    overflow: hidden;
+    height: 45px;
+  }
+  .accountProfile-order__top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .addTOorder__row {
+    display: grid;
+    grid-template-columns: repeat(2, 30%);
+    justify-items: center;
+    justify-content: center;
+  }
+  .addTOorder {
+    text-align: center;
+  }
+  .item_wrapper  {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .promotions {
+    grid-template-columns: repeat(2, 50%);
+  }
+  .nav__login {
+    align-items: flex-start;
+  }
+  .list-item_delivery {
+    align-items: flex-start;
+  }
+  .addItemCard2-delivery-item_wrap {
+    display: block;
+  }
+  .myAcc-personalData__bottom {
+    display: block;
+  }
+  .accountProfile-order-top__line {
+    top: 8%;
+  }
+  .myAcc2-input_wrap {
+    display: block;
+    text-align: center;
+  }
+  .myAcc2__title {
+    text-align: center;
+  }
+  .myAcc2__btn {
+    display: flex;
+    margin: 0 auto;
+  }
+  .item__sale {
+    left: 34%;
+  }
+  .addItemCard2-item__remove {
+    left: 95%;
+  }
+}
+
+
+@media (max-width:750px) {
+  .main-content {
+    max-width:520px
+  }
+  .wrap__header {
+    position: static;
+  }
+  .addItemCard2-about__item {
+    max-width: 100%;
+  }
+  .delivery {
+    display: grid;
+    justify-items: center;
+  }
+  .accLoginfilter {
+    padding: 35px 100px;
+  }
+  .item_wrapper  {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .footer-column_wrap {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+  }
+  .logo {
+    justify-content: center;
+  }
+  .footer__column {
+      margin-top: 10px;
+  }
+  .footer__bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .item__sale {
+    left: 40%;
+  }
+  .promotions {
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+  }
+  .promotions-item__descr {
+    padding: 0 0 10px 0;
+    text-align: center;
+  }
+  .nav {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .list-item_delivery {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .list-item__location  {
+    justify-self: end;
+  }
+  .delivery__form {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 10px 20px !important;
+    min-height: 80px;
+    justify-items: center;
+    gap: 10px;
+  }
+  .delivery__input {
+    padding: 10px 15px 10px 33px;
+    width: 100%;
+  }
+  .accLoginfilter {
+    padding: 60px 125px;
+  }
+  .addItemCard2-delivery__time {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .addItemCard2-delivery__change {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .addItemCard2-about__item_wrap {
+    display: block;
+  }
+  .addItemCard2-about__input {
+    width: 100%;
+  }
+  .addItemCard2__item_wrap {
+    justify-content: end;
+  }
+  .addTOorder__row {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    justify-items: center;
+    justify-content: center;
+  }
+  .accountProfile-order__top {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .accountProfile-order-top__line {
+    top: 5%;
+  }
+  .addItemCard2__item {
+    display: block;
+  }
+  .addItemCard2-text__descr {
+    margin-right: 0;
+  }
+  .addItemCard2-text__title {
+    margin-right: 0;
+  }
+  .addItemCard2__item_wrap {
+    justify-content: center;
+  }
+}
+
+@media (max-width:500px) {
+  .main-content {
+    max-width: 325px;
+  }
+  .accLoginfilter__buttonClose {
+    left: 89%;
+  }
+  .popup__form {
+    display: grid;
+    justify-content: center;
+  }
+  .filter__rowbutton {
+    flex-wrap: wrap;
+  }
+  .menu-nav__list {
+    display: inherit;
+  }
+  .accountProfile__header {
+    display: block;
+  }
+  .addItemCard2__item {
+    display: block;
+  }
+  .promocode__input_wrap {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+  }
+  .promocode__btn {
+    top: 0%;
+  }
+  .addItemCard2-item__image {
+    max-width: 90%;
+    max-height: 100%;
+    padding: 0 0 0 20px;
+  }
+  .addTOorder__row {
+    grid-template-columns: repeat(1, 50%);
+  }
+  .addItemCard2-delivery__header {
+    display: block;
+  }
+  .addItemCard2-delivery__btn {
+    min-width: 0px;
+  }
+  .addItemCard2-delivery__pay {
+    display: block;
+  }
+  .addItemCard2-delivery__change {
+    display: block;
+  }
+  .item__sale {
+    left: 33%;
+  }
+  .delivery-conditions__text_active {
+  height: 1025px;
+  }
+  .accLoginfilter {
+    padding: 20px 20px;
+    border: 1px solid var(--color-orange);
+  }
+  .accountProfile-order-top__line {
+    top: 3%;
+  }
+  .addItemCard2__item_wrap {
+    display: grid;
+    justify-items: center;
+  }
+  .addItemCard2__text {
+    display: grid;
+    justify-items: center;
+  }
+  .addItemCard2__title {
+    display: grid;
+    justify-content: center;
+}
+  .addItemCard2-item__remove {
+    left: 90%;
+}
+  .delivery {
+    display: grid;
+  }
+  .header-bottom {
+    display: grid;
+    justify-content: center;
+  }
+  .menu-nav__item {
+    margin-bottom: 5px;
+  }
+}
