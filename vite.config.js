@@ -3,7 +3,7 @@ const { defineConfig } = require('vite')
 
 module.exports = defineConfig({
   root: 'src',
-  base: '/pizzaShop/dist/',
+  base: '/pizza-shop/dist/',
   build: {
     outDir: '../dist',
     rollupOptions: {
