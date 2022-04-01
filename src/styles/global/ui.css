@@ -135,11 +135,16 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
   border: 1px solid var(--color-border);
   background-color: var(--color-white);
   border-radius: 6px;
-  background-image: url(../images/filter__btn_icon.svg);
+  background-image: url(/images/filter__btn_icon.svg);
   background-repeat: no-repeat;
   background-position-x: 10%;
   background-position-y: 50%;
   align-self: center;
+  transition: all .2s ease-in-out;
+  &:hover {
+    background-color: #E23535;
+    color: #fff;
+  }
 }
 
 .item__promo {
@@ -200,7 +205,7 @@ textarea:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s 
 
 .menu-link__dropdown {
   display: inline;
-  background-image: url(../images/MENU/Menu__icon_arow.svg);
+  background-image: url(/images/MENU/Menu__icon_arow.svg);
   background-repeat: no-repeat;
   background-position-x: 100%;
   background-position-y: 5%;

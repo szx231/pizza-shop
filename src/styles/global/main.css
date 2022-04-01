@@ -758,8 +758,8 @@
 
 .addItemCard2-item__image {
   margin-right: 16px;
-  width: 120px;
-  height: 120px;
+  max-width: 120px;
+  max-height: 120px;
 }
 
 .addItemCard2-text__title {
@@ -973,9 +973,14 @@
   margin-bottom: 42px;
 }
 
+.addItemCard2-about__item {
+  max-width: 33.33%;
+}
+
 .addItemCard2-about__item_wrap {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .addItemCard2-about-item__name {
@@ -1095,7 +1100,7 @@
 }
 
 .addItemCard2-delivery-item__input01 {
-  max-width: 97%;
+  max-width: 100%;
 }
 
 .addItemCard2-delivery__time {

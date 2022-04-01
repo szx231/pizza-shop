@@ -118,6 +118,12 @@
   .main-content {
     max-width:520px
   }
+  .wrap__header {
+    position: static;
+  }
+  .addItemCard2-about__item {
+    max-width: 100%;
+  }
   .delivery {
     display: grid;
     justify-items: center;
@@ -230,6 +236,19 @@
   .main-content {
     max-width: 325px;
   }
+  .accLoginfilter__buttonClose {
+    left: 89%;
+  }
+  .popup__form {
+    display: grid;
+    justify-content: center;
+  }
+  .filter__rowbutton {
+    flex-wrap: wrap;
+  }
+  .menu-nav__list {
+    display: inherit;
+  }
   .accountProfile__header {
     display: block;
   }
@@ -245,6 +264,8 @@
     top: 0%;
   }
   .addItemCard2-item__image {
+    max-width: 90%;
+    max-height: 100%;
     padding: 0 0 0 20px;
   }
   .addTOorder__row {
@@ -270,6 +291,7 @@
   }
   .accLoginfilter {
     padding: 20px 20px;
+    border: 1px solid var(--color-orange);
   }
   .accountProfile-order-top__line {
     top: 3%;
@@ -291,10 +313,6 @@
 }
   .delivery {
     display: grid;
-  }
-  .menu-nav__list {
-    display: grid;
-    justify-items: flex-start;
   }
   .header-bottom {
     display: grid;
